@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#172527"><meta name="description" content="建物の奥へ進む、一人称の6室Web謎『明転』。スマートフォン向けの操作検証試作。"><title>明転</title>
+<style>
+:root{color-scheme:dark;--bg:#172527;--card:#223235;--ink:#eee8dc;--muted:#aab8b3;--gold:#c8a36c;--line:#49605e;--teal:#9ebdb4;--r:16px}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.7;min-height:100svh}button{font:inherit;touch-action:manipulation;cursor:pointer}button:focus-visible,a:focus-visible,[role=button]:focus-visible{outline:3px solid var(--gold);outline-offset:4px}button:disabled{opacity:.48;cursor:default}button.primary{background:var(--gold);color:#1b282a;border-color:var(--gold)}button{border:1px solid var(--line);border-radius:10px;background:#2b3e40;color:var(--ink);padding:12px 17px;min-height:46px}button:hover:not(:disabled){border-color:var(--gold)}[hidden]{display:none!important}.shell{max-width:960px;margin:auto;padding:18px 24px 40px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.brand{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:26px;letter-spacing:.22em}.topbar small{font-size:11px;color:var(--muted);letter-spacing:.08em}.quiet{background:transparent;border:0;padding:9px;min-height:42px;font-size:13px;color:var(--muted)}.intro{min-height:72svh;display:grid;align-content:center;justify-items:start;max-width:660px;margin:auto}.intro .eyebrow{font-size:11px;letter-spacing:.25em;color:var(--gold)}h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(56px,12vw,92px);font-weight:500;letter-spacing:.23em;line-height:1.4;margin:20px 0 24px}.intro p{font-size:16px;line-height:2.05;color:var(--muted);margin:0 0 28px}.intro .actions{display:flex;flex-wrap:wrap;gap:12px}.intro .foot{font-size:12px;margin-top:34px;max-width:480px}.location{display:flex;justify-content:space-between;align-items:baseline;margin:10px 0 12px;gap:10px}.location h2{font-size:18px;font-weight:500;margin:0}.view-label{font-size:12px;color:var(--muted)}.game-layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:20px;align-items:start}.scene-shell{position:relative;background:#c5baa7;border-radius:var(--r);overflow:hidden;border:1px solid #72807a;isolation:isolate}.scene-shell svg{display:block;width:100%;height:auto;aspect-ratio:4/3}.scene-shell svg text{font-family:inherit}.hotspot{cursor:pointer;outline:none}.hotspot .hit{fill:none;stroke:transparent;stroke-width:3}.hotspot:focus-visible .hit,.hotspot:hover .hit{stroke:#dab777;fill:#dab77714}.hotspot:focus-visible{outline:none}.hotspot circle.dot{fill:#e6c697;stroke:#655c47;stroke-width:2}.hands{position:absolute;bottom:0;left:35%;width:145px;height:80px;pointer-events:none;opacity:0;transform:translateY(35px);transition:.18s}.hands.show{opacity:1;transform:translateY(0)}.hands svg{height:80px;aspect-ratio:auto}.controls{border:1px solid var(--line);border-radius:var(--r);padding:18px;background:#203235}.controls .overline{font-size:11px;color:var(--gold);letter-spacing:.08em;margin:0 0 11px}.controls button{width:100%;text-align:left;margin-bottom:9px;display:flex;justify-content:space-between;align-items:center;gap:9px}.controls button:last-child{margin-bottom:0}.controls button small{color:#b8cac0;font-size:12px;white-space:nowrap}.controls .muted{font-size:13px;color:var(--muted);line-height:1.85;margin:0 0 15px}.control-pair{display:flex;gap:9px}.control-pair button{text-align:center;justify-content:center}.main-action{margin-top:15px!important}.message{min-height:56px;padding:15px 1px 5px;font-size:14px;color:#d1d8ce;line-height:1.85}.paths{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.paths button{background:transparent;font-size:12px;padding:9px 13px;min-height:40px}.paths button.current{border-color:var(--gold);color:var(--gold)}.save-status{font-size:11px;color:var(--muted);margin-top:14px}.overlay{position:fixed;inset:0;z-index:10;background:#0b141be3;display:grid;place-items:center;padding:16px;overflow-y:auto;overscroll-behavior:contain}.modal{background:#233739;border:1px solid #667b71;border-radius:18px;padding:22px;width:min(760px,100%);max-height:calc(100svh - 32px);overflow:auto}.modal-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:13px}.modal-head h2{font-size:18px;font-weight:500;margin:0}.modal p{font-size:14px;color:#c5d3c7;line-height:1.9}.paper{background:#e8dec6;color:#343d36;max-width:530px;padding:28px;box-shadow:0 8px 34px #08131733}.paper p{color:#3f4b40}.paper .stamp{font-size:12px;border-top:1px solid #8e9b83;padding-top:15px;color:#65745f}.record-stage{background:#283a35;border:1px solid #70867b;border-radius:10px;overflow:hidden}.record-stage svg{width:100%;display:block;height:auto;aspect-ratio:4/3}.record-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:12px 0}.record-bar small{color:#aec7b5;font-family:ui-monospace,monospace;font-size:12px}.record-list{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0}.record-list button{font-size:11px;padding:7px 10px;min-height:36px}.record-list button.selected{border-color:var(--gold);color:var(--gold)}.record-note{font-size:12px!important;margin:8px 0}.fade{position:fixed;inset:0;z-index:30;background:#080d0d;opacity:0;pointer-events:none;transition:opacity .25s}.fade.active{opacity:1;pointer-events:auto}.ending{min-height:72svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at 50% 25%,#e4d2a7 0%,#829084 25%,#172527 65%);border-radius:20px}.ending h1{color:#faf3d5;font-size:70px;text-shadow:0 2px 20px #132b24}.ending p{color:#eff0dc;font-size:16px;line-height:2}.ending .quiet{color:#c9d5c7}.black-end{position:absolute;inset:0;background:#080d0d;display:flex;align-items:center;justify-content:center;z-index:1;color:#d9ddd0;font-family:"Yu Mincho",serif;font-size:17px;line-height:2.2;letter-spacing:.08em}.notice{padding:12px 15px;border:1px solid #877153;border-radius:10px;color:#e0caa2;background:#443b2b;font-size:13px}.settings label{display:flex;gap:12px;align-items:center;margin:17px 0;font-size:14px}.settings input{width:20px;height:20px;accent-color:var(--gold)}.danger{border-color:#ac7e66;color:#edd0bd}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:740px){.shell{padding:12px 14px 28px}.game-layout{grid-template-columns:1fr;gap:12px}.controls{padding:14px}.controls .control-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.controls .control-grid button{margin:0;padding:12px 11px;font-size:14px}.controls .control-grid button small{font-size:11px}.topbar{margin-bottom:12px}.message{min-height:48px;font-size:13px}.paths{gap:6px}.paths button{padding:7px 9px;font-size:11px}.modal{padding:17px}.location h2{font-size:17px}.intro{padding:0 8px}.brand{font-size:23px}.record-bar{flex-wrap:wrap}.record-note{font-size:11px!important}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+/* Controls keep the same visual positions across the return transition. */
+.controls .breaker-control{min-height:66px;border-width:2px;font-size:16px}
+.controls .breaker-control.is-on{background:#3a5447;border-color:#a9c199}
+.controls .breaker-control small{font-weight:700;font-size:14px;color:#efe3c1}
+.hands{left:auto;right:2%;width:145px;height:89px;transform:translateY(22px)}
+.hands svg{height:89px;aspect-ratio:180/110}
+.cinema-layer{padding:0;background:#09110f}
+.modal.cinema{width:100%;max-width:none;min-height:100svh;max-height:100svh;border:0;border-radius:0;background:#111e1b;padding:16px max(16px,env(safe-area-inset-right)) max(20px,env(safe-area-inset-bottom));}
+.cinema .modal-head{max-width:1140px;margin:0 auto 12px}
+.cinema .modal-head h2{font-size:17px;letter-spacing:.07em}
+.cinema .modal-head h2 small{font-size:12px;color:var(--muted);margin-left:12px}
+.cinema .film-layout{max-width:1140px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) 170px;gap:18px;align-items:end}
+.cinema .record-stage{border-radius:2px;border-color:#658275}
+.cinema .record-stage svg{max-height:calc(100svh - 205px);aspect-ratio:4/3;object-fit:contain;background:#15251d}
+.present-hand{background:#1b2d29;border-top:1px solid #59786a;border-radius:10px 10px 0 0;overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:5px;padding-top:9px}
+.present-hand span{font-size:12px;color:#b7c8bd;letter-spacing:.15em}
+.present-hand svg{display:block;width:160px;max-width:100%;height:auto}
+.cinema .record-bar,.cinema .record-list{max-width:1140px;margin:16px auto 0}
+.cinema .record-bar button{min-height:48px}
+.cinema .record-list button{font-size:13px;min-height:48px;padding:10px 16px}
+.cinema .record-bar button[disabled]{display:none}
+@media(max-width:740px){
+ .controls .breaker-grid{grid-template-columns:1fr}
+ .controls .control-grid .breaker-control{min-height:64px;font-size:16px;padding:13px 17px}
+ .controls .control-grid .breaker-control small{font-size:14px}
+ .modal.cinema{padding:12px 10px max(18px,env(safe-area-inset-bottom))}
+ .cinema .modal-head{gap:7px;margin-bottom:14px}
+ .cinema .modal-head h2{font-size:15px;letter-spacing:0}
+ .cinema .modal-head h2 small{margin-left:6px;font-size:11px}
+ .cinema .modal-head .quiet{padding:8px 5px;min-height:46px;white-space:nowrap}
+ .cinema .film-layout{grid-template-columns:1fr;gap:15px}
+ .cinema .record-stage svg{max-height:none;width:100%;height:auto}
+ .present-hand{flex-direction:row;justify-content:center;height:106px;padding:0;gap:25px}
+ .present-hand svg{width:170px;align-self:flex-end}
+ .cinema .record-bar{gap:8px;flex-wrap:wrap;margin-top:13px}
+ .cinema .record-bar button{font-size:13px;padding:10px 13px}
+ .cinema .record-bar small{margin-left:auto}
+ .cinema .record-list{gap:7px;margin-top:16px}
+ .hands{width:119px;height:73px}.hands svg{height:73px}
+}
+@media(max-width:380px){.cinema .modal-head h2 small{display:block;margin-left:0}.controls .control-grid button{font-size:13px}.cinema .record-bar small{font-size:11px}}
+
+#game[aria-busy="true"]{pointer-events:none}
+.goal-board{margin:0 0 14px}
+.objective{display:grid;align-items:stretch;gap:10px;grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);font-size:16px;color:#e9e2cd}
+.objective>span,.objective>div{border:1px solid #6f8879;background:#293e37;border-radius:10px;padding:12px 14px;min-width:0}
+.objective>b{display:flex;align-items:center;justify-content:center;color:#c6c09c}
+.objective .met{color:#dbead4;background:#385347}
+.objective .miss{color:#efd4b2;border-color:#ad8662;background:#4d4033}
+.lift-goal strong{display:block;font-size:16px;color:#dcc495;margin-bottom:5px}
+.lift-goal span{display:block;font-size:15px;line-height:1.9;padding:0 3px;border-radius:3px}
+.lift-goal small{font-size:12px;color:#b7c9bf;margin-left:4px}
+.controls .mechanism-control{min-height:80px;align-items:flex-start;flex-direction:column;gap:4px;font-size:16px}
+.controls .mechanism-control small{font-size:14px;white-space:normal;color:#d5dfd1;background:#1f332e;border-radius:4px;padding:2px 6px}
+.machine-current{border-top:1px solid #61776b;padding-top:13px;margin-top:15px}
+.machine-current span{display:block;color:#a8bdb1;font-size:12px}
+.machine-current strong{font-size:18px;color:#eadbb3}
+.arrival-mark{font-size:22px;color:#deebcf;padding:20px 0;margin:0;text-align:center}
+@media(max-width:740px){
+ .controls .breaker-grid{grid-template-columns:1fr}
+ .controls .control-grid .mechanism-control{min-height:78px;align-items:flex-start;font-size:16px;padding:12px 16px}
+ .controls .control-grid .mechanism-control small{font-size:14px}
+ .goal-board{margin-bottom:12px}
+ .objective{gap:6px;grid-template-columns:minmax(0,1fr) 14px minmax(0,1fr);font-size:15px;font-weight:600}
+ .objective>span,.objective>div{padding:10px 9px}
+ .lift-goal small{display:block;margin-left:0;font-size:12px;line-height:1.2;margin-bottom:4px}
+ .lift-goal span{font-size:14px;line-height:1.7;font-weight:400}
+}
+@media(max-width:360px){.transport-goal{font-size:13px}.transport-goal>span{padding:11px 7px}}
+
+.record-goal-title{font-size:14px;color:#e4c594;margin-bottom:7px}
+.recording-goal strong{display:block;font-size:15px;margin-bottom:6px}
+.recording-goal svg{width:100%;max-width:130px;height:55px;display:block;margin:4px auto}
+.recording-goal span,.recording-goal small{display:block;text-align:center;font-size:15px}
+.recording-goal small{font-size:12px;margin-top:4px}
+.cinema .film-pair{max-width:1140px;margin:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.film-pane{min-width:0}
+.pane-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}
+.pane-head h3{font-size:15px;font-weight:500;margin:0;color:#e8e3cf;letter-spacing:.03em}
+.pane-head time{font-family:ui-monospace,monospace;font-size:15px;color:#c3d4c6}
+.cinema .film-pair .record-stage{height:clamp(210px,calc(100svh - 265px),430px);border-radius:2px;background:#000}
+.cinema .film-pair .record-stage svg{width:100%;height:100%;max-height:none;aspect-ratio:auto;display:block;background:transparent}
+.blind-view{width:100%;height:100%;background:#000}
+.cinema .present-hand{height:65px;max-width:1140px;margin:12px auto 0;flex-direction:row;justify-content:center;gap:24px;padding:0;border-radius:0;background:#15271f}
+.cinema .present-hand svg{width:95px;height:59px;max-width:none;align-self:flex-end}
+.cinema .record-bar{margin-top:10px}
+.cinema .modal-head{margin-bottom:12px}
+@media(max-width:740px){
+ .cinema .film-pair{grid-template-columns:1fr;gap:12px}
+ .cinema .film-pair .record-stage{height:clamp(135px,calc((100svh - 290px)/2),245px)}
+ .pane-head{margin-bottom:5px}
+ .pane-head h3,.pane-head time{font-size:14px}
+ .cinema .present-hand{height:56px;margin-top:10px}
+ .cinema .present-hand svg{width:86px;height:53px}
+ .cinema .record-bar{margin-top:8px;gap:8px}
+ .cinema .record-bar button{min-height:46px}
+ .recording-goal strong{font-size:14px}
+ .recording-goal span{font-size:14px}
+}
+.film-pane .record-stage{position:relative}.recorded-sign{position:absolute;left:10%;right:10%;top:18%;padding:9px 11px;background:#e8dec6;color:#3e4a3e;border:1px solid #9b9d84;border-radius:4px;font-size:13px;line-height:1.7;text-align:center}
+
+.pane-head h3 small{font-size:11px;color:#adbeae}.lighting-state{color:#d4e4cf!important;font-size:13px!important}.recording-goal .lighting-state:before{content:"● ";color:#dcd2a2}
+.breaker-goal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.breaker-goal>div{padding:9px 7px;border:1px solid #718779;background:#2b3e37;border-radius:8px;text-align:center}.breaker-goal strong{display:block;font-size:14px;font-weight:500}.breaker-goal b{font-size:22px;line-height:1.6;color:#e7d3a7}.breaker-goal .met{background:#3c5545;border-color:#a2b896}
+</style></head><body><div class="shell"><header class="topbar"><div><span class="brand">明転</span> <small>操作検証版</small></div><button id="menu" class="quiet" aria-label="設定を開く">設定</button></header><section id="intro" class="intro"><div class="eyebrow">AN EXPLORATION</div><h1>明転</h1><p>通用口は、建物の奥にある。<br>静かな部屋を抜けて、外へ向かう。</p><div class="actions"><button id="begin" class="primary">建物に入る</button><button id="resume" hidden>続きから</button></div><p id="versionNotice" class="foot" hidden>保存されていた進行はこの版では使えません。最初から始められます。</p><p class="foot">画面の物をタップして調べ、操作できます。<br>進み具合は、このブラウザに保存されます。</p></section><main id="game" hidden><div class="location"><h2 id="roomName"></h2><span id="viewLabel" class="view-label"></span></div><div id="goalBoard" class="goal-board" aria-label="装置の目的と必要な状態" hidden></div><div class="game-layout"><div><div id="scene" class="scene-shell" aria-label="部屋の様子"></div><div id="message" class="message" role="status" aria-live="polite"></div></div><aside id="controls" class="controls" aria-label="できる操作"></aside></div><nav id="paths" class="paths" aria-label="通れる場所"></nav><div id="saveStatus" class="save-status"></div></main><section id="ending" class="ending" hidden><h1>明転</h1><p>通用口の向こうに、光がある。</p><button id="endArchive" class="quiet">記録を振り返る</button><button id="endBoxArchive" class="quiet" hidden>ARCHIVE 01</button><button id="restartEnd" class="quiet">はじめから</button></section></div><div id="modalLayer" class="overlay" hidden><section id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></section></div><div id="fade" class="fade" aria-hidden="true"></div><noscript><p class="notice">この試作はJavaScriptを使います。JavaScriptを有効にしたブラウザで開いてください。</p></noscript>
+<script>'use strict';
+const Meiten = (() => {
+  const VERSION=7;
+  const keys={1:['box'],2:['curtain','lamp'],3:['power','lighting','alarm'],4:['gate'],5:['left','right'],6:['guard','lock']};
+  const clone=x=>JSON.parse(JSON.stringify(x));
+  function fresh(){return {version:VERSION,started:false,room:1,view:'overview',boarded:false,ended:false,pending:null,activity:null,quietUntil:0,serial:0,flags:{boxSeen:false,signRead:false,route:false,fire:false,shutter:false,monitor:false,truth:false,archiveReady:false},rooms:{1:{box:false},2:{curtain:false,lamp:false},3:{power:false,lighting:false,alarm:false},4:{gate:false,lastRun:null},5:{left:false,right:false},6:{guard:false,lock:false,lastRun:null}},history:[]};}
+  const validValue=(key,v)=>typeof v==='boolean';
+  function allowed(s,r){return r===1||(s.flags.boxSeen&&(r===2||(r===3&&s.flags.route)||(r===4&&s.flags.fire)||(r===5&&s.flags.shutter)||(r===6&&s.flags.monitor&&s.flags.truth)));}
+  function start(s){s.started=true;return s;}
+  function enterWork(s){if(s.ended||s.activity)return false;s.view='work';return true;}
+  function change(s,key,value){
+    if(s.ended||s.activity||s.view!=='work'||!keys[s.room].includes(key)||!validValue(key,value))return false;
+    const from=s.rooms[s.room][key];if(from===value)return false;s.rooms[s.room][key]=value;s.pending={room:s.room,key,from,to:value};return true;
+  }
+  function readSign(s){if(s.room!==1||s.view!=='work'||!s.rooms[1].box||s.activity)return false;s.flags.signRead=true;return true;}
+  function observeBox(s){const h=s.history.at(-1);if(s.room===1&&s.view==='afterBox'&&h?.boxEncounter&&!s.rooms[1].box)s.flags.boxSeen=true;}
+  function leaveBox(s){if(s.room!==1||s.view!=='afterBox'||s.activity)return false;s.view='overview';return true;}
+  function navigate(s,r){
+    if(s.ended||s.activity)return {ok:false,reason:'まだ移動できない。'};
+    if(s.view==='afterBox')return {ok:false,reason:'まず、部屋へ戻る。'};
+    if(s.view==='work')return {ok:false,reason:'まず、手元から離れる。',needsReturn:true};
+    if(!allowed(s,r))return {ok:false,reason:'まだ通れる道は見つかっていない。'};
+    if(r===s.room)return {ok:true};
+    if(s.room===6&&s.boarded&&s.rooms[6].guard)return {ok:false,reason:'柵が閉じている。'};
+    if(s.room===6&&r!==6)s.boarded=false;s.room=r;s.view='overview';return {ok:true};
+  }
+  const snapshot=(s,r)=>Object.fromEntries(keys[r].map(k=>[k,s.rooms[r][k]]));
+  function liftRun(pre,post){const departed=pre.guard&&pre.lock,arrived=departed&&post.guard;return {departed,arrived,exitOpen:arrived&&!post.lock};}
+  function append(s,r,pre,post,hand,success,run,flagsBefore,mode){
+    const record={id:++s.serial,room:r,at:new Date().toISOString(),pre,post,hand,success,run,mode,flagsBefore,flagsAfter:clone(s.flags),boxEncounter:r===1&&s.flags.signRead&&!!hand&&!hand.from&&hand.to&&!post.box};s.history.push(record);
+    if(s.history.length>500){const first=s.history.filter((h,i,a)=>a.findIndex(x=>x.room===h.room)===i),opening=s.history.find(h=>h.boxEncounter)||s.history.find(h=>h.room===1&&h.hand?.key==='box'&&!h.hand.from&&h.hand.to),monitor=s.history.filter(h=>h.room===5&&h.success).at(-1);const keep=new Map([...first,...(opening?[opening]:[]),...(monitor?[monitor]:[]),...s.history.slice(-450)].map(h=>[h.id,h]));s.history=[...keep.values()].sort((a,b)=>a.id-b.id);}
+    return record;
+  }
+  function returnToView(s,mode='view'){
+    if(s.ended||s.activity||s.view!=='work')return null;
+    const r=s.room,pre=snapshot(s,r),hand=s.pending?clone(s.pending):null,flagsBefore=clone(s.flags);
+    if(hand)s.rooms[r][hand.key]=hand.from;s.pending=null;s.view=r===1?'afterBox':'overview';
+    const post=snapshot(s,r);let success=false,run=null;
+    if(r===2){success=post.curtain&&post.lamp;if(success)s.flags.route=true;}
+    if(r===3){success=post.power&&post.lighting&&!post.alarm;if(success)s.flags.fire=true;}
+    // Looking away does not run the cart or the monitor test.
+    if(r===5&&mode==='recording'){success=pre.left&&!pre.right&&post.left&&post.right;if(success)s.flags.monitor=true;}
+    if(r===6){s.boarded=true;run=liftRun(pre,post);success=run.exitOpen;s.rooms[6].lastRun=clone(run);if(success)s.ended=true;}
+    return append(s,r,pre,post,hand,success,run,flagsBefore,mode);
+  }
+  function startTransport(s){
+    if(s.ended||s.activity||s.room!==4||s.view!=='work')return null;
+    s.activity={kind:'transport',stage:'first',pre:snapshot(s,4),post:null,hand:s.pending?clone(s.pending):null,flagsBefore:clone(s.flags),trace:['S']};s.pending=null;return clone(s.activity);
+  }
+  function firstTransportEnd(s){const a=s.activity;if(a?.kind!=='transport'||a.stage!=='first')return false;a.trace=a.pre.gate?['S','J','G','U']:['S','J','G','D'];a.stage='blackout';return true;}
+  function invertTransport(s){const a=s.activity;if(a?.kind!=='transport'||a.stage!=='blackout')return false;if(a.hand)s.rooms[4].gate=a.hand.from;a.post=snapshot(s,4);a.stage='second';return true;}
+  function advanceTransportCart(s){
+    const a=s.activity;if(a?.kind!=='transport'||a.stage!=='second')return false;
+    const path=a.pre.gate?['J','G',a.post.gate?'U':'D']:[],i=a.trace.length-4;
+    if(i<path.length)a.trace.push(path[i]);if(!path.length||i>=path.length-1)a.stage='arrived';return true;
+  }
+  function finishTransport(s){
+    const a=s.activity;if(a?.kind!=='transport'||a.stage!=='arrived')return null;
+    const trace=[...a.trace];
+    const switchPassed=trace.includes('U'),atDock=trace.at(-1)==='D',success=switchPassed&&atDock&&trace.filter(x=>x==='G').length===2;
+    const run={switchPassed,atDock,success,preGate:a.pre.gate,postGate:a.post.gate,trace};s.rooms[4].lastRun=clone(run);if(success)s.flags.shutter=true;s.activity=null;s.view='overview';
+    return append(s,4,a.pre,a.post,a.hand,success,run,a.flagsBefore,'transport');
+  }
+  function markTruth(s){if(s.flags.monitor)s.flags.truth=true;}
+  function markArchiveReady(s){if(s.flags.monitor&&s.flags.truth)s.flags.archiveReady=true;s.quietUntil=0;}
+  function restore(raw){
+    try{
+      let data=typeof raw==='string'?JSON.parse(raw):clone(raw);
+      // v6 has the same state shape. Earlier device layouts are not restored.
+      if(data?.version===6)data.version=VERSION;
+      if(!data||data.version!==VERSION||!Number.isInteger(data.room)||data.room<1||data.room>6||!['work','overview','afterBox'].includes(data.view))return null;
+      const s=fresh();for(const r of [1,2,3,4,5,6])for(const key of keys[r]){const v=data.rooms?.[r]?.[key];if(!validValue(key,v))return null;s.rooms[r][key]=v;}
+      for(const key of Object.keys(s.flags)){if(typeof data.flags?.[key]!=='boolean')return null;s.flags[key]=data.flags[key];}
+      for(const key of ['started','boarded','ended']){if(typeof data[key]!=='boolean')return null;s[key]=data[key];}s.room=data.room;s.view=data.view;
+      if(!allowed(s,s.room)||(s.view==='afterBox'&&s.room!==1))return null;
+      if(data.pending){const p=data.pending;if(s.view!=='work'||p.room!==s.room||!keys[s.room].includes(p.key)||!validValue(p.key,p.from)||!validValue(p.key,p.to)||p.from===p.to||s.rooms[s.room][p.key]!==p.to)return null;s.pending={room:p.room,key:p.key,from:p.from,to:p.to};}
+      s.serial=Number.isInteger(data.serial)&&data.serial>=0?data.serial:0;if(!Array.isArray(data.history))return null;
+      for(const h of data.history.slice(-510)){
+        if(!h||!keys[h.room]||!Number.isInteger(h.id)||h.id<1||typeof h.success!=='boolean'||!keys[h.room].every(k=>validValue(k,h.pre?.[k])&&validValue(k,h.post?.[k])))continue;
+        const p=h.hand;if(p&&(p.room!==h.room||!keys[h.room].includes(p.key)||!validValue(p.key,p.from)||!validValue(p.key,p.to)||p.from===p.to||p.to!==h.pre[p.key]||p.from!==h.post[p.key]||keys[h.room].some(k=>k!==p.key&&h.pre[k]!==h.post[k])))continue;
+        if(!p&&keys[h.room].some(k=>h.pre[k]!==h.post[k]))continue;
+        const flagsBefore=Object.fromEntries(Object.keys(s.flags).map(k=>[k,!!h.flagsBefore?.[k]])),flagsAfter=Object.fromEntries(Object.keys(s.flags).map(k=>[k,!!h.flagsAfter?.[k]]));
+        const safe={id:h.id,room:h.room,at:typeof h.at==='string'?h.at.slice(0,40):'',pre:Object.fromEntries(keys[h.room].map(k=>[k,h.pre[k]])),post:Object.fromEntries(keys[h.room].map(k=>[k,h.post[k]])),hand:p?{room:p.room,key:p.key,from:p.from,to:p.to}:null,success:h.success,run:null,mode:['view','recording','transport'].includes(h.mode)?h.mode:'legacy',boxEncounter:!!h.boxEncounter,flagsBefore,flagsAfter};
+        if(h.room===4&&h.run)safe.run={switchPassed:!!h.run.switchPassed,atDock:!!h.run.atDock,success:h.success,preGate:h.pre.gate,postGate:h.post.gate,trace:Array.isArray(h.run.trace)?h.run.trace.filter(x=>['S','J','G','U','D'].includes(x)):[]};
+        if(h.room===6)safe.run=liftRun(safe.pre,safe.post);s.history.push(safe);
+      }
+      s.rooms[4].lastRun=s.history.filter(h=>h.room===4&&h.run).at(-1)?.run||null;s.rooms[6].lastRun=s.history.filter(h=>h.room===6).at(-1)?.run||null;s.serial=Math.max(s.serial,...s.history.map(h=>h.id),0);
+      if(data.activity){
+        const a=data.activity,p=a.hand;if(a.kind!=='transport'||!['first','blackout','second','arrived'].includes(a.stage)||s.room!==4||s.view!=='work'||s.pending||s.ended||typeof a.pre?.gate!=='boolean')return null;
+        if(p&&(p.room!==4||p.key!=='gate'||typeof p.from!=='boolean'||typeof p.to!=='boolean'||p.from===p.to||p.to!==a.pre.gate))return null;
+        if(['second','arrived'].includes(a.stage)&&(typeof a.post?.gate!=='boolean'||a.post.gate!==(p?p.from:a.pre.gate)))return null;
+        if(s.rooms[4].gate!==(['second','arrived'].includes(a.stage)?a.post.gate:a.pre.gate))return null;
+        const first=a.pre.gate?['S','J','G','U']:['S','J','G','D'],full=a.pre.gate&&a.post?[...first,'J','G',a.post.gate?'U':'D']:first;
+        const trace=a.stage==='first'?['S']:a.trace;if(!Array.isArray(trace)||trace.some((k,i)=>k!==full[i])||(a.stage==='blackout'&&trace.length!==4)||(a.stage==='second'&&(trace.length<4||trace.length>6))||(a.stage==='arrived'&&trace.length!==full.length))return null;
+        s.activity={kind:'transport',stage:a.stage,pre:{gate:a.pre.gate},post:['second','arrived'].includes(a.stage)?{gate:a.post.gate}:null,hand:p?{room:4,key:'gate',from:p.from,to:p.to}:null,trace:clone(trace),flagsBefore:Object.fromEntries(Object.keys(s.flags).map(k=>[k,!!a.flagsBefore?.[k]]))};
+      }
+      if(typeof data.quietUntil!=='number'||!Number.isFinite(data.quietUntil)||data.quietUntil<0)return null;s.quietUntil=data.quietUntil;
+      if(s.flags.archiveReady&&!s.flags.truth)return null;
+      if(s.ended&&(s.room!==6||s.view!=='overview'||s.pending||!s.rooms[6].guard||s.rooms[6].lock||!s.flags.monitor||!s.flags.truth))return null;return s;
+    }catch{return null;}
+  }
+  return {VERSION,keys,fresh,start,enterWork,change,readSign,observeBox,leaveBox,navigate,returnToView,startTransport,firstTransportEnd,invertTransport,advanceTransportCart,finishTransport,markTruth,markArchiveReady,allowed,snapshot,restore,clone,liftRun};
+})();
+if(typeof module!=='undefined'&&module.exports)module.exports=Meiten;
+</script><script>(() => {
+  'use strict';
+  const $=id=>document.getElementById(id), KEY='meiten-prototype-v3', PREF='meiten-preferences-v1';
+  const names={1:'小部屋',2:'書斎',3:'設備区画',4:'バックヤード',5:'監視室',6:'昇降台'};
+  const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  let state=Meiten.fresh(),saved=null,busy=false,notice='',modalKind='',recordToken=0,recordActive=null,firstRecording=false,recordElapsed=0,stillIndex=0,filmFinished=false,arrivalShowing=false,quietActive=false,quietEpoch=0,saveOK=true,focusBefore=null;
+  let prefs={still:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false};
+  let discardedSave=false;
+  try{const raw=localStorage.getItem(KEY);saved=Meiten.restore(raw);discardedSave=!!raw&&!saved;const p=JSON.parse(localStorage.getItem(PREF)||'null');if(p&&typeof p.still==='boolean')prefs.still=p.still;}catch{saveOK=false;}
+  $('resume').hidden=!saved?.started;$('versionNotice').hidden=!discardedSave;
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));saveOK=true;}catch{saveOK=false;}if($('saveStatus'))$('saveStatus').textContent=saveOK?'進み具合は、このブラウザに保存されます。':'この環境では保存できません。ページを閉じる前にご注意ください。';}
+  const rect=(x,y,w,h,f,s='',rx=0)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" fill="${f}"${s?` stroke="${s}" stroke-width="2"`:''}/>`;
+  const line=(x1,y1,x2,y2,col='#536b63',sw=3,extra='')=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="${sw}" ${extra}/>`;
+  const text=(x,y,label,size=16,col='#343d34',anchor='start')=>`<text x="${x}" y="${y}" fill="${col}" font-size="${size}" text-anchor="${anchor}">${esc(label)}</text>`;
+  const circle=(x,y,r,f,stroke='')=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${f}" ${stroke?`stroke="${stroke}" stroke-width="2"`:''}/>`;
+  const poly=(pts,f,stroke='')=>`<polygon points="${pts}" fill="${f}" ${stroke?`stroke="${stroke}" stroke-width="2"`:''}/>`;
+  const hit=(x,y,w,h,label,act)=>`<g class="hotspot" role="button" tabindex="0" aria-label="${esc(label)}" data-action="${act}">${rect(x,y,w,h,'none','',6).replace('fill="none"','class="hit" fill="none" pointer-events="all"')}${circle(x+w-13,y+13,7,'#e6c697','#655c47')}</g>`;
+  const base=()=>rect(0,0,640,480,'#d2c5b0')+poly('0,350 640,350 640,480 0,480','#8c7964')+line(0,350,640,350,'#736450',2);
+  const shelf=(x,y,w=85,h=242)=>{let out=rect(x,y,w,h,'#554c3d');for(let row=0;row<3;row++){out+=line(x,y+80*(row+1),x+w,y+80*(row+1),'#342e26',4);for(let col=0;col<4;col++)out+=rect(x+8+col*17,y+14+row*80,10,55,['#897a5f','#77785f','#9c8565'][col%3]);}return out;};
+  function windowSVG(open,x=58,y=70,w=118,h=230){let o=rect(x,y,w,h,'#776450')+rect(x+8,y+8,w-16,h-16,open?'#bfd2cf':'#816759');if(open)o+=rect(x+1,y+4,14,h-7,'#8e6b5c')+rect(x+w-15,y+4,14,h-7,'#8e6b5c')+line(x+w/2,y+8,x+w/2,y+h-8,'#768a82',3)+line(x+8,y+h/2,x+w-8,y+h/2,'#768a82',3);else for(let a=18;a<w;a+=20)o+=line(x+a,y+8,x+a,y+h-8,'#ab8a77',3);return o;}
+  function lampSVG(on,x=355,y=290){return rect(x-85,y+44,170,17,'#6f5238')+line(x-70,y+61,x-70,450,'#654c38',7)+line(x+70,y+61,x+70,450,'#654c38',7)+line(x,y+42,x+14,y-30,'#455954',6)+poly(`${x-10},${y-63} ${x+38},${y-63} ${x+59},${y-19} ${x-31},${y-19}`,on?'#d2ae6d':'#77705c')+rect(x-18,y+35,48,8,'#3e4b46')+(on?circle(x+14,y-43,6,'#fdf0bd'):'');}
+  const arrowCells=new Set(['1,4','2,4','2,5','3,1','3,2','3,3','3,4','3,5','3,6','4,4','4,5','5,4']);
+  function shadows(c,l){let out=rect(151,85,315,225,'#dcd0b8');for(let r=1;r<=5;r++)for(let col=1;col<=7;col++){const t=arrowCells.has(`${r},${col}`),a=t||(r+col)%2===0,b=t||(r+col)%2===1;const v=.26+.32*(c&&!a)+.32*(l&&!b);const rgb=Math.round(v*255);out+=rect(151+(col-1)*45,85+(r-1)*45,45.15,45.15,`rgb(${Math.round(rgb*.96)},${Math.round(rgb*.93)},${Math.round(rgb*.87)})`);}return out;}
+  function boxSVG(open,work=false){const x=work?190:230,y=work?249:260,w=work?245:175,h=work?104:77;let o=rect(x-52,y+h-4,w+104,22,'#62492e')+line(x-34,y+h+18,x-34,470,'#5e482f',9)+line(x+w+34,y+h+18,x+w+34,470,'#5e482f',9)+rect(x,y,w,h,'#72512f','#4c3c2c');if(open)o+=poly(`${x},${y} ${x+9},${y-h*.92} ${x+w+3},${y-h*.92} ${x+w},${y}`,'#94703e','#59462e')+rect(x+15,y+9,w-30,h-26,'#332c20')+rect(x+27,y-h*.92+14,w-54,h*.6,'#ede3c8','#b5aa8a',3)+circle(x+34,y-h*.92+20,2,'#94896d')+circle(x+w-34,y-h*.92+20,2,'#94896d')+line(x+42,y-h*.92+31,x+w-42,y-h*.92+31,'#a29c86',2);else o+=rect(x-3,y-12,w+6,22,'#9c794a','#51402b')+rect(x+w*.45,y-5,w*.13,18,'#bcb18a');return o;}
+  const switchNames={power:'出口電源',lighting:'通路照明',alarm:'警報'};
+  function breakers(v,work=false,camera=false,frameFlags=state.flags){
+    let o=base()+rect(27,55,391,338,'#d7dacb','#6b7c6d',10)+text(48,89,'設備電源',20);
+    for(const [i,k]of ['power','lighting','alarm'].entries()){
+      const y=93+i*97,on=v[k];
+      o+=rect(43,y,357,92,on?'#b2c7a8':'#94a298','#536954',7)+text(60,y+56,switchNames[k],26,'#243d30');
+      o+=rect(227,y+25,150,48,'#34493d','#52694b',5)+rect(on?302:231,y+29,71,40,on?'#ead79b':'#a9b6ac','',4);
+      o+=text(266,y+58,'OFF',19,on?'#aebaae':'#253d2d','middle')+text(338,y+58,'ON',19,on?'#243d2d':'#aebaae','middle');
+      if(work&&!camera)o+=hit(43,y,357,92,switchNames[k]+': '+(on?'ON → OFF':'OFF → ON'),'manual:'+k);
+    }
+    o+=rect(435,55,180,301,frameFlags.fire?'#8fa88d':'#5e735e','#3b5541',6)+rect(449,94,150,186,'#e3ddc5','#658168',6)+text(524,123,'解錠条件',19,'#344b37','middle');
+    for(const [i,k]of ['power','lighting','alarm'].entries()){
+      const y=145+i*54,desired=k!=='alarm',ok=v[k]===desired;
+      o+=text(459,y,switchNames[k],22,'#344b37')+text(586,y+24,desired?'ON':'OFF',26,'#344b37','end')+circle(470,y+17,5,ok?'#3d7854':'#a98962');
+    }
+    o+=text(524,315,frameFlags.fire?'解錠':'施錠',21,frameFlags.fire?'#f0edcd':'#e1d8b7','middle');
+    if(!work&&!camera)o+=hit(27,55,391,338,'3つのスイッチを見る','work');
+    if(!work&&!camera&&frameFlags.fire)o+=hit(435,55,180,301,'避難扉の先へ','go:4');
+    return o;
+  }
+  // One drawing is shared by the present hand and the camera detail.
+  function handArt(){return poly('16,110 61,12 103,12 166,110','#cba486')+poly('8,110 35,53 118,67 150,110','#4e7281')+poly('28,69 32,60 123,74 129,83','#eadfc0')+poly('20,87 24,78 135,92 140,101','#eadfc0')+line(52,48,106,59,'#a94436',7)+line(57,39,110,51,'#283c3e',10)+rect(70,30,31,26,'#d7d7b9','#344b4b',5)+rect(76,35,19,16,'#425c57','',2)+line(85,38,85,45,'#eee3b9',2)+line(85,45,92,48,'#eee3b9',2)+line(105,60,116,72,'#a94436',3)+line(106,60,118,58,'#a94436',3);}
+  const TRACK={S:[320,420],J:[320,333],G:[320,183],U:[92,253],D:[550,183]};
+  function routePoints(trace){const pts=[];for(let i=0;i<trace.length;i++){const n=trace[i],old=trace[i-1];if(old==='G'&&n==='U')pts.push([92,183]);if(old==='U'&&n==='J')pts.push([92,333]);pts.push(TRACK[n]);}return pts;}
+  function trackLine(pts,col,width=12){return pts.slice(1).map((p,i)=>line(...pts[i],...p,col,width,'stroke-linecap="round"')).join('');}
+  function routeArrow(x,y,dx,dy,col='#66796a'){
+    const nx=-dy,ny=dx;return poly(`${x+dx*11},${y+dy*11} ${x-dx*7+nx*7},${y-dy*7+ny*7} ${x-dx*7-nx*7},${y-dy*7-ny*7}`,col);
+  }
+  function transport(v,camera=false,frameFlags=state.flags){
+    const run=v.lastRun,hasRun=!!run,unlocked=hasRun?run.switchPassed:frameFlags.shutter;
+    let o=rect(0,0,640,480,'#d2c5b0');
+    o+=rect(30,25,182,54,'#bdaa75','#89764b',8)+text(121,61,'① 解除スイッチ',22,'#354332','middle');
+    o+=rect(445,25,170,54,'#a6bdac','#64826d',8)+text(530,61,'② 出口受け台',25,'#354332','middle');
+    o+=text(320,65,'同じ分岐',24,'#354b3b','middle')+text(320,96,'2回通過',24,'#354b3b','middle');
+    const rails=[[TRACK.S,TRACK.J,TRACK.G],[TRACK.G,[92,183],TRACK.U,[92,333],TRACK.J],[TRACK.G,TRACK.D]];
+    for(const pts of rails)o+=trackLine(pts,'#65776a',19)+trackLine(pts,'#b9bdac',11);
+    for(const [x,y,dx,dy]of [[320,382,0,-1],[320,276,0,-1],[205,183,-1,0],[92,309,0,1],[201,333,1,0],[444,183,1,0]])o+=routeArrow(x,y,dx,dy);
+    if(run){
+      if(run.partial)o+=trackLine(run.trackPoints,'#d6a853',13);
+      else{const second=run.trace.indexOf('G',run.trace.indexOf('G')+1),first=second<0?run.trace:run.trace.slice(0,second+1);o+=trackLine(routePoints(first),'#d6a853',15);if(second>=0)o+=trackLine(routePoints(run.trace.slice(second)),'#3c8d92',6);}
+    }
+    o+=rect(47,211,90,84,run?.switchPassed?'#d7bc6a':'#a49c75','#746645',7)+text(92,248,'解除',25,'#314830','middle');
+    const visits=run?.trace.filter(x=>x==='U').length||0;if(visits)o+=text(92,281,`${visits}回通過`,20,'#314830','middle');
+    o+=rect(490,117,118,133,unlocked?'#dce1c4':'#596e61','#3f5949',6);
+    if(!unlocked)for(let i=0;i<5;i++)o+=line(500,133+i*22,598,133+i*22,'#9bada0',7);
+    o+=rect(501,197,96,53,'#8da18e','#4e6b57',5)+line(509,228,589,228,'#c8ccb1',6);
+    o+=text(549,286,unlocked?'開':'閉',28,'#324d39','middle');
+    o+=circle(320,183,25,'#e7dcb9','#687b63')+routeArrow(v.gate?300:340,183,v.gate?-1:1,0,'#2c7067');
+    o+=rect(390,329,230,115,'#e0d5b8','#897952',9)+text(505,360,'分岐レバー',24,'#394c39','middle')+line(427,418,583,418,'#7d826a',12)+circle(v.gate?427:583,418,17,'#356c65','#cde0c1')+text(505,389,v.gate?'← 解除側へ':'出口へ →',26,'#2b5144','middle');
+    const end=run?TRACK[run.trace.at(-1)]||TRACK.S:TRACK.S,cart=v.cartPosition||end;
+    o+=rect(cart[0]-24,cart[1]-18,48,36,'#3d6970','#ebe0b7',6)+circle(cart[0]-17,cart[1]+19,4,'#304936')+circle(cart[0]+17,cart[1]+19,4,'#304936');
+    o+=text(320,465,'スタート',24,'#314834','middle');
+    if(run&&!run.partial){o+=text(50,425,'1回目',21,'#6f552d')+line(50,440,125,440,'#d6a853',9)+text(50,468,'2回目',21,'#285d64')+line(137,460,203,460,'#3c8d92',6);}
+    return o;
+  }
+  function firstRunFrame(rec,progress){
+    const trace=rec.pre.gate?['S','J','G','U']:['S','J','G','D'],pts=routePoints(trace),segments=pts.slice(1).map((p,i)=>Math.hypot(p[0]-pts[i][0],p[1]-pts[i][1])),length=segments.reduce((a,b)=>a+b,0),dist=length*Math.max(0,Math.min(1,progress));
+    let covered=0,pos=pts[0],travelled=[pts[0]];
+    for(let i=0;i<segments.length;i++){const a=pts[i],b=pts[i+1];if(dist>=covered+segments[i]){pos=b;travelled.push(b);covered+=segments[i];}else{const f=(dist-covered)/segments[i];pos=[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f];travelled.push(pos);break;}}
+    const complete=progress>=1,visited=trace.filter(k=>travelled.some(p=>p[0]===TRACK[k][0]&&p[1]===TRACK[k][1]));
+    return {...Meiten.clone(rec.pre),cartPosition:pos,lastRun:{trace:visited,trackPoints:travelled,switchPassed:complete&&rec.pre.gate,atDock:complete&&!rec.pre.gate,success:false,partial:true}};
+  }
+  function reader(v){let out=base()+rect(77,74,492,264,'#697f71','#3e5348',10)+rect(108,103,177,171,'#c6c4a7','#344d3c',4)+rect(304,103,177,171,'#c6c4a7','#344d3c',4);for(const[k,x]of[['left',108],['right',304]]){if(!v[k])out+=rect(x+1,104,175,169,'#374f43');else out+=rect(x+6,110,163,157,'#e3ddb9')+text(x+87,214,k==='left'?'左':'右',38,'#6c775b','middle');}out+=lampSVG(true,505,343)+text(124,302,'左遮光板',15,'#e6e6d3')+text(321,302,'右遮光板',15,'#e6e6d3');return out;}
+  function lockIcon(locked,x,y,scale=1){
+    const hook=locked?'M 20 45 V 25 A 25 25 0 0 1 70 25 V 45':'M 20 45 V 17 A 25 25 0 0 1 70 17 V 28';
+    return `<g transform="translate(${x} ${y}) scale(${scale})"><path d="${hook}" fill="none" stroke="#dbdcc0" stroke-width="10" stroke-linecap="round"/>${rect(0,42,90,64,locked?'#c8ab6d':'#9dbead','#3c6050',8)}${circle(45,69,7,'#385748')}${rect(42,69,6,16,'#385748')}</g>`;
+  }
+  function liftScene(v,work=false,ended=false){
+    let o=rect(0,0,640,480,ended?'#c9d1b6':'#b7c2b1');
+    o+=rect(25,18,286,65,'#dfd8b8','#798970',8)+text(168,48,'出発',27,'#344b38','middle')+text(168,73,'柵 閉 ＋ 施錠',23,'#344b38','middle');
+    o+=rect(333,18,282,65,'#dfd8b8','#798970',8)+text(474,48,'出口',27,'#344b38','middle')+text(474,73,'解除で開く',25,'#344b38','middle');
+    o+=line(48,95,48,335,'#6b8377',10)+line(379,95,379,335,'#6b8377',10)+rect(50,325,330,23,'#597b6e','#3e6050',4)+rect(67,130,294,193,'#97ad9b','#54705e',4);
+    if(v.guard){o+=rect(70,174,287,150,'none','#385f50',5)+line(70,185,357,185,'#385f50',9);for(let i=0;i<7;i++)o+=line(82+i*44,181,82+i*44,322,'#4e7765',7);}
+    else{o+=rect(127,176,176,147,'#bec7b0')+line(70,184,118,148,'#385f50',9)+line(118,148,118,295,'#385f50',7)+line(70,325,118,295,'#385f50',5);}
+    o+=rect(411,96,204,64,ended?'#ede7c8':'#587966','#3f604d',6)+text(514,136,ended?'出口 開':'出口 閉',26,ended?'#34583e':'#e6e0bf','middle');
+    o+=rect(411,174,204,173,'#718d7d','#476958',9)+text(513,204,'安全ロック',26,'#f0e8c8','middle')+lockIcon(v.lock,460,220,1.17);
+    o+=text(215,380,'安全柵',28,'#35523f','middle')+text(215,416,v.guard?'CLOSED':'OPEN',29,'#274b3a','middle')+text(215,451,v.guard?'閉':'開',32,'#274b3a','middle');
+    o+=text(513,394,v.lock?'LOCKED':'UNLOCKED',27,'#274b3a','middle')+text(513,438,v.lock?'施錠':'解除',32,'#274b3a','middle');
+    return o;
+  }
+  function objectiveHTML(r,v){
+    if(r===3)return `<div class="record-goal-title">解錠条件</div><div class="breaker-goal">${['power','lighting','alarm'].map(k=>`<div class="${v[k]===(k!=='alarm')?'met':''}"><strong>${switchNames[k]}</strong><b>${k==='alarm'?'OFF':'ON'}</b></div>`).join('')}</div>`;
+    if(r===4){const run=v.lastRun,done=run&&!run.partial;return `<div class="objective transport-goal"><span class="${run?.switchPassed?'met':done?'miss':''}">① 解除スイッチ通過 ${done?(run.switchPassed?'✓':'×'):''}</span><b>→</b><span class="${run?.atDock?'met':done?'miss':''}">② 出口の受け台 ${done?(run.atDock?'✓':'×'):''}</span></div>`;}
+    if(r===5)return recordingGoal(v);
+    if(r===6)return `<div class="objective lift-goal"><div><strong>出発${v.lastRun?.departed?' ✓':''}</strong><span class="${v.guard?'met':''}">柵：閉 <small>CLOSED</small></span><span class="${v.lock?'met':''}">ロック：施錠 <small>LOCKED</small></span></div><b>→</b><div><strong>出口${v.lastRun?.exitOpen?' ✓':''}</strong><span>ロック：解除</span><span class="${!v.lock?'met':''}">UNLOCKED</span></div></div>`;
+    return '';
+  }
+  function sceneSVG(r,v,view='overview',opts={}){
+    const work=view==='work'||view==='afterBox',camera=!!opts.camera,frameFlags=opts.flags||state.flags;
+    let o='';
+    if(r===1){o=base()+rect(550,79,53,270,'#4c4d3d')+rect(36,37,46,26,'#474b3d')+circle(60,43,3,'#c5ab71')+boxSVG(v.box,work);if(!camera)o+=hit(work?179:178,work?120:150,work?270:260,230,work?'開閉する':'箱を調べる',view==='work'?'manual:box':'work');}
+    if(r===2){o=base();if(work||camera){o+=windowSVG(v.curtain)+lampSVG(v.lamp)+shelf(520,52);if(!camera)o+=hit(49,63,138,252,'カーテンを操作','manual:curtain')+hit(260,199,187,201,'ランプを操作','manual:lamp');}else{o+=shelf(19,86,93,264)+shadows(v.curtain,v.lamp)+rect(536,93,68,257,'#292f27')+rect(536,93,7,257,'#897958');o+=hit(23,363,135,70,'灯具側を見る','work');if(state.flags.route)o+=hit(519,79,103,285,'隙間の先へ','go:3');}}
+    if(r===3)o=breakers(v,work,camera,opts.flags||state.flags);
+    if(r===4){o=transport(v,camera,opts.flags||state.flags);if(!camera)o+=hit(390,325,230,123,'分岐レバー：'+(v.gate?'解除側':'出口側'),work?'manual:gate':'work');}
+    if(r===5){if(work||camera){o=reader(v);if(!camera)o+=hit(99,91,193,199,'左の遮光板','manual:left')+hit(299,91,193,199,'右の遮光板','manual:right');}else{o=base()+rect(62,72,190,170,'#4c6154','#304b3b',9)+rect(76,87,162,118,frameFlags.monitor?'#8ca38c':'#31463a')+text(157,151,frameFlags.monitor?'記録閲覧':'閲覧停止',20,frameFlags.monitor?'#274c36':'#a1b39b','middle')+rect(83,265,140,71,'#788c76','#516f57',6)+circle(103,286,6,'#b5be78')+text(112,316,'記録継続',13,'#243f2d')+rect(263,268,264,25,'#69593c')+line(279,293,279,464,'#69593c',8)+line(510,293,510,464,'#69593c',8)+rect(342,309,95,61,'#566e63')+line(355,370,355,453,'#3b5548',6)+line(424,370,424,453,'#3b5548',6)+rect(497,89,95,132,'#8c9c81','#617663',6)+text(503,158,'読取部',18,'#2f4e36');o+=hit(484,72,122,167,'読取部を調べる','work');if(frameFlags.monitor)o+=hit(52,60,212,183,'監視記録を見る','archive');}}
+    if(r===6){o=liftScene(v,work,camera?!!opts.finished:state.ended);if(!camera&&!state.ended)o+=hit(46,167,345,285,'安全柵：'+(v.guard?'閉':'開'),work?'manual:guard':'work')+hit(407,168,212,285,'安全ロック：'+(v.lock?'施錠':'解除'),work?'manual:lock':'work');}
+    if(opts.overlay)o+=opts.overlay;
+    const status=work?'操作する物が見える。':'部屋の様子が見える。';
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${r===1&&work&&!opts.cameraView?'140 90 400 300':'0 0 640 480'}" role="img" aria-label="${esc(names[r]+'。'+status)}"><title>${esc(names[r])}</title>${o}</svg>`;
+  }
+  const button=(label,act,small='',cls='',disabled=false)=>`<button data-action="${act}" class="${cls}" ${disabled?'disabled':''}>${esc(label)}${small?`<small>${esc(small)}</small>`:''}</button>`;
+  function defaults(){const r=state.room,v=state.rooms[r];if(state.view==='work')return {1:'箱の内側に、案内札が貼り付けられている。',2:'灯具側を向いている。壁は背後にある。',3:'扉横の表示に、解錠に必要な状態が並んでいる。',4:'分岐を決めて、搬送を開始する。',5:'一回の連続記録で、起動テストを行う。',6:'出口へ進むリフト。出発と出口の条件が表示されている。'}[r];return {1:'机の上に、蓋付きの箱がある。',2:state.flags.route?'壁の影が、本棚脇の隙間を指している。':'壁には、不規則な影がある。',3:state.flags.fire?'避難扉の解錠表示が点いている。':'避難扉は、まだ動かない。',4:'解除スイッチを踏んでから、出口の受け台へ。分岐を2回通る搬送路。',5:state.flags.monitor?'閲覧端末が動いている。記録装置は、止まっていなかった。':'閲覧端末は停止中。記録装置の灯は点いている。',6:'通用口へ上がる昇降台がある。'}[r];}
+  function controlsHTML(){const r=state.room,v=state.rooms[r];if(state.view==='afterBox')return button('部屋へ戻る','leaveBox','','primary main-action')+button('箱を調べる','work');if(state.view==='overview'){
+    let s='<p class="overline">目の前のもの</p>';
+    s+=button(r===6?'操作部を見る':r===4?'分岐レバーを見る':r===5?'読取部を見る':r===2?'灯具側を見る':r===3?'電源盤を見る':'箱を調べる','work');
+    if(r===5){s+=button(state.flags.monitor?'直前の記録を見る':'端末を見る',state.flags.monitor?'archive':'terminal','','primary');if(state.flags.archiveReady&&archive01())s+=button('ARCHIVE 01','archive01');}
+    if(r===4)s+=`<div class="machine-current"><span>現在の分岐</span><strong>${v.gate?'← 解除側へ':'出口へ →'}</strong></div>`;
+    if(r===6&&v.lastRun)s+=`<div class="machine-current"><strong>${v.lastRun.exitOpen?'出口到着':v.lastRun.departed?'途中停止':'出発停止'}</strong></div>`;
+    return s;
+  }
+    let s=`<p class="overline">手元の操作</p><div class="control-grid ${[3,4,6].includes(r)?'breaker-grid':''}">`;
+    if(r===1)s+=button(v.box?'蓋を閉じる':'蓋を開ける','manual:box',v.box?'開':'閉');
+    if(r===2)s+=button(v.curtain?'カーテンを閉じる':'カーテンを開ける','manual:curtain',v.curtain?'開':'閉')+button(v.lamp?'ランプを消す':'ランプを点ける','manual:lamp',v.lamp?'点':'消');
+    if(r===3)for(const k of ['power','lighting','alarm'])s+=button(switchNames[k],'manual:'+k,`${v[k]?'ON → OFF':'OFF → ON'}`,'breaker-control '+(v[k]?'is-on':'is-off'));
+    if(r===4)s+=button(v.gate?'出口へ → 切り替える':'← 解除側へ切り替える','manual:gate',v.gate?'現在：解除側':'現在：出口側','mechanism-control');
+    if(r===5)s+=button(v.left?'左板を閉じる':'左板を開ける','manual:left',v.left?'開':'閉')+button(v.right?'右板を閉じる':'右板を開ける','manual:right',v.right?'開':'閉');
+    if(r===6)s+=button(v.guard?'安全柵を開ける':'安全柵を閉じる','manual:guard',v.guard?'CLOSED / 閉':'OPEN / 開','mechanism-control')+button(v.lock?'安全ロックを解除':'安全ロックを掛ける','manual:lock',v.lock?'LOCKED / 施錠':'UNLOCKED / 解除','mechanism-control');
+    s+='</div>';
+    if(r===1)s+=button('案内札を見る','paper','','',!v.box);
+    if(r===5)s+=button('記録条件を見る','readerNote');
+
+    const label={1:'部屋に戻る',2:'壁の方へ',3:'扉を見る位置へ',4:'部屋を見る',5:'監視席へ戻る',6:'リフトに乗って出口へ'}[r];
+    if(r===4)return s+button('搬送開始','transport','','primary main-action')+button(label,'return');
+    if(r===5)return s+button('記録開始','recordStart','','primary main-action')+button(label,'return');
+    return s+button(label,'return','','primary main-action');
+  }
+  function render(){
+    $('intro').hidden=state.started;$('game').hidden=!state.started||(state.ended&&!arrivalShowing);$('ending').hidden=!state.ended||arrivalShowing;
+    if(!state.started)return;
+    if(state.ended&&!arrivalShowing){$('paths').innerHTML='';return;}
+    $('roomName').textContent=names[state.room];$('viewLabel').textContent=state.view!=='overview'?'手元':'周囲';
+    $('scene').innerHTML=sceneSVG(state.room,state.rooms[state.room],state.view,{camera:state.view==='afterBox'})+([4,6].includes(state.room)?'':`<div class="hands ${state.view==='work'?'show':''}" id="hands" aria-hidden="true"><svg viewBox="0 0 180 110">${handArt()}</svg></div>`);
+    if(state.view==='afterBox')Meiten.observeBox(state);
+    $('goalBoard').hidden=![3,4,5,6].includes(state.room);$('goalBoard').innerHTML=objectiveHTML(state.room,state.rooms[state.room]);
+    $('controls').innerHTML=state.ended?'<p class="arrival-mark">出口 開</p>':controlsHTML();$('message').textContent=notice||defaults();
+    $('paths').innerHTML=state.view!=='overview'||state.ended?'':Object.keys(names).filter(r=>Meiten.allowed(state,Number(r))).map(r=>button(names[r],'go:'+r,'',Number(r)===state.room?'current':'')).join('');
+    if(quietActive){$('message').textContent='';$('controls').innerHTML='';$('paths').innerHTML='';$('goalBoard').hidden=true;}
+    $('endBoxArchive').hidden=!state.flags.archiveReady||!archive01();
+    save();
+  }
+  const messageFor=rec=>{const r=rec.room,p=rec.post;if(r===1)return '';if(r===2)return p.curtain&&p.lamp?'二つの光で、壁に形が浮かんだ。':'壁の模様は、まだまとまらない。';if(r===3)return rec.success?'扉の解錠表示が点いた。':p.alarm?'警報表示が点いている。':'扉の表示は消えたままだ。';if(r===4)return rec.success?'シャッターを抜けて、出口へ。':'カートは停止した。通過した軌跡が残っている。';if(r===5)return rec.success?'閲覧端末が起動した。直前の記録が読み込まれている。':'読取結果が残っている。';return rec.success?'柵は閉じたまま。ロックが外れ、出口が開いた。':rec.run.departed?'リフトは途中で止まった。':'リフトは出発位置で止まっている。';};
+  const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+  function paintCartPreview(rec,progress){const v=firstRunFrame(rec,progress);$('scene').innerHTML=sceneSVG(4,v,'work',{camera:true,flags:rec.flagsBefore});$('goalBoard').innerHTML=objectiveHTML(4,v);$('message').textContent='搬送中';}
+  function animateFirstPass(rec){
+    if(prefs.still){paintCartPreview(rec,1);return delay(500);}
+    return new Promise(resolve=>{const began=performance.now();function frame(now){const p=Math.min(1,(now-began)/2600);paintCartPreview(rec,p);if(p<1)requestAnimationFrame(frame);else resolve();}requestAnimationFrame(frame);}).then(()=>delay(350));
+  }
+  async function runTransport(resuming=false){
+    if(busy)return;const a=resuming?state.activity:Meiten.startTransport(state);if(!a)return;
+    busy=true;save();$('game').setAttribute('aria-busy','true');for(const b of $('game').querySelectorAll('button'))b.disabled=true;
+    if(state.activity.stage==='first'){await animateFirstPass(a);Meiten.firstTransportEnd(state);save();}
+    $('fade').classList.add('active');await delay(prefs.still?120:300);
+    if(state.activity.stage==='blackout'){Meiten.invertTransport(state);save();}
+    // Each waypoint belongs to this single run; success stays locked until its last visit.
+    while(state.activity.stage==='second'){await delay(prefs.still?160:740);Meiten.advanceTransportCart(state);save();}
+    const rec=Meiten.finishTransport(state);save();notice=messageFor(rec);render();$('fade').classList.remove('active');$('game').removeAttribute('aria-busy');busy=false;
+  }
+  async function stepBack(mode='view'){
+    if(busy)return;
+    const rec=Meiten.returnToView(state,mode);if(!rec)return;
+    busy=true;save();$('game').setAttribute('aria-busy','true');for(const button of $('game').querySelectorAll('button'))button.disabled=true;
+    // Commit once before animation; reloading cannot repeat the inverse operation.
+    if(rec.room===6&&rec.run.departed){$('message').textContent='出発';await delay(prefs.still?150:450);}
+    $('fade').classList.add('active');
+    await delay(prefs.still?120:1100);
+    notice=messageFor(rec);
+    if(state.ended){
+      $('fade').innerHTML='<div class="black-end">暗転した。<br>今度は、それを待てた。</div>';await delay(prefs.still?450:1700);$('fade').innerHTML='';
+      arrivalShowing=true;render();$('fade').classList.remove('active');
+      await delay(prefs.still?1600:2600);arrivalShowing=false;render();
+    }else{render();$('fade').classList.remove('active');}
+    $('game').removeAttribute('aria-busy');busy=false;
+  }
+  function openModal(kind,html){focusBefore=document.activeElement;modalKind=kind;$('modal').className='modal'+(kind==='paper'?' paper':kind==='archive'?' cinema':'');$('modal').innerHTML=html;$('modalLayer').classList[kind==='archive'?'add':'remove']('cinema-layer');$('modalLayer').hidden=false;document.body.style.overflow='hidden';document.querySelector('.shell')?.setAttribute('inert','');$('modal').querySelector('button:not(:disabled)')?.focus();}
+  function closeModal(){recordToken++;modalKind='';$('modalLayer').hidden=true;document.body.style.overflow='';document.querySelector('.shell')?.removeAttribute('inert');firstRecording=false;if(focusBefore?.isConnected)focusBefore.focus();else $('menu').focus();}
+  const modalHead=title=>`<div class="modal-head"><h2 id="modalTitle">${esc(title)}</h2>${button('閉じる','close','','quiet')}</div>`;
+  function showPaper(){if(!Meiten.readSign(state))return;save();openModal('paper',`<div class="modal-head"><h2 id="modalTitle">箱の内側の案内札</h2>${button('戻る','close','','quiet')}</div><p>退館時は、バックヤード奥の<br>通用口を使用すること。</p>`);}
+  function platePair(left,right){return `<svg viewBox="0 0 130 65" aria-hidden="true">${rect(10,5,48,48,left?'#e6dec1':'#304b3e','#8da88a',5)}${rect(72,5,48,48,right?'#e6dec1':'#304b3e','#8da88a',5)}${text(34,44,'左',23,left?'#375640':'#cbd9c5','middle')}${text(96,44,'右',23,right?'#375640':'#cbd9c5','middle')}</svg>`;}
+  function recordingGoal(v){const rec=state.view==='overview'?state.history.filter(h=>h.room===5&&(h.mode==='recording'||h.success)).at(-1):null,a=rec?rec.pre:v,b=rec?rec.post:v;return `<div class="record-goal-title">一回の連続記録</div><div class="objective recording-goal"><div class="${a.left&&!a.right?'met':''}"><strong>記録開始時</strong>${platePair(true,false)}<span>左のみ開</span><small class="lighting-state">照明 ON</small>${rec?`<small>${a.left&&!a.right?'✓':'×'} 開始状態</small>`:''}</div><b>→</b><div class="${b.left&&b.right?'met':''}"><strong>記録終了時</strong>${platePair(true,true)}<span>左右とも開</span><small class="lighting-state">照明 ON</small>${rec?`<small>${b.left&&b.right?'✓':'×'} 終了状態</small>`:''}</div></div>`;}
+  function showReader(){openModal('read',modalHead('連続記録の条件')+recordingGoal(state.rooms[5]));}
+  function showSettings(){openModal('settings',modalHead('設定')+`<div class="settings"><label><input id="still" type="checkbox" ${prefs.still?'checked':''}>動きを抑えて表示する</label><p>この試作の進行は、このブラウザに保存されます。記録を見る操作は、部屋の物を変えません。</p>${button('はじめからやり直す','resetAsk','','danger')}</div>`);}
+  function askReset(){openModal('reset',modalHead('はじめから')+'<p>このブラウザの進行と監視記録を消して、最初から始めます。</p>'+button('最初から始める','reset','','danger')+button('戻る','settings'))}
+  function reset(){$('versionNotice').hidden=true;discardedSave=false;quietEpoch++;quietActive=false;arrivalShowing=false;recordToken++;firstRecording=false;state=Meiten.fresh();saved=null;notice='';closeModal();try{localStorage.removeItem(KEY);}catch{}$('resume').hidden=true;render();}
+  function actor(x,y,seated=false,reach=false,walking=0){
+    const yy=seated?y+10:y;
+    // Calm ordinary movement; the sleeve, watch and cord remain identical throughout.
+    const body=circle(0,-53,13,'#cba486')+poly('-20,-37 18,-37 23,4 -22,4','#4e7281')+line(-9,4,-12+walking,38,'#344f5b',9)+line(10,4,17-walking,38,'#344f5b',9)+line(-19,-29,-25,-2,'#4e7281',9)+line(18,-29,reach?44:27,reach?-19:-2,'#4e7281',10)+line(23,-19,reach?39:27,reach?-23:-12,'#eadfc0',3)+line(24,-13,reach?44:29,reach?-17:-7,'#eadfc0',3)+line(reach?44:29,reach?-16:-7,reach?54:32,reach?-17:3,'#cba486',8)+rect(reach?42:26,reach?-20:-10,8,8,'#d7d7b9','#344b4b',2)+rect(reach?44:28,reach?-18:-8,4,4,'#425c57')+line(reach?50:31,reach?-18:0,reach?53:33,reach?-12:0,'#a94436',3);
+    return `<g transform="translate(${x} ${yy}) scale(1.25)">${body}</g>`;
+  }
+  const FILM_LENGTH=17,QUIET_LENGTH=2.6,STILL_TIMES=[0,1.6,4.8,6.8,9.0,11.2,14.4,17];
+  function cameraClock(rec,t){const end=Date.parse(rec.at),base=Number.isFinite(end)?end:Date.UTC(2026,0,1,20,41,33);return new Date(base-FILM_LENGTH*1000+Math.floor(t)*1000).toISOString().slice(11,19);}
+  function filmFrame(rec,t){
+    const r=rec.room,hand=rec.hand;let world=Meiten.clone(rec.pre);
+    if(hand&&t<1.6)world[hand.key]=hand.from;
+    if(t>=11.2)world=Meiten.clone(rec.post);
+    const points={1:{box:[302,272]},5:{left:[199,263],right:[391,263],light:[491,377]}};
+    const anchor=r===5?[568,408]:[552,402],target=hand?points[r]?.[hand.key]||anchor:anchor;
+    const lerp=(a,b,p)=>[a[0]+(b[0]-a[0])*p,a[1]+(b[1]-a[1])*p];
+    let pos=anchor,seated=r===5,reach=false;
+    if(hand){
+      if(t<2.4){pos=target;seated=false;reach=t>=.5;}
+      else if(t<4.4){pos=lerp(target,anchor,(t-2.4)/2);seated=false;}
+      else if(t<6.2){pos=anchor;seated=r===5;}
+      else if(t<7.0){pos=anchor;seated=false;}
+      else if(t<10){pos=lerp(anchor,target,(t-7)/3);seated=false;}
+      else if(t<12){pos=target;seated=false;reach=true;}
+      else if(t<14.4){pos=lerp(target,anchor,(t-12)/2.4);seated=false;}
+    }
+    const walking=(t>=2.4&&t<4.4)||(t>=7&&t<10)||(t>=12&&t<14.4);
+    let overlay=(r===5?rect(536,396,64,24,'#536e60','#365242',5)+line(544,420,544,453,'#365242',4)+line(593,420,593,453,'#365242',4):'')+actor(...pos,seated,reach,walking?Math.sin(t*8)*9:0)+rect(0,0,640,45,'#183128')+circle(19,23,4,'#ba6554')+text(32,29,`REC / CAM ${String(r).padStart(2,'0')}`,16,'#d8dfc4')+text(619,31,cameraClock(rec,t),24,'#d8dfc4','end');
+    // A simultaneous magnification, never a replacement or cut of the main recording.
+    const wrist=[pos[0]+(reach?46:30)*1.25,pos[1]+(seated?10:0)+(reach?-16:-6)*1.25];
+    overlay+=line(wrist[0],wrist[1],530,203,'#758775',1.1,'stroke-dasharray="4 4"')+rect(wrist[0]-7,wrist[1]-7,14,14,'none','#9baa80',2)+rect(412,57,213,146,'#c9cebc','#617c69',6)+text(422,77,'DETAIL',12,'#3c5643')+`<g transform="translate(417 80) scale(1.02)">${handArt()}</g>`;
+    return sceneSVG(r,world,'work',{camera:true,cameraView:true,overlay,flags:t>=14.4?rec.flagsAfter:rec.flagsBefore});
+  }
+  function archive01(){return state.history.find(h=>h.room===1&&h.hand?.key==='box'&&h.hand.from===false&&h.hand.to===true)||state.history.find(h=>h.room===1);}
+  function playerFrame(rec,t){
+    if(t>=5.4&&t<15.2)return '<div class="blind-view" aria-label="視界が黒くなっている"></div>';
+    const v=Meiten.clone(t>=15.2?rec.post:rec.pre);if(rec.hand&&t<1.6)v[rec.hand.key]=rec.hand.from;
+    const overlay=`<g transform="${rec.room===1?'translate(345 295) scale(.7)':'translate(437 367) scale(1)'}">${handArt()}</g>`;
+    return sceneSVG(rec.room,v,'work',{camera:true,overlay,flags:t>=15.2?rec.flagsAfter:rec.flagsBefore})+(rec.room===1&&v.box&&t>=1.6&&t<4.4?'<div class="recorded-sign">退館時は、バックヤード奥の<br>通用口を使用すること。</div>':'');
+  }
+  function openArchive(rec=null){
+    if(!state.flags.monitor||busy)return;
+    rec=rec||state.history.filter(h=>h.room===5&&h.success).at(-1);if(!rec)return;
+    recordToken++;firstRecording=!state.flags.truth;recordActive=rec;recordElapsed=0;
+    openModal('archive',`<div class="modal-head"><h2 id="modalTitle">${rec.room===1?'ARCHIVE 01':'直前の記録'}</h2>${button('監視室へ戻る','close','','quiet')}</div><div class="film-pair"><section class="film-pane"><div class="pane-head"><h3>あなたの視界</h3><time id="povClock"></time></div><div id="povFilm" class="record-stage"></div></section><section class="film-pane"><div class="pane-head"><h3>監視カメラ <small>CAM ${String(rec.room).padStart(2,'0')}</small></h3><time id="cameraTime"></time></div><div id="film" class="record-stage"></div></section></div><div class="present-hand"><span>手元</span><svg viewBox="0 0 180 110" role="img" aria-label="袖、腕時計、赤い紐のある手首">${handArt()}</svg></div><div class="record-bar">${button('もう一度見る','replay')}${button('次の時点','filmNext','','',true)}</div>`);
+    playFilm(rec);
+  }
+  function paintFilm(rec,t){recordElapsed=t;$('povFilm').innerHTML=playerFrame(rec,t);$('film').innerHTML=filmFrame(rec,t);const clock=cameraClock(rec,t);$('povClock').textContent=clock;$('cameraTime').textContent=clock;}
+  function playFilm(rec){
+    const token=++recordToken;recordActive=rec;filmFinished=false;stillIndex=0;
+    const next=$('modal').querySelector('[data-action="filmNext"]');if(next)next.disabled=!prefs.still;
+    if(prefs.still){paintFilm(rec,STILL_TIMES[0]);return;}
+    paintFilm(rec,0);const began=performance.now();
+    function frame(now){if(token!==recordToken||modalKind!=='archive')return;const t=Math.min(FILM_LENGTH,(now-began)/1000);paintFilm(rec,t);if(t<FILM_LENGTH)requestAnimationFrame(frame);else finishFilm(token);}
+    requestAnimationFrame(frame);
+  }
+  function nextFilm(){if(!prefs.still||filmFinished||stillIndex>=STILL_TIMES.length-1)return;stillIndex++;paintFilm(recordActive,STILL_TIMES[stillIndex]);if(stillIndex===STILL_TIMES.length-1){const next=$('modal').querySelector('[data-action="filmNext"]');if(next)next.disabled=true;finishFilm(recordToken);}}
+  function beginQuiet(duration=QUIET_LENGTH*1000){
+    const epoch=++quietEpoch;quietActive=true;busy=true;state.quietUntil=Date.now()+duration;notice='';render();
+    setTimeout(()=>{if(epoch!==quietEpoch)return;Meiten.markArchiveReady(state);quietActive=false;busy=false;notice='';render();},duration);
+  }
+  function finishFilm(token){
+    if(token!==recordToken||modalKind!=='archive')return;filmFinished=true;
+    if(recordActive.room===5&&recordActive.success)Meiten.markTruth(state);
+    save();closeModal();
+    if(state.flags.truth)beginQuiet();else render();
+  }
+  function dispatch(action){
+    if(busy)return;
+    if(modalKind&&!['close','replay','filmNext','resetAsk','reset','settings'].includes(action)&&!action.startsWith('record:'))return;
+    if(action==='leaveBox'){notice='';Meiten.leaveBox(state);render();return;}
+    if(action==='transport'){runTransport();return;}
+    if(action==='recordStart'){stepBack('recording');return;}
+    if(action==='work'){notice='';Meiten.enterWork(state);render();return;}
+    if(action.startsWith('manual:')){const k=action.split(':')[1],v=state.rooms[state.room][k];if(Meiten.change(state,k,!v)){notice='';render();$('hands')?.classList.add('show');}return;}
+    if(action.startsWith('go:')){const res=Meiten.navigate(state,Number(action.split(':')[1]));if(res.needsReturn){stepBack();return;}notice=res.ok?'':res.reason;render();return;}
+    if(action==='return'){stepBack();return;}
+    if(action==='paper'){if(state.rooms[1].box)showPaper();return;}
+    if(action==='readerNote'){showReader();return;}
+    if(action==='terminal'){openModal('read',modalHead('閲覧端末')+'<p>閲覧：停止中<br>記録：継続中<br>昇降台：使用許可停止中</p><p>遮光板で、連続記録の起動テストを行う。</p>');return;}
+    if(action==='archive'){openArchive();return;}
+    if(action==='archive01'){if(state.flags.archiveReady)openArchive(archive01());return;}
+    if(action==='close'){const sign=modalKind==='paper';closeModal();if(sign)stepBack();return;}
+    if(action==='settings'){showSettings();return;}
+    if(action==='resetAsk'){askReset();return;}
+    if(action==='reset'){reset();return;}
+    if(action==='filmNext'){nextFilm();return;}
+    if(action==='replay'){playFilm(recordActive);return;}
+    if(action.startsWith('record:')){if(!state.flags.archiveReady)return;const rec=state.history.find(h=>h.id===Number(action.split(':')[1]));if(rec&&[1,5].includes(rec.room))openArchive(rec);}
+  }
+  document.addEventListener('click',e=>{const el=e.target.closest?.('[data-action]');if(el&&!el.disabled)dispatch(el.dataset.action);});
+  document.addEventListener('keydown',e=>{
+    if((e.key==='Enter'||e.key===' ')&&e.target.matches?.('[role="button"][data-action]')){e.preventDefault();dispatch(e.target.dataset.action);}
+    if(e.key==='Escape'&&!$('modalLayer').hidden)dispatch('close');
+    if(e.key==='Tab'&&!$('modalLayer').hidden){const els=[...$('modal').querySelectorAll('button:not(:disabled),input')].filter(x=>!x.closest('[hidden]'));const first=els[0],last=els.at(-1);if(!els.includes(document.activeElement)){e.preventDefault();(e.shiftKey?last:first)?.focus();}else if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}
+  });
+  document.addEventListener('change',e=>{if(e.target.id==='still'){prefs.still=e.target.checked;try{localStorage.setItem(PREF,JSON.stringify(prefs));}catch{}}});
+  $('menu').addEventListener('click',()=>{if(!busy&&!modalKind)showSettings();});
+  $('begin').addEventListener('click',()=>{if(saved?.started){askReset();return;}state=Meiten.start(Meiten.fresh());discardedSave=false;$('versionNotice').hidden=true;notice='';render();});
+  $('resume').addEventListener('click',()=>{state=saved;notice='';render();if(state.activity)runTransport(true);else if(state.quietUntil>0)beginQuiet(Math.min(QUIET_LENGTH*1000,Math.max(0,state.quietUntil-Date.now())));});
+  $('endArchive').addEventListener('click',()=>{if(!busy)openArchive();});$('endBoxArchive').addEventListener('click',()=>{if(!busy&&state.flags.archiveReady)openArchive(archive01());});$('restartEnd').addEventListener('click',askReset);
+  render();
+})();
+</script></body></html>
