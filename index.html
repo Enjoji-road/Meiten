@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#172527"><meta name="description" content="建物の奥へ進む、一人称の6室Web謎『明転』。スマートフォン向けの操作検証試作。"><title>明転</title>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#172527"><meta name="description" content="建物の奥へ進む、一人称の6室Web謎『境界外』。スマートフォン向けの操作検証試作。"><title>境界外</title>
 <style>
 :root{color-scheme:dark;--bg:#172527;--card:#223235;--ink:#eee8dc;--muted:#aab8b3;--gold:#c8a36c;--line:#49605e;--teal:#9ebdb4;--r:16px}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.7;min-height:100svh}button{font:inherit;touch-action:manipulation;cursor:pointer}button:focus-visible,a:focus-visible,[role=button]:focus-visible{outline:3px solid var(--gold);outline-offset:4px}button:disabled{opacity:.48;cursor:default}button.primary{background:var(--gold);color:#1b282a;border-color:var(--gold)}button{border:1px solid var(--line);border-radius:10px;background:#2b3e40;color:var(--ink);padding:12px 17px;min-height:46px}button:hover:not(:disabled){border-color:var(--gold)}[hidden]{display:none!important}.shell{max-width:960px;margin:auto;padding:18px 24px 40px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.brand{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:26px;letter-spacing:.22em}.topbar small{font-size:11px;color:var(--muted);letter-spacing:.08em}.quiet{background:transparent;border:0;padding:9px;min-height:42px;font-size:13px;color:var(--muted)}.intro{min-height:72svh;display:grid;align-content:center;justify-items:start;max-width:660px;margin:auto}.intro .eyebrow{font-size:11px;letter-spacing:.25em;color:var(--gold)}h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(56px,12vw,92px);font-weight:500;letter-spacing:.23em;line-height:1.4;margin:20px 0 24px}.intro p{font-size:16px;line-height:2.05;color:var(--muted);margin:0 0 28px}.intro .actions{display:flex;flex-wrap:wrap;gap:12px}.intro .foot{font-size:12px;margin-top:34px;max-width:480px}.location{display:flex;justify-content:space-between;align-items:baseline;margin:10px 0 12px;gap:10px}.location h2{font-size:18px;font-weight:500;margin:0}.view-label{font-size:12px;color:var(--muted)}.game-layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:20px;align-items:start}.scene-shell{position:relative;background:#c5baa7;border-radius:var(--r);overflow:hidden;border:1px solid #72807a;isolation:isolate}.scene-shell svg{display:block;width:100%;height:auto;aspect-ratio:4/3}.scene-shell svg text{font-family:inherit}.hotspot{cursor:pointer;outline:none}.hotspot .hit{fill:none;stroke:transparent;stroke-width:3}.hotspot:focus-visible .hit,.hotspot:hover .hit{stroke:#dab777;fill:#dab77714}.hotspot:focus-visible{outline:none}.hotspot circle.dot{fill:#e6c697;stroke:#655c47;stroke-width:2}.hands{position:absolute;bottom:0;left:35%;width:145px;height:80px;pointer-events:none;opacity:0;transform:translateY(35px);transition:.18s}.hands.show{opacity:1;transform:translateY(0)}.hands svg{height:80px;aspect-ratio:auto}.controls{border:1px solid var(--line);border-radius:var(--r);padding:18px;background:#203235}.controls .overline{font-size:11px;color:var(--gold);letter-spacing:.08em;margin:0 0 11px}.controls button{width:100%;text-align:left;margin-bottom:9px;display:flex;justify-content:space-between;align-items:center;gap:9px}.controls button:last-child{margin-bottom:0}.controls button small{color:#b8cac0;font-size:12px;white-space:nowrap}.controls .muted{font-size:13px;color:var(--muted);line-height:1.85;margin:0 0 15px}.control-pair{display:flex;gap:9px}.control-pair button{text-align:center;justify-content:center}.main-action{margin-top:15px!important}.message{min-height:56px;padding:15px 1px 5px;font-size:14px;color:#d1d8ce;line-height:1.85}.paths{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.paths button{background:transparent;font-size:12px;padding:9px 13px;min-height:40px}.paths button.current{border-color:var(--gold);color:var(--gold)}.save-status{font-size:11px;color:var(--muted);margin-top:14px}.overlay{position:fixed;inset:0;z-index:10;background:#0b141be3;display:grid;place-items:center;padding:16px;overflow-y:auto;overscroll-behavior:contain}.modal{background:#233739;border:1px solid #667b71;border-radius:18px;padding:22px;width:min(760px,100%);max-height:calc(100svh - 32px);overflow:auto}.modal-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:13px}.modal-head h2{font-size:18px;font-weight:500;margin:0}.modal p{font-size:14px;color:#c5d3c7;line-height:1.9}.paper{background:#e8dec6;color:#343d36;max-width:530px;padding:28px;box-shadow:0 8px 34px #08131733}.paper p{color:#3f4b40}.paper .stamp{font-size:12px;border-top:1px solid #8e9b83;padding-top:15px;color:#65745f}.record-stage{background:#283a35;border:1px solid #70867b;border-radius:10px;overflow:hidden}.record-stage svg{width:100%;display:block;height:auto;aspect-ratio:4/3}.record-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:12px 0}.record-bar small{color:#aec7b5;font-family:ui-monospace,monospace;font-size:12px}.record-list{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0}.record-list button{font-size:11px;padding:7px 10px;min-height:36px}.record-list button.selected{border-color:var(--gold);color:var(--gold)}.record-note{font-size:12px!important;margin:8px 0}.fade{position:fixed;inset:0;z-index:30;background:#080d0d;opacity:0;pointer-events:none;transition:opacity .25s}.fade.active{opacity:1;pointer-events:auto}.ending{min-height:72svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at 50% 25%,#e4d2a7 0%,#829084 25%,#172527 65%);border-radius:20px}.ending h1{color:#faf3d5;font-size:70px;text-shadow:0 2px 20px #132b24}.ending p{color:#eff0dc;font-size:16px;line-height:2}.ending .quiet{color:#c9d5c7}.black-end{position:absolute;inset:0;background:#080d0d;display:flex;align-items:center;justify-content:center;z-index:1;color:#d9ddd0;font-family:"Yu Mincho",serif;font-size:17px;line-height:2.2;letter-spacing:.08em}.notice{padding:12px 15px;border:1px solid #877153;border-radius:10px;color:#e0caa2;background:#443b2b;font-size:13px}.settings label{display:flex;gap:12px;align-items:center;margin:17px 0;font-size:14px}.settings input{width:20px;height:20px;accent-color:var(--gold)}.danger{border-color:#ac7e66;color:#edd0bd}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:740px){.shell{padding:12px 14px 28px}.game-layout{grid-template-columns:1fr;gap:12px}.controls{padding:14px}.controls .control-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.controls .control-grid button{margin:0;padding:12px 11px;font-size:14px}.controls .control-grid button small{font-size:11px}.topbar{margin-bottom:12px}.message{min-height:48px;font-size:13px}.paths{gap:6px}.paths button{padding:7px 9px;font-size:11px}.modal{padding:17px}.location h2{font-size:17px}.intro{padding:0 8px}.brand{font-size:23px}.record-bar{flex-wrap:wrap}.record-note{font-size:11px!important}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 /* Controls keep the same visual positions across the return transition. */
@@ -105,122 +105,174 @@
 
 .pane-head h3 small{font-size:11px;color:#adbeae}.lighting-state{color:#d4e4cf!important;font-size:13px!important}.recording-goal .lighting-state:before{content:"● ";color:#dcd2a2}
 .breaker-goal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.breaker-goal>div{padding:9px 7px;border:1px solid #718779;background:#2b3e37;border-radius:8px;text-align:center}.breaker-goal strong{display:block;font-size:14px;font-weight:500}.breaker-goal b{font-size:22px;line-height:1.6;color:#e7d3a7}.breaker-goal .met{background:#3c5545;border-color:#a2b896}
-</style></head><body><div class="shell"><header class="topbar"><div><span class="brand">明転</span> <small>操作検証版</small></div><button id="menu" class="quiet" aria-label="設定を開く">設定</button></header><section id="intro" class="intro"><div class="eyebrow">AN EXPLORATION</div><h1>明転</h1><p>通用口は、建物の奥にある。<br>静かな部屋を抜けて、外へ向かう。</p><div class="actions"><button id="begin" class="primary">建物に入る</button><button id="resume" hidden>続きから</button></div><p id="versionNotice" class="foot" hidden>保存されていた進行はこの版では使えません。最初から始められます。</p><p class="foot">画面の物をタップして調べ、操作できます。<br>進み具合は、このブラウザに保存されます。</p></section><main id="game" hidden><div class="location"><h2 id="roomName"></h2><span id="viewLabel" class="view-label"></span></div><div id="goalBoard" class="goal-board" aria-label="装置の目的と必要な状態" hidden></div><div class="game-layout"><div><div id="scene" class="scene-shell" aria-label="部屋の様子"></div><div id="message" class="message" role="status" aria-live="polite"></div></div><aside id="controls" class="controls" aria-label="できる操作"></aside></div><nav id="paths" class="paths" aria-label="通れる場所"></nav><div id="saveStatus" class="save-status"></div></main><section id="ending" class="ending" hidden><h1>明転</h1><p>通用口の向こうに、光がある。</p><button id="endArchive" class="quiet">記録を振り返る</button><button id="endBoxArchive" class="quiet" hidden>ARCHIVE 01</button><button id="restartEnd" class="quiet">はじめから</button></section></div><div id="modalLayer" class="overlay" hidden><section id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></section></div><div id="fade" class="fade" aria-hidden="true"></div><noscript><p class="notice">この試作はJavaScriptを使います。JavaScriptを有効にしたブラウザで開いてください。</p></noscript>
-<script>'use strict';
+/* 1.2 additions retain the original responsive shell and interaction controls. */
+.exit-goal{border:1px solid var(--line);border-radius:10px;padding:10px 15px;text-align:center;font-size:18px;background:#2b403a}
+.spoken{font-size:17px;color:#f0e6d2;letter-spacing:.025em}.b-voice{color:#e6e2d3}
+.fade-caption{position:absolute;bottom:14%;left:12px;right:12px;text-align:center;color:#e6e2d3;font-size:19px;line-height:2}
+.comparison{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;gap:15px;margin:12px 0;border-top:1px solid var(--line);padding-top:10px}
+.comparison-before span,.comparison-states>span{font-size:12px;color:#bfcfc4}.comparison svg{display:block;width:100%;height:auto;border:1px solid #7e8e7b;border-radius:5px}
+.comparison-states p{font-size:15px;padding:5px 8px;margin:5px 0;border:2px solid transparent;border-radius:5px}.comparison-states p.last-outline{border-color:#d6b772}.comparison-states small{display:block;font-size:11px;color:#d6c99e}
+.trial-result{padding:14px 16px;margin:14px 0;border:1px solid #94a58e;border-radius:10px;background:#30463b}.trial-result h3{font-size:16px;font-weight:500;margin:0 0 8px;color:#eee3c4}.trial-result dl{margin:0}.trial-result dl div{display:flex;justify-content:space-between;gap:10px;border-top:1px solid #526958;padding:7px 0;font-size:15px}.trial-result dt,.trial-result dd{margin:0}.trial-result dd{font-weight:600;color:#eee1b8;white-space:nowrap}.trial-return span{font-size:13px;color:#c3d0bd}.trial-return svg{display:block;width:100%;margin-top:8px}
+.outside-location{position:absolute;bottom:20px;right:20px;color:#fff7df;font-size:16px;text-shadow:0 1px 4px #263831}.outside-title{position:absolute;inset:0;display:grid;place-items:center;background:#c5ccbcdd;color:#243d36;font-size:clamp(44px,9vw,74px);font-family:"Yu Mincho",serif;letter-spacing:.2em;animation:title-arrive 2.5s ease both}
+.exit-travel{overflow:hidden}.exit-travel svg{transform-origin:var(--door-x) 64%;animation:cross-threshold 2s ease-in forwards}.exit-travel.still svg{animation:none;transform:scale(2.4) translateY(40px)}
+.turn-view{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden}.turn-view .turn-city,.turn-view .turn-doors{position:absolute;inset:0;animation:turn-city 2s ease both}.turn-view .turn-doors{animation-name:turn-doors}.turn-view.still .turn-city{display:none}.turn-view.still .turn-doors{animation:none}
+@keyframes cross-threshold{from{transform:scale(1) translateY(0)}to{transform:scale(3) translateY(40px)}}@keyframes turn-city{from{transform:translateX(0)}to{transform:translateX(-100%)}}@keyframes turn-doors{from{transform:translateX(100%)}to{transform:translateX(0)}}@keyframes title-arrive{from{opacity:0;letter-spacing:.05em}to{opacity:1;letter-spacing:.2em}}
+.ending{background:linear-gradient(#bac8bc,#d0d4bf);color:#243d36}.ending h1{color:#243d36;text-shadow:none}.ending .quiet{color:#304b40}.scene-shell{min-width:0}.controls .is-on{border-color:#c8bf8f;background:#3e5547}
+@media(max-width:740px){.comparison{grid-template-columns:115px minmax(0,1fr);gap:8px}.comparison-states p{font-size:14px}.spoken{font-size:16px}.trial-result{padding:12px}.trial-result dl div{font-size:14px}.exit-goal{font-size:17px}.scene-shell svg text{font-weight:500}.cinema .film-pair .record-stage{height:clamp(145px,calc((100svh - 258px)/2),260px)}.cinema .present-hand{height:50px}.cinema .modal-head{margin-bottom:8px}.cinema .film-pair{gap:8px}}
+@media(max-width:360px){.comparison{grid-template-columns:95px minmax(0,1fr)}.comparison-states p{font-size:12px}.trial-result dl div{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.exit-travel svg{transform:scale(2.4) translateY(40px)}.turn-city{display:none}.turn-doors{transform:none!important}}
+
+</style></head><body><div class="shell"><header class="topbar"><div><span class="brand">境界外</span> <small>通しプレイ検証版</small></div><button id="menu" class="quiet" aria-label="設定を開く">設定</button></header><section id="intro" class="intro"><div class="eyebrow">AN EXPLORATION</div><h1>境界外</h1><p>案内を待つ部屋。<br>もう、帰る時間は過ぎていた。</p><div class="actions"><button id="begin" class="primary">はじめる</button><button id="resume" hidden>続きから</button></div><p id="versionNotice" class="foot" hidden>保存されていた進行はこの版では使えません。最初から始められます。</p><p class="foot">画面の物をタップして調べ、操作できます。<br>進み具合は、このブラウザに保存されます。</p></section><main id="game" hidden><div class="location"><h2 id="roomName"></h2><span id="viewLabel" class="view-label"></span></div><div id="goalBoard" class="goal-board" aria-label="装置の目的と必要な状態" hidden></div><div class="game-layout"><div><div id="scene" class="scene-shell" aria-label="部屋の様子"></div><div id="message" class="message" role="status" aria-live="polite"></div></div><aside id="controls" class="controls" aria-label="できる操作"></aside></div><div id="extraInfo"></div><nav id="paths" class="paths" aria-label="通れる場所"></nav><div id="saveStatus" class="save-status"></div></main><section id="ending" class="ending" hidden><h1>境界外</h1><p>　</p><button id="endArchive" class="quiet">記録を振り返る</button><button id="endBoxArchive" class="quiet" hidden>ARCHIVE 01</button><button id="restartEnd" class="quiet">はじめから</button></section></div><div id="modalLayer" class="overlay" hidden><section id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></section></div><div id="fade" class="fade" aria-hidden="true"></div><noscript><p class="notice">この試作はJavaScriptを使います。JavaScriptを有効にしたブラウザで開いてください。</p></noscript>
+<script>
+'use strict';
+// World changes are committed atomically, independently of their presentation.
 const Meiten = (() => {
-  const VERSION=7;
-  const keys={1:['box'],2:['curtain','lamp'],3:['power','lighting','alarm'],4:['gate'],5:['left','right'],6:['guard','lock']};
-  const clone=x=>JSON.parse(JSON.stringify(x));
-  function fresh(){return {version:VERSION,started:false,room:1,view:'overview',boarded:false,ended:false,pending:null,activity:null,quietUntil:0,serial:0,flags:{boxSeen:false,signRead:false,route:false,fire:false,shutter:false,monitor:false,truth:false,archiveReady:false},rooms:{1:{box:false},2:{curtain:false,lamp:false},3:{power:false,lighting:false,alarm:false},4:{gate:false,lastRun:null},5:{left:false,right:false},6:{guard:false,lock:false,lastRun:null}},history:[]};}
-  const validValue=(key,v)=>typeof v==='boolean';
-  function allowed(s,r){return r===1||(s.flags.boxSeen&&(r===2||(r===3&&s.flags.route)||(r===4&&s.flags.fire)||(r===5&&s.flags.shutter)||(r===6&&s.flags.monitor&&s.flags.truth)));}
-  function start(s){s.started=true;return s;}
-  function enterWork(s){if(s.ended||s.activity)return false;s.view='work';return true;}
-  function change(s,key,value){
-    if(s.ended||s.activity||s.view!=='work'||!keys[s.room].includes(key)||!validValue(key,value))return false;
-    const from=s.rooms[s.room][key];if(from===value)return false;s.rooms[s.room][key]=value;s.pending={room:s.room,key,from,to:value};return true;
-  }
-  function readSign(s){if(s.room!==1||s.view!=='work'||!s.rooms[1].box||s.activity)return false;s.flags.signRead=true;return true;}
-  function observeBox(s){const h=s.history.at(-1);if(s.room===1&&s.view==='afterBox'&&h?.boxEncounter&&!s.rooms[1].box)s.flags.boxSeen=true;}
-  function leaveBox(s){if(s.room!==1||s.view!=='afterBox'||s.activity)return false;s.view='overview';return true;}
-  function navigate(s,r){
-    if(s.ended||s.activity)return {ok:false,reason:'まだ移動できない。'};
-    if(s.view==='afterBox')return {ok:false,reason:'まず、部屋へ戻る。'};
-    if(s.view==='work')return {ok:false,reason:'まず、手元から離れる。',needsReturn:true};
-    if(!allowed(s,r))return {ok:false,reason:'まだ通れる道は見つかっていない。'};
-    if(r===s.room)return {ok:true};
-    if(s.room===6&&s.boarded&&s.rooms[6].guard)return {ok:false,reason:'柵が閉じている。'};
-    if(s.room===6&&r!==6)s.boarded=false;s.room=r;s.view='overview';return {ok:true};
-  }
+  const VERSION=8;
+  const keys={1:['box'],2:['curtain','lamp'],3:['power','lighting','alarm'],4:['gate'],5:['left','right'],6:['left','right']};
+  const clone=x=>JSON.parse(JSON.stringify(x)), doors=['left','right'];
+  function fresh(){return {version:VERSION,started:false,room:1,view:'overview',ended:false,pending:null,lastHand:null,activity:null,sequence:null,film:null,ending:null,caption:null,seen:{},archives:{box:false,trial:false},serial:0,bClosed:null,exitDoor:null,flags:{boxSeen:false,signRead:false,route:false,fire:false,shutter:false,monitor:false,truth:false,trialSeen:false,archiveReady:false},rooms:{1:{box:false},2:{curtain:false,lamp:false},3:{power:false,lighting:false,alarm:false},4:{gate:false,lastRun:null},5:{left:false,right:false},6:{left:false,right:false,lastRun:null}},history:[]};}
   const snapshot=(s,r)=>Object.fromEntries(keys[r].map(k=>[k,s.rooms[r][k]]));
-  function liftRun(pre,post){const departed=pre.guard&&pre.lock,arrived=departed&&post.guard;return {departed,arrived,exitOpen:arrived&&!post.lock};}
-  function append(s,r,pre,post,hand,success,run,flagsBefore,mode){
-    const record={id:++s.serial,room:r,at:new Date().toISOString(),pre,post,hand,success,run,mode,flagsBefore,flagsAfter:clone(s.flags),boxEncounter:r===1&&s.flags.signRead&&!!hand&&!hand.from&&hand.to&&!post.box};s.history.push(record);
-    if(s.history.length>500){const first=s.history.filter((h,i,a)=>a.findIndex(x=>x.room===h.room)===i),opening=s.history.find(h=>h.boxEncounter)||s.history.find(h=>h.room===1&&h.hand?.key==='box'&&!h.hand.from&&h.hand.to),monitor=s.history.filter(h=>h.room===5&&h.success).at(-1);const keep=new Map([...first,...(opening?[opening]:[]),...(monitor?[monitor]:[]),...s.history.slice(-450)].map(h=>[h.id,h]));s.history=[...keep.values()].sort((a,b)=>a.id-b.id);}
+  const blocked=s=>s.ended||!!s.activity||!!s.sequence||!!s.film||!!s.ending;
+  function allowed(s,r){return r===1||(s.flags.boxSeen&&(r===2||(r===3&&s.flags.route)||(r===4&&s.flags.fire)||(r===5&&s.flags.shutter)||(r===6&&s.flags.truth&&s.flags.trialSeen)));}
+  function start(s){s.started=true;return s;}
+  function enterWork(s){if(blocked(s)||s.view==='choice')return false;s.view='work';return true;}
+  function change(s,key,value){
+    if(blocked(s)||s.view!=='work'||!keys[s.room].includes(key)||typeof value!=='boolean')return false;
+    const from=s.rooms[s.room][key];if(from===value)return false;
+    s.rooms[s.room][key]=value;s.lastHand={room:s.room,key,from,to:value};s.pending=clone(s.lastHand);s.caption=null;
+    if(s.room===6)s.rooms[6].lastRun=null;
+    return true;
+  }
+  function readSign(s){if(blocked(s)||s.room!==1||s.view!=='work'||!s.rooms[1].box)return false;s.flags.signRead=true;return true;}
+  function observeBox(s){const h=s.history.at(-1);if(s.room===1&&s.view==='afterBox'&&h?.boxEncounter)s.flags.boxSeen=true;}
+  function leaveBox(s){if(blocked(s)||s.room!==1||s.view!=='afterBox')return false;s.view='overview';return true;}
+  function navigate(s,r){
+    if(blocked(s)||!allowed(s,r))return {ok:false,reason:'まだ通れる道は見つかっていない。'};
+    if(s.view==='afterBox')return {ok:false,reason:'まず、部屋へ戻る。'};
+    if(s.view==='work'&&s.pending)return {ok:false,needsReturn:true};
+    if(s.view==='choice')return {ok:false};
+    s.room=r;s.view='overview';s.caption=null;return {ok:true};
+  }
+  function append(s,r,pre,post,hand,success,run,flagsBefore,mode,intervention){
+    const record={id:++s.serial,room:r,at:new Date().toISOString(),pre,post,hand,success,run,mode,intervention,flagsBefore,flagsAfter:clone(s.flags),boxEncounter:r===1&&s.flags.signRead&&!!hand&&pre.box!==post.box};s.history.push(record);
+    if(s.history.length>500){const opening=s.history.find(h=>h.boxEncounter),monitor=s.history.filter(h=>h.room===5&&h.success).at(-1);s.history=[...new Map([...(opening?[opening]:[]),...(monitor?[monitor]:[]),...s.history.slice(-450)].map(h=>[h.id,h])).values()].sort((a,b)=>a.id-b.id);}
     return record;
   }
+  // This is a policy, not the permanent one-operation budget.
+  function chooseIntervention(s,r,pre,hand){
+    if(!hand)return null;
+    if(r!==6)return {key:hand.key,from:pre[hand.key],to:hand.from};
+    const open=doors.filter(k=>pre[k]);if(!open.length)return null;
+    const key=open.length===2?(hand.key==='left'?'right':'left'):open[0];
+    return {key,from:true,to:false};
+  }
   function returnToView(s,mode='view'){
-    if(s.ended||s.activity||s.view!=='work')return null;
+    if(blocked(s)||s.view!=='work')return null;
     const r=s.room,pre=snapshot(s,r),hand=s.pending?clone(s.pending):null,flagsBefore=clone(s.flags);
-    if(hand)s.rooms[r][hand.key]=hand.from;s.pending=null;s.view=r===1?'afterBox':'overview';
+    if(r===6&&!hand){if(s.rooms[6].lastRun?.success)s.view='choice';else s.view='overview';return null;}
+    const intervention=chooseIntervention(s,r,pre,hand);
+    if(intervention)s.rooms[r][intervention.key]=intervention.to;
+    s.pending=null;s.view=r===1?'afterBox':'overview';
     const post=snapshot(s,r);let success=false,run=null;
     if(r===2){success=post.curtain&&post.lamp;if(success)s.flags.route=true;}
     if(r===3){success=post.power&&post.lighting&&!post.alarm;if(success)s.flags.fire=true;}
-    // Looking away does not run the cart or the monitor test.
     if(r===5&&mode==='recording'){success=pre.left&&!pre.right&&post.left&&post.right;if(success)s.flags.monitor=true;}
-    if(r===6){s.boarded=true;run=liftRun(pre,post);success=run.exitOpen;s.rooms[6].lastRun=clone(run);if(success)s.ended=true;}
-    return append(s,r,pre,post,hand,success,run,flagsBefore,mode);
+    if(r===6){success=post.left||post.right;s.bClosed=intervention?.key||null;run={success,closedDoor:s.bClosed,lastTarget:hand.key};s.rooms[6].lastRun=clone(run);}
+    const rec=append(s,r,pre,post,hand,success,run,flagsBefore,mode,intervention);
+    s.sequence={kind:r===6?'final':'return',recordId:rec.id,stage:0,until:0};
+    return rec;
   }
   function startTransport(s){
-    if(s.ended||s.activity||s.room!==4||s.view!=='work')return null;
+    if(blocked(s)||s.room!==4||s.view!=='work')return null;
     s.activity={kind:'transport',stage:'first',pre:snapshot(s,4),post:null,hand:s.pending?clone(s.pending):null,flagsBefore:clone(s.flags),trace:['S']};s.pending=null;return clone(s.activity);
   }
-  function firstTransportEnd(s){const a=s.activity;if(a?.kind!=='transport'||a.stage!=='first')return false;a.trace=a.pre.gate?['S','J','G','U']:['S','J','G','D'];a.stage='blackout';return true;}
-  function invertTransport(s){const a=s.activity;if(a?.kind!=='transport'||a.stage!=='blackout')return false;if(a.hand)s.rooms[4].gate=a.hand.from;a.post=snapshot(s,4);a.stage='second';return true;}
-  function advanceTransportCart(s){
-    const a=s.activity;if(a?.kind!=='transport'||a.stage!=='second')return false;
-    const path=a.pre.gate?['J','G',a.post.gate?'U':'D']:[],i=a.trace.length-4;
-    if(i<path.length)a.trace.push(path[i]);if(!path.length||i>=path.length-1)a.stage='arrived';return true;
-  }
+  function firstTransportEnd(s){const a=s.activity;if(a?.stage!=='first')return false;a.trace=a.pre.gate?['S','J','G','U']:['S','J','G','D'];a.stage='blackout';return true;}
+  function invertTransport(s){const a=s.activity;if(a?.stage!=='blackout')return false;if(a.hand)s.rooms[4].gate=a.hand.from;a.post=snapshot(s,4);a.stage='second';return true;}
+  function advanceTransportCart(s){const a=s.activity;if(a?.stage!=='second')return false;const path=a.pre.gate?['J','G',a.post.gate?'U':'D']:[],i=a.trace.length-4;if(i<path.length)a.trace.push(path[i]);if(!path.length||i>=path.length-1)a.stage='arrived';return true;}
   function finishTransport(s){
-    const a=s.activity;if(a?.kind!=='transport'||a.stage!=='arrived')return null;
-    const trace=[...a.trace];
-    const switchPassed=trace.includes('U'),atDock=trace.at(-1)==='D',success=switchPassed&&atDock&&trace.filter(x=>x==='G').length===2;
+    const a=s.activity;if(a?.stage!=='arrived')return null;
+    const trace=[...a.trace],switchPassed=trace.includes('U'),atDock=trace.at(-1)==='D',success=switchPassed&&atDock&&trace.filter(x=>x==='G').length===2;
     const run={switchPassed,atDock,success,preGate:a.pre.gate,postGate:a.post.gate,trace};s.rooms[4].lastRun=clone(run);if(success)s.flags.shutter=true;s.activity=null;s.view='overview';
-    return append(s,4,a.pre,a.post,a.hand,success,run,a.flagsBefore,'transport');
+    return append(s,4,a.pre,a.post,a.hand,success,run,a.flagsBefore,'transport',a.hand?{key:'gate',from:a.pre.gate,to:a.post.gate}:null);
   }
-  function markTruth(s){if(s.flags.monitor)s.flags.truth=true;}
-  function markArchiveReady(s){if(s.flags.monitor&&s.flags.truth)s.flags.archiveReady=true;s.quietUntil=0;}
+  function completeFilm(s){
+    if(!s.film)return false;const f=s.film,rec=s.history.find(h=>h.id===f.recordId);s.film=null;
+    if(f.kind==='box')s.archives.box=true;
+    if(f.kind==='truth'&&rec?.success&&!s.flags.truth){s.flags.truth=true;s.sequence={kind:'truth',stage:0,until:0};}
+    return true;
+  }
+  function exit(s,key){
+    if(blocked(s)||s.room!==6||s.view!=='choice'||!doors.includes(key)||!s.rooms[6][key]||!s.rooms[6].lastRun?.success)return false;
+    s.exitDoor=key;s.ending={stage:0,until:0,doors:snapshot(s,6),closedDoor:s.bClosed,exitDoor:key,wrist:false};s.caption=null;return true;
+  }
+  function returnInside(s){if(blocked(s)||s.view!=='choice')return false;s.view='overview';s.caption=null;return true;}
+  function outsideDoors(e){return [{screen:'left',id:'right',open:e.doors.right,passed:e.exitDoor==='right'},{screen:'right',id:'left',open:e.doors.left,passed:e.exitDoor==='left'}];}
   function restore(raw){
     try{
-      let data=typeof raw==='string'?JSON.parse(raw):clone(raw);
-      // v6 has the same state shape. Earlier device layouts are not restored.
-      if(data?.version===6)data.version=VERSION;
-      if(!data||data.version!==VERSION||!Number.isInteger(data.room)||data.room<1||data.room>6||!['work','overview','afterBox'].includes(data.view))return null;
-      const s=fresh();for(const r of [1,2,3,4,5,6])for(const key of keys[r]){const v=data.rooms?.[r]?.[key];if(!validValue(key,v))return null;s.rooms[r][key]=v;}
-      for(const key of Object.keys(s.flags)){if(typeof data.flags?.[key]!=='boolean')return null;s.flags[key]=data.flags[key];}
-      for(const key of ['started','boarded','ended']){if(typeof data[key]!=='boolean')return null;s[key]=data[key];}s.room=data.room;s.view=data.view;
-      if(!allowed(s,s.room)||(s.view==='afterBox'&&s.room!==1))return null;
-      if(data.pending){const p=data.pending;if(s.view!=='work'||p.room!==s.room||!keys[s.room].includes(p.key)||!validValue(p.key,p.from)||!validValue(p.key,p.to)||p.from===p.to||s.rooms[s.room][p.key]!==p.to)return null;s.pending={room:p.room,key:p.key,from:p.from,to:p.to};}
-      s.serial=Number.isInteger(data.serial)&&data.serial>=0?data.serial:0;if(!Array.isArray(data.history))return null;
-      for(const h of data.history.slice(-510)){
-        if(!h||!keys[h.room]||!Number.isInteger(h.id)||h.id<1||typeof h.success!=='boolean'||!keys[h.room].every(k=>validValue(k,h.pre?.[k])&&validValue(k,h.post?.[k])))continue;
-        const p=h.hand;if(p&&(p.room!==h.room||!keys[h.room].includes(p.key)||!validValue(p.key,p.from)||!validValue(p.key,p.to)||p.from===p.to||p.to!==h.pre[p.key]||p.from!==h.post[p.key]||keys[h.room].some(k=>k!==p.key&&h.pre[k]!==h.post[k])))continue;
-        if(!p&&keys[h.room].some(k=>h.pre[k]!==h.post[k]))continue;
-        const flagsBefore=Object.fromEntries(Object.keys(s.flags).map(k=>[k,!!h.flagsBefore?.[k]])),flagsAfter=Object.fromEntries(Object.keys(s.flags).map(k=>[k,!!h.flagsAfter?.[k]]));
-        const safe={id:h.id,room:h.room,at:typeof h.at==='string'?h.at.slice(0,40):'',pre:Object.fromEntries(keys[h.room].map(k=>[k,h.pre[k]])),post:Object.fromEntries(keys[h.room].map(k=>[k,h.post[k]])),hand:p?{room:p.room,key:p.key,from:p.from,to:p.to}:null,success:h.success,run:null,mode:['view','recording','transport'].includes(h.mode)?h.mode:'legacy',boxEncounter:!!h.boxEncounter,flagsBefore,flagsAfter};
-        if(h.room===4&&h.run)safe.run={switchPassed:!!h.run.switchPassed,atDock:!!h.run.atDock,success:h.success,preGate:h.pre.gate,postGate:h.post.gate,trace:Array.isArray(h.run.trace)?h.run.trace.filter(x=>['S','J','G','U','D'].includes(x)):[]};
-        if(h.room===6)safe.run=liftRun(safe.pre,safe.post);s.history.push(safe);
+      const d=typeof raw==='string'?JSON.parse(raw):clone(raw);if(!d||d.version!==VERSION)return null;
+      const s=fresh();if(!Number.isInteger(d.room)||!keys[d.room]||!['overview','work','afterBox','choice'].includes(d.view))return null;
+      for(const k of ['started','ended'])if(typeof d[k]!=='boolean')return null;
+      for(const r of Object.keys(keys))for(const k of keys[r])if(typeof d.rooms?.[r]?.[k]!=='boolean')return null;
+      for(const k of Object.keys(s.flags))if(typeof d.flags?.[k]!=='boolean')return null;
+      const handOK=p=>p===null||(p&&keys[p.room]?.includes(p.key)&&typeof p.from==='boolean'&&typeof p.to==='boolean'&&p.from!==p.to);
+      if(!handOK(d.pending)||!handOK(d.lastHand))return null;
+      if(d.pending&&(d.view!=='work'||d.pending.room!==d.room||d.rooms[d.room][d.pending.key]!==d.pending.to))return null;
+      if(!Array.isArray(d.history)||d.history.length>510||!Number.isInteger(d.serial)||d.serial<0)return null;
+      let previous=0;
+      for(const h of d.history){
+        if(!keys[h.room]||!Number.isInteger(h.id)||h.id<=previous||h.id>d.serial||typeof h.success!=='boolean'||!handOK(h.hand)||!keys[h.room].every(k=>typeof h.pre?.[k]==='boolean'&&typeof h.post?.[k]==='boolean'))return null;
+        previous=h.id;const dif=keys[h.room].filter(k=>h.pre[k]!==h.post[k]);if(dif.length>1||(!h.hand&&dif.length))return null;
+        if(h.hand&&(h.hand.room!==h.room||h.hand.to!==h.pre[h.hand.key]))return null;
+        const i=h.intervention;if(dif.length&&(!i||dif[0]!==i.key||i.from!==h.pre[i.key]||i.to!==h.post[i.key]))return null;
+        if(i&&(!h.hand||dif.length!==1||!keys[h.room].includes(i.key)))return null;
+        if(h.room!==6&&h.hand&&(h.post[h.hand.key]!==h.hand.from||i?.key!==h.hand.key))return null;
+        if(h.room===6&&i&&(!i.from||i.to||((h.pre.left&&h.pre.right)&&i.key===h.hand.key)))return null;
       }
-      s.rooms[4].lastRun=s.history.filter(h=>h.room===4&&h.run).at(-1)?.run||null;s.rooms[6].lastRun=s.history.filter(h=>h.room===6).at(-1)?.run||null;s.serial=Math.max(s.serial,...s.history.map(h=>h.id),0);
-      if(data.activity){
-        const a=data.activity,p=a.hand;if(a.kind!=='transport'||!['first','blackout','second','arrived'].includes(a.stage)||s.room!==4||s.view!=='work'||s.pending||s.ended||typeof a.pre?.gate!=='boolean')return null;
-        if(p&&(p.room!==4||p.key!=='gate'||typeof p.from!=='boolean'||typeof p.to!=='boolean'||p.from===p.to||p.to!==a.pre.gate))return null;
-        if(['second','arrived'].includes(a.stage)&&(typeof a.post?.gate!=='boolean'||a.post.gate!==(p?p.from:a.pre.gate)))return null;
-        if(s.rooms[4].gate!==(['second','arrived'].includes(a.stage)?a.post.gate:a.pre.gate))return null;
+      if(!d.seen||Object.values(d.seen).some(v=>v!==true)||!d.archives||['box','trial'].some(k=>typeof d.archives[k]!=='boolean'))return null;
+      if(d.caption&&(!['A','B'].includes(d.caption.speaker)||typeof d.caption.text!=='string'||d.caption.text.length>150))return null;
+      if(![null,...doors].includes(d.bClosed)||![null,...doors].includes(d.exitDoor))return null;
+      if(d.sequence){const q=d.sequence,max={return:1,final:4,truth:3}[q.kind];if(max===undefined||!Number.isInteger(q.stage)||q.stage<0||q.stage>max||!Number.isFinite(q.until)||q.until<0)return null;if(q.kind!=='truth'&&!d.history.some(h=>h.id===q.recordId&&h.room===(q.kind==='final'?6:d.room)))return null;}
+      if(d.film){const f=d.film;if(!['truth','box'].includes(f.kind)||!d.history.some(h=>h.id===f.recordId&&h.room===(f.kind==='truth'?5:1))||!Number.isFinite(f.elapsed)||f.elapsed<0||f.elapsed>17)return null;}
+      if(d.activity){const a=d.activity;if(a.kind!=='transport'||d.room!==4||d.view!=='work'||d.pending||!['first','blackout','second','arrived'].includes(a.stage)||typeof a.pre?.gate!=='boolean'||!handOK(a.hand))return null;
+        if(a.hand&&(a.hand.room!==4||a.hand.key!=='gate'||a.hand.to!==a.pre.gate))return null;
+        const done=['second','arrived'].includes(a.stage);if(done&&(typeof a.post?.gate!=='boolean'||a.post.gate!==(a.hand?a.hand.from:a.pre.gate)))return null;
+        if(d.rooms[4].gate!==(done?a.post.gate:a.pre.gate))return null;
         const first=a.pre.gate?['S','J','G','U']:['S','J','G','D'],full=a.pre.gate&&a.post?[...first,'J','G',a.post.gate?'U':'D']:first;
-        const trace=a.stage==='first'?['S']:a.trace;if(!Array.isArray(trace)||trace.some((k,i)=>k!==full[i])||(a.stage==='blackout'&&trace.length!==4)||(a.stage==='second'&&(trace.length<4||trace.length>6))||(a.stage==='arrived'&&trace.length!==full.length))return null;
-        s.activity={kind:'transport',stage:a.stage,pre:{gate:a.pre.gate},post:['second','arrived'].includes(a.stage)?{gate:a.post.gate}:null,hand:p?{room:4,key:'gate',from:p.from,to:p.to}:null,trace:clone(trace),flagsBefore:Object.fromEntries(Object.keys(s.flags).map(k=>[k,!!a.flagsBefore?.[k]]))};
+        if(!Array.isArray(a.trace)||a.trace.some((k,i)=>k!==full[i])||(a.stage==='first'&&a.trace.length!==1)||(a.stage==='blackout'&&a.trace.length!==4)||(a.stage==='second'&&(a.trace.length<4||a.trace.length>6))||(a.stage==='arrived'&&a.trace.length!==full.length))return null;
       }
-      if(typeof data.quietUntil!=='number'||!Number.isFinite(data.quietUntil)||data.quietUntil<0)return null;s.quietUntil=data.quietUntil;
-      if(s.flags.archiveReady&&!s.flags.truth)return null;
-      if(s.ended&&(s.room!==6||s.view!=='overview'||s.pending||!s.rooms[6].guard||s.rooms[6].lock||!s.flags.monitor||!s.flags.truth))return null;return s;
+      if(d.ending){const e=d.ending;if(!Number.isInteger(e.stage)||e.stage<0||e.stage>11||!Number.isFinite(e.until)||e.until<0||!doors.includes(e.exitDoor)||![null,...doors].includes(e.closedDoor)||typeof e.wrist!=='boolean'||doors.some(k=>typeof e.doors?.[k]!=='boolean'||e.doors[k]!==d.rooms[6][k])||!e.doors[e.exitDoor]||d.exitDoor!==e.exitDoor||d.bClosed!==e.closedDoor)return null;}
+      const activeEnding=d.ending&&d.ending.stage!==11;
+      if([d.sequence,d.film,d.activity,activeEnding].filter(Boolean).length>1)return null;
+      for(const k of Object.keys(s))s[k]=clone(d[k]);
+      if(!allowed(s,s.room)||(s.view==='afterBox'&&s.room!==1)||(s.view==='choice'&&(s.room!==6||!s.rooms[6].lastRun?.success)))return null;
+      if(s.flags.trialSeen&&!s.flags.truth||s.flags.archiveReady&&!s.flags.trialSeen||s.ended&&(!s.ending||s.ending.stage!==11))return null;
+      return s;
     }catch{return null;}
   }
-  return {VERSION,keys,fresh,start,enterWork,change,readSign,observeBox,leaveBox,navigate,returnToView,startTransport,firstTransportEnd,invertTransport,advanceTransportCart,finishTransport,markTruth,markArchiveReady,allowed,snapshot,restore,clone,liftRun};
+  return {VERSION,keys,fresh,start,enterWork,change,readSign,observeBox,leaveBox,navigate,snapshot,returnToView,chooseIntervention,startTransport,firstTransportEnd,invertTransport,advanceTransportCart,finishTransport,completeFilm,exit,returnInside,outsideDoors,allowed,restore,clone};
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=Meiten;
-</script><script>(() => {
+
+</script><script>
+(() => {
   'use strict';
   const $=id=>document.getElementById(id), KEY='meiten-prototype-v3', PREF='meiten-preferences-v1';
-  const names={1:'小部屋',2:'書斎',3:'設備区画',4:'バックヤード',5:'監視室',6:'昇降台'};
+  const names={1:'小部屋',2:'書斎',3:'設備区画',4:'バックヤード',5:'監視室',6:'搬出口'};
   const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  let state=Meiten.fresh(),saved=null,busy=false,notice='',modalKind='',recordToken=0,recordActive=null,firstRecording=false,recordElapsed=0,stillIndex=0,filmFinished=false,arrivalShowing=false,quietActive=false,quietEpoch=0,saveOK=true,focusBefore=null;
-  let prefs={still:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false};
+  let state=Meiten.fresh(),saved=null,busy=false,notice='',modalKind='',focusBefore=null,saveOK=true,recordToken=0,driverToken=0,recordActive=null;
+  let prefs={still:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches||false,speech:false};
   let discardedSave=false;
-  try{const raw=localStorage.getItem(KEY);saved=Meiten.restore(raw);discardedSave=!!raw&&!saved;const p=JSON.parse(localStorage.getItem(PREF)||'null');if(p&&typeof p.still==='boolean')prefs.still=p.still;}catch{saveOK=false;}
+  try{const raw=localStorage.getItem(KEY);saved=Meiten.restore(raw);discardedSave=!!raw&&!saved;const p=JSON.parse(localStorage.getItem(PREF)||'null');if(p&&typeof p.still==='boolean')prefs.still=p.still;if(p&&typeof p.speech==='boolean')prefs.speech=p.speech;}catch{saveOK=false;}
   $('resume').hidden=!saved?.started;$('versionNotice').hidden=!discardedSave;
   function save(){try{localStorage.setItem(KEY,JSON.stringify(state));saveOK=true;}catch{saveOK=false;}if($('saveStatus'))$('saveStatus').textContent=saveOK?'進み具合は、このブラウザに保存されます。':'この環境では保存できません。ページを閉じる前にご注意ください。';}
+  function say(id,text,speaker='A'){
+    if(state.seen[id])return false;state.seen[id]=true;state.caption={id,text,speaker};save();
+    if(prefs.speech&&window.speechSynthesis&&window.SpeechSynthesisUtterance){try{const u=new window.SpeechSynthesisUtterance(text);u.lang='ja-JP';u.rate=.88;window.speechSynthesis.speak(u);}catch{}}
+    return true;
+  }
+  const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+  const button=(label,act,small='',cls='',disabled=false)=>`<button data-action="${act}" class="${cls}" ${disabled?'disabled':''}>${esc(label)}${small?`<small>${esc(small)}</small>`:''}</button>`;
+
   const rect=(x,y,w,h,f,s='',rx=0)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" fill="${f}"${s?` stroke="${s}" stroke-width="2"`:''}/>`;
   const line=(x1,y1,x2,y2,col='#536b63',sw=3,extra='')=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="${sw}" ${extra}/>`;
   const text=(x,y,label,size=16,col='#343d34',anchor='start')=>`<text x="${x}" y="${y}" fill="${col}" font-size="${size}" text-anchor="${anchor}">${esc(label)}</text>`;
@@ -229,7 +281,12 @@ if(typeof module!=='undefined'&&module.exports)module.exports=Meiten;
   const hit=(x,y,w,h,label,act)=>`<g class="hotspot" role="button" tabindex="0" aria-label="${esc(label)}" data-action="${act}">${rect(x,y,w,h,'none','',6).replace('fill="none"','class="hit" fill="none" pointer-events="all"')}${circle(x+w-13,y+13,7,'#e6c697','#655c47')}</g>`;
   const base=()=>rect(0,0,640,480,'#d2c5b0')+poly('0,350 640,350 640,480 0,480','#8c7964')+line(0,350,640,350,'#736450',2);
   const shelf=(x,y,w=85,h=242)=>{let out=rect(x,y,w,h,'#554c3d');for(let row=0;row<3;row++){out+=line(x,y+80*(row+1),x+w,y+80*(row+1),'#342e26',4);for(let col=0;col<4;col++)out+=rect(x+8+col*17,y+14+row*80,10,55,['#897a5f','#77785f','#9c8565'][col%3]);}return out;};
-  function windowSVG(open,x=58,y=70,w=118,h=230){let o=rect(x,y,w,h,'#776450')+rect(x+8,y+8,w-16,h-16,open?'#bfd2cf':'#816759');if(open)o+=rect(x+1,y+4,14,h-7,'#8e6b5c')+rect(x+w-15,y+4,14,h-7,'#8e6b5c')+line(x+w/2,y+8,x+w/2,y+h-8,'#768a82',3)+line(x+8,y+h/2,x+w-8,y+h/2,'#768a82',3);else for(let a=18;a<w;a+=20)o+=line(x+a,y+8,x+a,y+h-8,'#ab8a77',3);return o;}
+  function windowSVG(open,x=58,y=70,w=118,h=230){
+    let o=rect(x,y,w,h,'#776450')+rect(x+8,y+8,w-16,h-16,open?'#253940':'#816759');
+    if(open){o+=circle(x+w*.7,y+32,9,'#d6d6ba');for(let i=0;i<4;i++){o+=rect(x+10+i*23,y+85+(i%2)*20,22,h-94-(i%2)*20,'#4e6260');for(let j=0;j<3;j++)o+=rect(x+15+i*23,y+96+j*22+(i%2)*20,5,7,'#d6c898');}o+=rect(x+19,y+h-49,w-38,27,'#95aaa1')+text(x+w/2,y+h-29,'駅',17,'#2d4c41','middle')+rect(x+1,y+4,14,h-7,'#8e6b5c')+rect(x+w-15,y+4,14,h-7,'#8e6b5c');}
+    else for(let a=18;a<w;a+=20)o+=line(x+a,y+8,x+a,y+h-8,'#ab8a77',3);
+    return o;
+  }
   function lampSVG(on,x=355,y=290){return rect(x-85,y+44,170,17,'#6f5238')+line(x-70,y+61,x-70,450,'#654c38',7)+line(x+70,y+61,x+70,450,'#654c38',7)+line(x,y+42,x+14,y-30,'#455954',6)+poly(`${x-10},${y-63} ${x+38},${y-63} ${x+59},${y-19} ${x-31},${y-19}`,on?'#d2ae6d':'#77705c')+rect(x-18,y+35,48,8,'#3e4b46')+(on?circle(x+14,y-43,6,'#fdf0bd'):'');}
   const arrowCells=new Set(['1,4','2,4','2,5','3,1','3,2','3,3','3,4','3,5','3,6','4,4','4,5','5,4']);
   function shadows(c,l){let out=rect(151,85,315,225,'#dcd0b8');for(let r=1;r<=5;r++)for(let col=1;col<=7;col++){const t=arrowCells.has(`${r},${col}`),a=t||(r+col)%2===0,b=t||(r+col)%2===1;const v=.26+.32*(c&&!a)+.32*(l&&!b);const rgb=Math.round(v*255);out+=rect(151+(col-1)*45,85+(r-1)*45,45.15,45.15,`rgb(${Math.round(rgb*.96)},${Math.round(rgb*.93)},${Math.round(rgb*.87)})`);}return out;}
@@ -249,7 +306,7 @@ if(typeof module!=='undefined'&&module.exports)module.exports=Meiten;
       const y=145+i*54,desired=k!=='alarm',ok=v[k]===desired;
       o+=text(459,y,switchNames[k],22,'#344b37')+text(586,y+24,desired?'ON':'OFF',26,'#344b37','end')+circle(470,y+17,5,ok?'#3d7854':'#a98962');
     }
-    o+=text(524,315,frameFlags.fire?'解錠':'施錠',21,frameFlags.fire?'#f0edcd':'#e1d8b7','middle');
+    o+=text(524,315,frameFlags.fire?'解錠':'施錠',21,frameFlags.fire?'#f0edcd':'#e1d8b7','middle')+text(41,415,'維持系統：別電源',19,'#324c3a');
     if(!work&&!camera)o+=hit(27,55,391,338,'3つのスイッチを見る','work');
     if(!work&&!camera&&frameFlags.fire)o+=hit(435,55,180,301,'避難扉の先へ','go:4');
     return o;
@@ -273,7 +330,7 @@ if(typeof module!=='undefined'&&module.exports)module.exports=Meiten;
     for(const [x,y,dx,dy]of [[320,382,0,-1],[320,276,0,-1],[205,183,-1,0],[92,309,0,1],[201,333,1,0],[444,183,1,0]])o+=routeArrow(x,y,dx,dy);
     if(run){
       if(run.partial)o+=trackLine(run.trackPoints,'#d6a853',13);
-      else{const second=run.trace.indexOf('G',run.trace.indexOf('G')+1),first=second<0?run.trace:run.trace.slice(0,second+1);o+=trackLine(routePoints(first),'#d6a853',15);if(second>=0)o+=trackLine(routePoints(run.trace.slice(second)),'#3c8d92',6);}
+      else{const second=run.trace.indexOf('G',run.trace.indexOf('G')+1),first=second<0?run.trace:run.trace.slice(0,second+1);o+=trackLine(routePoints(first),'#d6a853',15);if(second>=0)o+=trackLine(routePoints(run.trace.slice(second)),'#fff5d8',6);}
     }
     o+=rect(47,211,90,84,run?.switchPassed?'#d7bc6a':'#a49c75','#746645',7)+text(92,248,'解除',25,'#314830','middle');
     const visits=run?.trace.filter(x=>x==='U').length||0;if(visits)o+=text(92,281,`${visits}回通過`,20,'#314830','middle');
@@ -286,7 +343,7 @@ if(typeof module!=='undefined'&&module.exports)module.exports=Meiten;
     const end=run?TRACK[run.trace.at(-1)]||TRACK.S:TRACK.S,cart=v.cartPosition||end;
     o+=rect(cart[0]-24,cart[1]-18,48,36,'#3d6970','#ebe0b7',6)+circle(cart[0]-17,cart[1]+19,4,'#304936')+circle(cart[0]+17,cart[1]+19,4,'#304936');
     o+=text(320,465,'スタート',24,'#314834','middle');
-    if(run&&!run.partial){o+=text(50,425,'1回目',21,'#6f552d')+line(50,440,125,440,'#d6a853',9)+text(50,468,'2回目',21,'#285d64')+line(137,460,203,460,'#3c8d92',6);}
+    if(run&&!run.partial){o+=text(50,425,'1回目',21,'#6f552d')+line(50,440,125,440,'#d6a853',9)+text(50,468,'2回目',21,'#564d3b')+line(137,460,203,460,'#fff5d8',6);}
     return o;
   }
   function firstRunFrame(rec,progress){
@@ -301,129 +358,178 @@ if(typeof module!=='undefined'&&module.exports)module.exports=Meiten;
     const hook=locked?'M 20 45 V 25 A 25 25 0 0 1 70 25 V 45':'M 20 45 V 17 A 25 25 0 0 1 70 17 V 28';
     return `<g transform="translate(${x} ${y}) scale(${scale})"><path d="${hook}" fill="none" stroke="#dbdcc0" stroke-width="10" stroke-linecap="round"/>${rect(0,42,90,64,locked?'#c8ab6d':'#9dbead','#3c6050',8)}${circle(45,69,7,'#385748')}${rect(42,69,6,16,'#385748')}</g>`;
   }
-  function liftScene(v,work=false,ended=false){
-    let o=rect(0,0,640,480,ended?'#c9d1b6':'#b7c2b1');
-    o+=rect(25,18,286,65,'#dfd8b8','#798970',8)+text(168,48,'出発',27,'#344b38','middle')+text(168,73,'柵 閉 ＋ 施錠',23,'#344b38','middle');
-    o+=rect(333,18,282,65,'#dfd8b8','#798970',8)+text(474,48,'出口',27,'#344b38','middle')+text(474,73,'解除で開く',25,'#344b38','middle');
-    o+=line(48,95,48,335,'#6b8377',10)+line(379,95,379,335,'#6b8377',10)+rect(50,325,330,23,'#597b6e','#3e6050',4)+rect(67,130,294,193,'#97ad9b','#54705e',4);
-    if(v.guard){o+=rect(70,174,287,150,'none','#385f50',5)+line(70,185,357,185,'#385f50',9);for(let i=0;i<7;i++)o+=line(82+i*44,181,82+i*44,322,'#4e7765',7);}
-    else{o+=rect(127,176,176,147,'#bec7b0')+line(70,184,118,148,'#385f50',9)+line(118,148,118,295,'#385f50',7)+line(70,325,118,295,'#385f50',5);}
-    o+=rect(411,96,204,64,ended?'#ede7c8':'#587966','#3f604d',6)+text(514,136,ended?'出口 開':'出口 閉',26,ended?'#34583e':'#e6e0bf','middle');
-    o+=rect(411,174,204,173,'#718d7d','#476958',9)+text(513,204,'安全ロック',26,'#f0e8c8','middle')+lockIcon(v.lock,460,220,1.17);
-    o+=text(215,380,'安全柵',28,'#35523f','middle')+text(215,416,v.guard?'CLOSED':'OPEN',29,'#274b3a','middle')+text(215,451,v.guard?'閉':'開',32,'#274b3a','middle');
-    o+=text(513,394,v.lock?'LOCKED':'UNLOCKED',27,'#274b3a','middle')+text(513,438,v.lock?'施錠':'解除',32,'#274b3a','middle');
+
+  // A visible slice of one outer boundary, never a room outline or navigation path.
+  function boundary(r){return (r===4?line(0,10,640,10,'#486e94',7):line(0,350,115,350,'#486e94',7))+ (r===4?line(35,10,140,10,'#cbd5db',2,'stroke-dasharray="12 9"'):line(12,350,105,350,'#cbd5db',2,'stroke-dasharray="12 9"'));}
+  function city(){let o=rect(0,0,640,480,'#6f8586')+rect(0,270,640,210,'#a5aaa0');for(const[x,w,h]of [[0,105,155],[117,83,200],[425,130,172],[568,74,222]]){o+=rect(x,270-h,w,h,'#536a6c');for(let i=0;i<3;i++)for(let j=0;j<4;j++)o+=rect(x+14+i*25,283-h+j*28,10,14,'#cfc9a2');}return o+rect(245,188,151,89,'#a1b7ae','#455f5d',4)+text(320,224,'駅',29,'#2f4c4c','middle')+line(255,247,385,247,'#637c78',6)+poly('280,285 360,285 540,480 100,480','#c2bba6')+line(320,302,320,468,'#ddd3b4',3,'stroke-dasharray="18 18"');}
+  function doorsScene(v,{outside=false,last=null,closed=null,interactive=false,passed=null}={}){
+    let o=base();
+    const order=outside?Meiten.outsideDoors({doors:v,exitDoor:passed}):[{id:'left',open:v.left,screen:'left'},{id:'right',open:v.right,screen:'right'}];
+    o+=text(320,43,outside?'':'どちらか一方が開けば、外へ',25,'#344e40','middle');
+    for(const [i,d]of order.entries()){
+      const x=55+i*315,label=d.id==='left'?'左':'右',outline=d.id===last;
+      o+=`<g data-door-id="${d.id}" data-screen-side="${d.screen}" data-open="${d.open}" data-passed="${d.id===passed}">`;
+      o+=rect(x-7,72,232,296,outline?'#d6b772':'#63786e','#354b43',4)+rect(x,80,218,280,'#b7b9a8');
+      if(d.open){
+        o+=rect(x+7,87,204,268,outside?'#cfc2ab':'#b9c8bc')+poly(`${x+7},355 ${x+211},355 ${x+169},252 ${x+50},252`,outside?'#897d6a':'#d0cfbd')+rect(x+12,99,194,150,outside?'#5b6d5d':'#92aaa3')+rect(x+184,88,24,267,'#6d8074','#364f43')+line(x+182,90,x+182,353,'#d1d2b5',3);
+        o+=text(x+103,191,outside?'':'外廊下',25,'#304e46','middle');
+      }else{
+        o+=rect(x+7,87,204,268,'#62786d','#3e5849',3);for(let j=0;j<8;j++)o+=line(x+12,110+j*29,x+206,110+j*29,'#86968a',6);
+        o+=lockIcon(true,x+80,179,.65);
+      }
+      o+=rect(x,369,218,52,d.open?'#d4dec7':'#aab8ab','#61766a',6)+text(x+109,403,d.open?'解除・開':'施錠・閉',27,'#2b4c3b','middle');
+      if(!outside){o+=text(x+109,64,label+'出口',23,'#344e40','middle');if(interactive)o+=hit(x-5,78,228,344,label+'出口：'+(d.open?'施錠する':'解除する'),'manual:'+d.id);}
+      // Only these exterior thresholds cross the walking direction.
+      o+=line(x,356,x+218,356,'#416b96',9)+line(x+10,356,x+208,356,'#d8e0df',2,'stroke-dasharray="14 9"');
+      if(d.id===closed&&!outside)o+=text(x+109,451,'閉',24,'#334d3f','middle');
+      o+='</g>';
+    }
     return o;
+  }
+  function trialHTML(){return '<section class="trial-result" aria-label="以前の境界試験"><h3>以前の境界試験</h3><dl><div><dt>提示図形</dt><dd>△</dd></div><div><dt>境界内の回答</dt><dd>△</dd></div><div><dt>境界外の回答</dt><dd>回答できず</dd></div><div><dt>名前・日常の応答</dt><dd>正常</dd></div></dl></section>';}
+  function sceneSVG(r,v,view='overview',opts={}){
+    const work=view==='work'||view==='afterBox',camera=!!opts.camera,frameFlags=opts.flags||state.flags;let o='';
+    if(r===1){o=base()+rect(550,79,53,270,'#4c4d3d')+boxSVG(v.box,work);if(!work){o+=rect(25,30,239,121,'#e1d7be','#6f7964',7)+text(43,60,'退館目安 18:00',22)+text(43,91,'現在時刻 20:41',22)+text(43,124,'呼出し：応答なし',22);}if(!camera)o+=hit(work?179:178,work?120:150,work?270:260,230,work?'蓋を開閉する':'箱を調べる',view==='work'?'manual:box':'work');}
+    if(r===2){o=base();if(work||camera){o+=windowSVG(v.curtain)+lampSVG(v.lamp)+shelf(520,52);if(!camera)o+=hit(49,63,138,252,'カーテンを操作','manual:curtain')+hit(260,199,187,201,'ランプを操作','manual:lamp');}else{o+=shelf(19,86,93,264)+shadows(v.curtain,v.lamp)+rect(536,93,68,257,'#292f27')+rect(536,93,7,257,'#897958');if(!camera)o+=hit(23,363,135,70,'灯具側を見る','work');if(frameFlags.route&&!camera)o+=hit(519,79,103,285,'隙間の先へ','go:3');}}
+    if(r===3)o=breakers(v,work,camera,frameFlags);
+    if(r===4){o=transport(v,camera,frameFlags);if(!camera)o+=hit(390,325,230,123,'分岐レバー：'+(v.gate?'解除側':'出口側'),work?'manual:gate':'work');}
+    if(r===5){if(work||camera){o=reader(v);if(!camera)o+=hit(99,91,193,199,'左の遮光板','manual:left')+hit(299,91,193,199,'右の遮光板','manual:right');}else{o=base()+rect(42,72,242,183,'#4c6154','#304b3b',9)+rect(55,87,216,139,frameFlags.monitor?'#8ca38c':'#31463a')+text(163,157,frameFlags.monitor?'記録閲覧':'閲覧停止',24,frameFlags.monitor?'#274c36':'#a1b39b','middle')+rect(83,265,140,71,'#788c76','#516f57',6)+circle(103,286,6,'#b5be78')+text(112,316,'記録継続',17,'#243f2d')+rect(263,268,264,25,'#69593c')+line(279,293,279,464,'#69593c',8)+line(510,293,510,464,'#69593c',8)+rect(342,309,95,61,'#566e63')+rect(454,86,151,150,'#8c9c81','#617663',6)+text(530,153,'読取部',25,'#2f4e36','middle');if(!camera){o+=hit(450,72,155,167,'読取部を調べる','work');if(frameFlags.monitor)o+=hit(42,60,242,195,'監視記録を見る','archive');}}}
+    if(r<=5)o+=boundary(r);
+    if(r===6){const rec=state.history.find(h=>h.id===state.sequence?.recordId),pre=state.sequence?.kind==='final'&&state.sequence.stage===0;const current=pre?rec.pre:v;const last=pre?rec.hand?.key:state.rooms[6].lastRun?.lastTarget||state.pending?.key;o=doorsScene(current,{last,closed:pre?null:state.rooms[6].lastRun?.closedDoor,interactive:!camera&&view==='work'});}
+    if(opts.overlay)o+=opts.overlay;
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${r===1&&work&&!opts.cameraView?'140 90 400 300':'0 0 640 480'}" role="img" aria-label="${esc(names[r]+'。'+(work?'操作する物が見える。':'部屋の様子が見える。'))}"><title>${esc(names[r])}</title>${o}</svg>`;
   }
   function objectiveHTML(r,v){
     if(r===3)return `<div class="record-goal-title">解錠条件</div><div class="breaker-goal">${['power','lighting','alarm'].map(k=>`<div class="${v[k]===(k!=='alarm')?'met':''}"><strong>${switchNames[k]}</strong><b>${k==='alarm'?'OFF':'ON'}</b></div>`).join('')}</div>`;
-    if(r===4){const run=v.lastRun,done=run&&!run.partial;return `<div class="objective transport-goal"><span class="${run?.switchPassed?'met':done?'miss':''}">① 解除スイッチ通過 ${done?(run.switchPassed?'✓':'×'):''}</span><b>→</b><span class="${run?.atDock?'met':done?'miss':''}">② 出口の受け台 ${done?(run.atDock?'✓':'×'):''}</span></div>`;}
+    if(r===4){const run=v.lastRun,done=run&&!run.partial;return `<div class="objective transport-goal"><span class="${run?.switchPassed?'met':done?'miss':''}">① 解除板通過 ${done?(run.switchPassed?'✓':'×'):''}</span><b>→</b><span class="${run?.atDock?'met':done?'miss':''}">② 出口受け台 ${done?(run.atDock?'✓':'×'):''}</span></div>`;}
     if(r===5)return recordingGoal(v);
-    if(r===6)return `<div class="objective lift-goal"><div><strong>出発${v.lastRun?.departed?' ✓':''}</strong><span class="${v.guard?'met':''}">柵：閉 <small>CLOSED</small></span><span class="${v.lock?'met':''}">ロック：施錠 <small>LOCKED</small></span></div><b>→</b><div><strong>出口${v.lastRun?.exitOpen?' ✓':''}</strong><span>ロック：解除</span><span class="${!v.lock?'met':''}">UNLOCKED</span></div></div>`;
+    if(r===6)return '<div class="exit-goal">どちらか一方が開けば、外へ</div>';
     return '';
   }
-  function sceneSVG(r,v,view='overview',opts={}){
-    const work=view==='work'||view==='afterBox',camera=!!opts.camera,frameFlags=opts.flags||state.flags;
-    let o='';
-    if(r===1){o=base()+rect(550,79,53,270,'#4c4d3d')+rect(36,37,46,26,'#474b3d')+circle(60,43,3,'#c5ab71')+boxSVG(v.box,work);if(!camera)o+=hit(work?179:178,work?120:150,work?270:260,230,work?'開閉する':'箱を調べる',view==='work'?'manual:box':'work');}
-    if(r===2){o=base();if(work||camera){o+=windowSVG(v.curtain)+lampSVG(v.lamp)+shelf(520,52);if(!camera)o+=hit(49,63,138,252,'カーテンを操作','manual:curtain')+hit(260,199,187,201,'ランプを操作','manual:lamp');}else{o+=shelf(19,86,93,264)+shadows(v.curtain,v.lamp)+rect(536,93,68,257,'#292f27')+rect(536,93,7,257,'#897958');o+=hit(23,363,135,70,'灯具側を見る','work');if(state.flags.route)o+=hit(519,79,103,285,'隙間の先へ','go:3');}}
-    if(r===3)o=breakers(v,work,camera,opts.flags||state.flags);
-    if(r===4){o=transport(v,camera,opts.flags||state.flags);if(!camera)o+=hit(390,325,230,123,'分岐レバー：'+(v.gate?'解除側':'出口側'),work?'manual:gate':'work');}
-    if(r===5){if(work||camera){o=reader(v);if(!camera)o+=hit(99,91,193,199,'左の遮光板','manual:left')+hit(299,91,193,199,'右の遮光板','manual:right');}else{o=base()+rect(62,72,190,170,'#4c6154','#304b3b',9)+rect(76,87,162,118,frameFlags.monitor?'#8ca38c':'#31463a')+text(157,151,frameFlags.monitor?'記録閲覧':'閲覧停止',20,frameFlags.monitor?'#274c36':'#a1b39b','middle')+rect(83,265,140,71,'#788c76','#516f57',6)+circle(103,286,6,'#b5be78')+text(112,316,'記録継続',13,'#243f2d')+rect(263,268,264,25,'#69593c')+line(279,293,279,464,'#69593c',8)+line(510,293,510,464,'#69593c',8)+rect(342,309,95,61,'#566e63')+line(355,370,355,453,'#3b5548',6)+line(424,370,424,453,'#3b5548',6)+rect(497,89,95,132,'#8c9c81','#617663',6)+text(503,158,'読取部',18,'#2f4e36');o+=hit(484,72,122,167,'読取部を調べる','work');if(frameFlags.monitor)o+=hit(52,60,212,183,'監視記録を見る','archive');}}
-    if(r===6){o=liftScene(v,work,camera?!!opts.finished:state.ended);if(!camera&&!state.ended)o+=hit(46,167,345,285,'安全柵：'+(v.guard?'閉':'開'),work?'manual:guard':'work')+hit(407,168,212,285,'安全ロック：'+(v.lock?'施錠':'解除'),work?'manual:lock':'work');}
-    if(opts.overlay)o+=opts.overlay;
-    const status=work?'操作する物が見える。':'部屋の様子が見える。';
-    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${r===1&&work&&!opts.cameraView?'140 90 400 300':'0 0 640 480'}" role="img" aria-label="${esc(names[r]+'。'+status)}"><title>${esc(names[r])}</title>${o}</svg>`;
-  }
-  const button=(label,act,small='',cls='',disabled=false)=>`<button data-action="${act}" class="${cls}" ${disabled?'disabled':''}>${esc(label)}${small?`<small>${esc(small)}</small>`:''}</button>`;
-  function defaults(){const r=state.room,v=state.rooms[r];if(state.view==='work')return {1:'箱の内側に、案内札が貼り付けられている。',2:'灯具側を向いている。壁は背後にある。',3:'扉横の表示に、解錠に必要な状態が並んでいる。',4:'分岐を決めて、搬送を開始する。',5:'一回の連続記録で、起動テストを行う。',6:'出口へ進むリフト。出発と出口の条件が表示されている。'}[r];return {1:'机の上に、蓋付きの箱がある。',2:state.flags.route?'壁の影が、本棚脇の隙間を指している。':'壁には、不規則な影がある。',3:state.flags.fire?'避難扉の解錠表示が点いている。':'避難扉は、まだ動かない。',4:'解除スイッチを踏んでから、出口の受け台へ。分岐を2回通る搬送路。',5:state.flags.monitor?'閲覧端末が動いている。記録装置は、止まっていなかった。':'閲覧端末は停止中。記録装置の灯は点いている。',6:'通用口へ上がる昇降台がある。'}[r];}
-  function controlsHTML(){const r=state.room,v=state.rooms[r];if(state.view==='afterBox')return button('部屋へ戻る','leaveBox','','primary main-action')+button('箱を調べる','work');if(state.view==='overview'){
-    let s='<p class="overline">目の前のもの</p>';
-    s+=button(r===6?'操作部を見る':r===4?'分岐レバーを見る':r===5?'読取部を見る':r===2?'灯具側を見る':r===3?'電源盤を見る':'箱を調べる','work');
-    if(r===5){s+=button(state.flags.monitor?'直前の記録を見る':'端末を見る',state.flags.monitor?'archive':'terminal','','primary');if(state.flags.archiveReady&&archive01())s+=button('ARCHIVE 01','archive01');}
-    if(r===4)s+=`<div class="machine-current"><span>現在の分岐</span><strong>${v.gate?'← 解除側へ':'出口へ →'}</strong></div>`;
-    if(r===6&&v.lastRun)s+=`<div class="machine-current"><strong>${v.lastRun.exitOpen?'出口到着':v.lastRun.departed?'途中停止':'出発停止'}</strong></div>`;
-    return s;
-  }
-    let s=`<p class="overline">手元の操作</p><div class="control-grid ${[3,4,6].includes(r)?'breaker-grid':''}">`;
-    if(r===1)s+=button(v.box?'蓋を閉じる':'蓋を開ける','manual:box',v.box?'開':'閉');
-    if(r===2)s+=button(v.curtain?'カーテンを閉じる':'カーテンを開ける','manual:curtain',v.curtain?'開':'閉')+button(v.lamp?'ランプを消す':'ランプを点ける','manual:lamp',v.lamp?'点':'消');
-    if(r===3)for(const k of ['power','lighting','alarm'])s+=button(switchNames[k],'manual:'+k,`${v[k]?'ON → OFF':'OFF → ON'}`,'breaker-control '+(v[k]?'is-on':'is-off'));
-    if(r===4)s+=button(v.gate?'出口へ → 切り替える':'← 解除側へ切り替える','manual:gate',v.gate?'現在：解除側':'現在：出口側','mechanism-control');
+
+  function platePair(left,right){return `<svg viewBox="0 0 130 65" aria-hidden="true">${rect(10,5,48,48,left?'#e6dec1':'#304b3e','#8da88a',5)}${rect(72,5,48,48,right?'#e6dec1':'#304b3e','#8da88a',5)}${text(34,44,'左',23,left?'#375640':'#cbd9c5','middle')}${text(96,44,'右',23,right?'#375640':'#cbd9c5','middle')}</svg>`;}
+  function recordingGoal(v){const rec=state.view==='overview'?state.history.filter(h=>h.room===5&&h.mode==='recording').at(-1):null,a=rec?rec.pre:v,b=rec?rec.post:v;return `<div class="record-goal-title">一回の連続記録</div><div class="objective recording-goal"><div class="${a.left&&!a.right?'met':''}"><strong>記録開始時</strong>${platePair(true,false)}<span>左のみ開</span><small class="lighting-state">照明 ON</small>${rec?`<small>${a.left&&!a.right?'✓':'×'} 開始状態</small>`:''}</div><b>→</b><div class="${b.left&&b.right?'met':''}"><strong>記録終了時</strong>${platePair(true,true)}<span>左右とも開</span><small class="lighting-state">照明 ON</small>${rec?`<small>${b.left&&b.right?'✓':'×'} 終了状態</small>`:''}</div></div>`;}
+  function controlsHTML(){
+    const r=state.room,v=state.rooms[r];
+    if(state.view==='choice')return '<p class="overline">搬出口</p>'+button('外へ進む','exit','','primary')+button('部屋へ戻る','inside');
+    if(state.view==='afterBox')return button('部屋へ戻る','leaveBox','','primary main-action')+button('箱を調べる','work');
+    if(state.view==='overview'){
+      let s='<p class="overline">目の前のもの</p>'+button({1:'箱を調べる',2:'灯具側を見る',3:'電源盤を見る',4:'分岐レバーを見る',5:'読取部を見る',6:'出口の解除部を見る'}[r],'work');
+      if(r===1)s+=button('呼出し','call','応答なし');
+      if(r===5){s+=button(state.flags.monitor?'直前の記録を見る':'端末を見る',state.flags.monitor?'archive':'terminal','','primary');if(state.flags.archiveReady){s+=button('ARCHIVE 01','archive01');s+=button('以前の境界試験','trial');}}
+      if(r===6&&v.lastRun?.success)s+=button('出口へ向き直る','face','','primary');
+      return s;
+    }
+    let s='<p class="overline">手元の操作</p><div class="control-grid '+([3,4,6].includes(r)?'breaker-grid':'')+'">';
+    if(r===1)s+=button(v.box?'蓋を閉じる':'蓋を開ける','manual:box',v.box?'開 → 閉':'閉 → 開');
+    if(r===2)s+=button(v.curtain?'カーテンを閉じる':'カーテンを開ける','manual:curtain',v.curtain?'OPEN':'CLOSED')+button(v.lamp?'ランプを消す':'ランプを点ける','manual:lamp',v.lamp?'ON':'OFF');
+    if(r===3)for(const k of ['power','lighting','alarm'])s+=button(switchNames[k],'manual:'+k,v[k]?'ON → OFF':'OFF → ON','breaker-control '+(v[k]?'is-on':'is-off'));
+    if(r===4)s+=button(v.gate?'出口へ → 切り替える':'← 解除板へ切り替える','manual:gate',v.gate?'現在：← 解除板':'現在：出口 →','mechanism-control');
     if(r===5)s+=button(v.left?'左板を閉じる':'左板を開ける','manual:left',v.left?'開':'閉')+button(v.right?'右板を閉じる':'右板を開ける','manual:right',v.right?'開':'閉');
-    if(r===6)s+=button(v.guard?'安全柵を開ける':'安全柵を閉じる','manual:guard',v.guard?'CLOSED / 閉':'OPEN / 開','mechanism-control')+button(v.lock?'安全ロックを解除':'安全ロックを掛ける','manual:lock',v.lock?'LOCKED / 施錠':'UNLOCKED / 解除','mechanism-control');
+    if(r===6)for(const k of ['left','right'])s+=button((k==='left'?'左':'右')+'出口を'+(v[k]?'施錠':'解除'),'manual:'+k,v[k]?'解除・開 → 施錠・閉':'施錠・閉 → 解除・開','mechanism-control '+(v[k]?'is-on':''));
     s+='</div>';
     if(r===1)s+=button('案内札を見る','paper','','',!v.box);
-    if(r===5)s+=button('記録条件を見る','readerNote');
-
-    const label={1:'部屋に戻る',2:'壁の方へ',3:'扉を見る位置へ',4:'部屋を見る',5:'監視席へ戻る',6:'リフトに乗って出口へ'}[r];
-    if(r===4)return s+button('搬送開始','transport','','primary main-action')+button(label,'return');
-    if(r===5)return s+button('記録開始','recordStart','','primary main-action')+button(label,'return');
-    return s+button(label,'return','','primary main-action');
+    if(r===4)return s+button('搬送開始','transport','','primary main-action')+button('部屋を見る','return');
+    if(r===5)return s+button('記録開始','recordStart','','primary main-action')+button('監視席へ戻る','return');
+    return s+button({1:'戻る',2:'壁の方へ',3:'扉を見る位置へ',6:'出口へ向き直る'}[r],'return','','primary main-action');
   }
+  function comparisonHTML(){
+    if(state.room!==6)return '';
+    const run=state.rooms[6].lastRun;if(!run)return '';
+    const rec=state.history.filter(h=>h.room===6).at(-1);if(!rec||state.sequence?.stage===0)return '';
+    return `<section class="comparison" aria-label="暗転前と現在の比較"><div class="comparison-before"><span>暗転前</span><svg viewBox="0 0 640 480" role="img" aria-label="暗転前の二出口">${doorsScene(rec.pre,{last:rec.hand?.key})}</svg></div><div class="comparison-states"><span>暗転前 → 現在</span>${['left','right'].map(k=>`<p class="${rec.hand?.key===k?'last-outline':''}">${k==='left'?'左':'右'}出口　${rec.pre[k]?'開':'閉'} → <b>${rec.post[k]?'開':'閉'}</b>${rec.hand?.key===k?'<small>最後の操作</small>':''}</p>`).join('')}</div></section>`;
+  }
+  function defaultMessage(){
+    if(state.room===1)return state.view==='afterBox'?'':state.view==='work'?'蓋の内側に、固定された案内札がある。':'';
+    if(state.room===2)return state.view==='work'?'壁は背後にある。':state.flags.route?'影が本棚脇の隙間を指している。':'';
+    if(state.room===3)return state.flags.fire?'避難扉の解錠表示が点いている。':'';
+    if(state.room===4)return state.rooms[4].lastRun?'カートが通った軌跡が残っている。':'';
+    if(state.room===5)return state.flags.monitor?'閲覧端末が動いている。':'閲覧端末は停止中。記録の灯は点いている。';
+    return '';
+  }
+  function captionHTML(){return state.caption?`<span class="spoken ${state.caption.speaker==='B'?'b-voice':''}">${esc(state.caption.text)}</span>`:esc(notice||defaultMessage());}
   function render(){
-    $('intro').hidden=state.started;$('game').hidden=!state.started||(state.ended&&!arrivalShowing);$('ending').hidden=!state.ended||arrivalShowing;
+    $('intro').hidden=state.started;$('game').hidden=!state.started||state.ended;$('ending').hidden=!state.ended;
     if(!state.started)return;
-    if(state.ended&&!arrivalShowing){$('paths').innerHTML='';return;}
-    $('roomName').textContent=names[state.room];$('viewLabel').textContent=state.view!=='overview'?'手元':'周囲';
-    $('scene').innerHTML=sceneSVG(state.room,state.rooms[state.room],state.view,{camera:state.view==='afterBox'})+([4,6].includes(state.room)?'':`<div class="hands ${state.view==='work'?'show':''}" id="hands" aria-hidden="true"><svg viewBox="0 0 180 110">${handArt()}</svg></div>`);
+    if(state.ended){$('paths').innerHTML='';$('endBoxArchive').hidden=!state.flags.archiveReady;save();return;}
+    $('roomName').textContent=state.ending?'':names[state.room];$('viewLabel').textContent=state.ending?'':state.view==='work'?'手元':state.view==='afterBox'?'箱':state.view==='choice'?'搬出口':'周囲';
+    const hasTrial=state.room===5&&(state.flags.trialSeen||state.sequence?.kind==='truth'&&state.sequence.stage>=2);
+    $('scene').innerHTML=sceneSVG(state.room,state.rooms[state.room],state.view,{camera:!!state.sequence||!!state.activity||state.view==='afterBox'})+`<div class="hands ${state.view==='work'||state.room===1||state.sequence?.kind==='truth'?'show':''}" id="hands" aria-hidden="true"><svg viewBox="0 0 180 110">${handArt()}</svg></div>`;
     if(state.view==='afterBox')Meiten.observeBox(state);
     $('goalBoard').hidden=![3,4,5,6].includes(state.room);$('goalBoard').innerHTML=objectiveHTML(state.room,state.rooms[state.room]);
-    $('controls').innerHTML=state.ended?'<p class="arrival-mark">出口 開</p>':controlsHTML();$('message').textContent=notice||defaults();
-    $('paths').innerHTML=state.view!=='overview'||state.ended?'':Object.keys(names).filter(r=>Meiten.allowed(state,Number(r))).map(r=>button(names[r],'go:'+r,'',Number(r)===state.room?'current':'')).join('');
-    if(quietActive){$('message').textContent='';$('controls').innerHTML='';$('paths').innerHTML='';$('goalBoard').hidden=true;}
-    $('endBoxArchive').hidden=!state.flags.archiveReady||!archive01();
-    save();
+    $('controls').innerHTML=controlsHTML();$('message').innerHTML=captionHTML();
+    $('extraInfo').innerHTML=(hasTrial?trialHTML():'')+comparisonHTML();
+    $('paths').innerHTML=state.view!=='overview'||state.ending?'':Object.keys(names).filter(r=>Meiten.allowed(state,Number(r))).map(r=>button(names[r],'go:'+r,'',Number(r)===state.room?'current':'')).join('');
+    if(state.sequence||state.activity){$('controls').innerHTML='';$('paths').innerHTML='';if(state.sequence?.kind==='truth'){$('goalBoard').hidden=true;if(state.sequence.stage===0)$('message').textContent='';}}
+    if(state.ending)paintEnding();
+    $('game').setAttribute('aria-busy',busy?'true':'false');save();
   }
-  const messageFor=rec=>{const r=rec.room,p=rec.post;if(r===1)return '';if(r===2)return p.curtain&&p.lamp?'二つの光で、壁に形が浮かんだ。':'壁の模様は、まだまとまらない。';if(r===3)return rec.success?'扉の解錠表示が点いた。':p.alarm?'警報表示が点いている。':'扉の表示は消えたままだ。';if(r===4)return rec.success?'シャッターを抜けて、出口へ。':'カートは停止した。通過した軌跡が残っている。';if(r===5)return rec.success?'閲覧端末が起動した。直前の記録が読み込まれている。':'読取結果が残っている。';return rec.success?'柵は閉じたまま。ロックが外れ、出口が開いた。':rec.run.departed?'リフトは途中で止まった。':'リフトは出発位置で止まっている。';};
-  const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
-  function paintCartPreview(rec,progress){const v=firstRunFrame(rec,progress);$('scene').innerHTML=sceneSVG(4,v,'work',{camera:true,flags:rec.flagsBefore});$('goalBoard').innerHTML=objectiveHTML(4,v);$('message').textContent='搬送中';}
-  function animateFirstPass(rec){
-    if(prefs.still){paintCartPreview(rec,1);return delay(500);}
-    return new Promise(resolve=>{const began=performance.now();function frame(now){const p=Math.min(1,(now-began)/2600);paintCartPreview(rec,p);if(p<1)requestAnimationFrame(frame);else resolve();}requestAnimationFrame(frame);}).then(()=>delay(350));
+  function sequenceEntry(q){
+    const rec=state.history.find(h=>h.id===q.recordId);if(!(q.kind==='final'&&q.stage===4))state.caption=null;
+    if(q.kind==='final'){
+      if(q.stage===1){if(rec.success){say('b-success','……忘れる。','B');q.voice='……忘れる。';}else if(rec.intervention&&say('b-refusal','でるな。','B'))q.voice='でるな。';}
+      if(q.stage===2&&q.voice)state.caption={speaker:'B',text:q.voice};
+      if(q.stage===3&&rec.success)say('a-choice','……それでも、帰りたい。');
+    }
+    if(q.kind==='truth'){
+      if(q.stage===1)say('a-call','……そこに、いるんだろ。');
+      if(q.stage===3)say('a-risk','……忘れるのか？');
+    }
+    if(q.kind==='return'&&q.stage===1&&rec.room===3&&rec.success)say('a-home','……帰りたい。');
+    const durations=q.kind==='return'?[1100,600]:q.kind==='truth'?[2600,1900,1500,1500]:[1000,2800,2800,2000,0];
+    // Reduced motion keeps the same observations and reading intervals.
+    q.until=Date.now()+durations[q.stage];save();
   }
+  async function driveSequence(){
+    if(!state.sequence)return;busy=true;const token=++driverToken;
+    while(state.sequence&&token===driverToken){
+      const q=state.sequence;if(!q.until)sequenceEntry(q);render();
+      const black=q.kind==='return'&&q.stage===0||q.kind==='final'&&q.stage===1;
+      $('fade').classList[black?'add':'remove']('active');
+      $('fade').innerHTML=black&&state.caption?.speaker==='B'?`<div class="fade-caption" role="status">${esc(state.caption.text)}</div>`:'';
+      await delay(Math.max(0,q.until-Date.now()));if(token!==driverToken)return;
+      const last=q.kind==='return'?1:q.kind==='truth'?3:4;
+      if(q.stage>=last){
+        if(q.kind==='truth'){state.flags.trialSeen=true;state.flags.archiveReady=true;state.caption=null;}
+        if(q.kind==='final'){const rec=state.history.find(h=>h.id===q.recordId);state.view=rec.success?'choice':'overview';}
+        state.sequence=null;
+      }else{q.stage++;q.until=0;}
+      save();
+    }
+    $('fade').innerHTML='';$('fade').classList.remove('active');busy=false;render();
+  }
+  function stepBack(mode='view'){
+    if(busy)return;notice='';const rec=Meiten.returnToView(state,mode);save();
+    if(rec)driveSequence();else render();
+  }
+  function paintCartPreview(a,progress){const v=firstRunFrame(a,progress);$('scene').innerHTML=sceneSVG(4,v,'work',{camera:true,flags:a.flagsBefore});$('goalBoard').innerHTML=objectiveHTML(4,v);$('message').textContent='搬送中';}
+  function animateFirstPass(a){if(prefs.still){paintCartPreview(a,1);return delay(650);}return new Promise(resolve=>{const began=performance.now();function frame(now){const p=Math.min(1,(now-began)/2600);paintCartPreview(a,p);if(p<1)requestAnimationFrame(frame);else resolve();}requestAnimationFrame(frame);}).then(()=>delay(400));}
   async function runTransport(resuming=false){
     if(busy)return;const a=resuming?state.activity:Meiten.startTransport(state);if(!a)return;
-    busy=true;save();$('game').setAttribute('aria-busy','true');for(const b of $('game').querySelectorAll('button'))b.disabled=true;
+    busy=true;state.caption=null;save();render();
     if(state.activity.stage==='first'){await animateFirstPass(a);Meiten.firstTransportEnd(state);save();}
-    $('fade').classList.add('active');await delay(prefs.still?120:300);
+    $('fade').classList.add('active');await delay(300);
     if(state.activity.stage==='blackout'){Meiten.invertTransport(state);save();}
-    // Each waypoint belongs to this single run; success stays locked until its last visit.
-    while(state.activity.stage==='second'){await delay(prefs.still?160:740);Meiten.advanceTransportCart(state);save();}
-    const rec=Meiten.finishTransport(state);save();notice=messageFor(rec);render();$('fade').classList.remove('active');$('game').removeAttribute('aria-busy');busy=false;
-  }
-  async function stepBack(mode='view'){
-    if(busy)return;
-    const rec=Meiten.returnToView(state,mode);if(!rec)return;
-    busy=true;save();$('game').setAttribute('aria-busy','true');for(const button of $('game').querySelectorAll('button'))button.disabled=true;
-    // Commit once before animation; reloading cannot repeat the inverse operation.
-    if(rec.room===6&&rec.run.departed){$('message').textContent='出発';await delay(prefs.still?150:450);}
-    $('fade').classList.add('active');
-    await delay(prefs.still?120:1100);
-    notice=messageFor(rec);
-    if(state.ended){
-      $('fade').innerHTML='<div class="black-end">暗転した。<br>今度は、それを待てた。</div>';await delay(prefs.still?450:1700);$('fade').innerHTML='';
-      arrivalShowing=true;render();$('fade').classList.remove('active');
-      await delay(prefs.still?1600:2600);arrivalShowing=false;render();
-    }else{render();$('fade').classList.remove('active');}
-    $('game').removeAttribute('aria-busy');busy=false;
+    while(state.activity.stage==='second'){await delay(prefs.still?300:740);Meiten.advanceTransportCart(state);save();}
+    const rec=Meiten.finishTransport(state);save();notice=rec.success?'':'カートが通った軌跡が残っている。';busy=false;render();$('fade').classList.remove('active');
+    if(rec.success){$('hands')?.classList.add('show');await delay(1600);$('hands')?.classList.remove('show');}
   }
   function openModal(kind,html){focusBefore=document.activeElement;modalKind=kind;$('modal').className='modal'+(kind==='paper'?' paper':kind==='archive'?' cinema':'');$('modal').innerHTML=html;$('modalLayer').classList[kind==='archive'?'add':'remove']('cinema-layer');$('modalLayer').hidden=false;document.body.style.overflow='hidden';document.querySelector('.shell')?.setAttribute('inert','');$('modal').querySelector('button:not(:disabled)')?.focus();}
-  function closeModal(){recordToken++;modalKind='';$('modalLayer').hidden=true;document.body.style.overflow='';document.querySelector('.shell')?.removeAttribute('inert');firstRecording=false;if(focusBefore?.isConnected)focusBefore.focus();else $('menu').focus();}
+  function closeModal(){recordToken++;modalKind='';$('modalLayer').hidden=true;document.body.style.overflow='';document.querySelector('.shell')?.removeAttribute('inert');if(focusBefore?.isConnected)focusBefore.focus();else $('menu').focus();}
   const modalHead=title=>`<div class="modal-head"><h2 id="modalTitle">${esc(title)}</h2>${button('閉じる','close','','quiet')}</div>`;
-  function showPaper(){if(!Meiten.readSign(state))return;save();openModal('paper',`<div class="modal-head"><h2 id="modalTitle">箱の内側の案内札</h2>${button('戻る','close','','quiet')}</div><p>退館時は、バックヤード奥の<br>通用口を使用すること。</p>`);}
-  function platePair(left,right){return `<svg viewBox="0 0 130 65" aria-hidden="true">${rect(10,5,48,48,left?'#e6dec1':'#304b3e','#8da88a',5)}${rect(72,5,48,48,right?'#e6dec1':'#304b3e','#8da88a',5)}${text(34,44,'左',23,left?'#375640':'#cbd9c5','middle')}${text(96,44,'右',23,right?'#375640':'#cbd9c5','middle')}</svg>`;}
-  function recordingGoal(v){const rec=state.view==='overview'?state.history.filter(h=>h.room===5&&(h.mode==='recording'||h.success)).at(-1):null,a=rec?rec.pre:v,b=rec?rec.post:v;return `<div class="record-goal-title">一回の連続記録</div><div class="objective recording-goal"><div class="${a.left&&!a.right?'met':''}"><strong>記録開始時</strong>${platePair(true,false)}<span>左のみ開</span><small class="lighting-state">照明 ON</small>${rec?`<small>${a.left&&!a.right?'✓':'×'} 開始状態</small>`:''}</div><b>→</b><div class="${b.left&&b.right?'met':''}"><strong>記録終了時</strong>${platePair(true,true)}<span>左右とも開</span><small class="lighting-state">照明 ON</small>${rec?`<small>${b.left&&b.right?'✓':'×'} 終了状態</small>`:''}</div></div>`;}
-  function showReader(){openModal('read',modalHead('連続記録の条件')+recordingGoal(state.rooms[5]));}
-  function showSettings(){openModal('settings',modalHead('設定')+`<div class="settings"><label><input id="still" type="checkbox" ${prefs.still?'checked':''}>動きを抑えて表示する</label><p>この試作の進行は、このブラウザに保存されます。記録を見る操作は、部屋の物を変えません。</p>${button('はじめからやり直す','resetAsk','','danger')}</div>`);}
-  function askReset(){openModal('reset',modalHead('はじめから')+'<p>このブラウザの進行と監視記録を消して、最初から始めます。</p>'+button('最初から始める','reset','','danger')+button('戻る','settings'))}
-  function reset(){$('versionNotice').hidden=true;discardedSave=false;quietEpoch++;quietActive=false;arrivalShowing=false;recordToken++;firstRecording=false;state=Meiten.fresh();saved=null;notice='';closeModal();try{localStorage.removeItem(KEY);}catch{}$('resume').hidden=true;render();}
+  function showPaper(){if(!Meiten.readSign(state))return;save();openModal('paper',`<div class="modal-head"><h2 id="modalTitle">滞在中の方へ</h2>${button('戻る','close','','quiet')}</div><p>案内があるまで、この区画内でお待ちください。<br>青線より先へは、案内なしに進まないでください。</p>`);}
+  function showSettings(){openModal('settings',modalHead('設定')+`<div class="settings"><label><input id="still" type="checkbox" ${prefs.still?'checked':''}>動きを抑えて表示する</label><label><input id="speech" type="checkbox" ${prefs.speech?'checked':''}>台詞を端末の音声で読み上げる</label><p>進行はこのブラウザに保存されます。音声に対応しない環境でも、台詞は画面で読めます。</p>${button('はじめからやり直す','resetAsk','','danger')}</div>`);}
+  function askReset(){openModal('reset',modalHead('はじめから')+'<p>このブラウザの進行と監視記録を消して、最初から始めます。</p>'+button('最初から始める','reset','','danger')+button('戻る','settings'));}
+  function reset(){driverToken++;recordToken++;busy=false;state=Meiten.fresh();saved=null;notice='';closeModal();$('fade').innerHTML='';$('fade').classList.remove('active');try{localStorage.removeItem(KEY);}catch{}$('resume').hidden=true;$('versionNotice').hidden=true;render();}
+  function showTrial(){state.archives.trial=true;save();openModal('trial',modalHead('以前の境界試験')+trialHTML()+`<div class="trial-return"><span>帰域後・保存記録の閲覧</span><svg viewBox="0 0 640 300" role="img" aria-label="室内へ戻った同じ袖の人物が、保存された回答結果を見ている">${rect(0,0,640,300,'#b8c0ae')+rect(270,35,320,210,'#384f44')+text(300,86,'保存済み',23,'#dce2c9')+text(300,131,'境界内　△',24,'#dce2c9')+text(300,177,'境界外　回答できず',22,'#dce2c9')+actor(160,200,true,true)}</svg></div>`);}
+
   function actor(x,y,seated=false,reach=false,walking=0){
     const yy=seated?y+10:y;
     // Calm ordinary movement; the sleeve, watch and cord remain identical throughout.
     const body=circle(0,-53,13,'#cba486')+poly('-20,-37 18,-37 23,4 -22,4','#4e7281')+line(-9,4,-12+walking,38,'#344f5b',9)+line(10,4,17-walking,38,'#344f5b',9)+line(-19,-29,-25,-2,'#4e7281',9)+line(18,-29,reach?44:27,reach?-19:-2,'#4e7281',10)+line(23,-19,reach?39:27,reach?-23:-12,'#eadfc0',3)+line(24,-13,reach?44:29,reach?-17:-7,'#eadfc0',3)+line(reach?44:29,reach?-16:-7,reach?54:32,reach?-17:3,'#cba486',8)+rect(reach?42:26,reach?-20:-10,8,8,'#d7d7b9','#344b4b',2)+rect(reach?44:28,reach?-18:-8,4,4,'#425c57')+line(reach?50:31,reach?-18:0,reach?53:33,reach?-12:0,'#a94436',3);
     return `<g transform="translate(${x} ${yy}) scale(1.25)">${body}</g>`;
   }
-  const FILM_LENGTH=17,QUIET_LENGTH=2.6,STILL_TIMES=[0,1.6,4.8,6.8,9.0,11.2,14.4,17];
+  const FILM_LENGTH=17,STILL_TIMES=[0,1.6,4.8,6.8,9.0,11.2,14.4,17];
   function cameraClock(rec,t){const end=Date.parse(rec.at),base=Number.isFinite(end)?end:Date.UTC(2026,0,1,20,41,33);return new Date(base-FILM_LENGTH*1000+Math.floor(t)*1000).toISOString().slice(11,19);}
   function filmFrame(rec,t){
     const r=rec.room,hand=rec.hand;let world=Meiten.clone(rec.pre);
@@ -449,62 +555,111 @@ if(typeof module!=='undefined'&&module.exports)module.exports=Meiten;
     overlay+=line(wrist[0],wrist[1],530,203,'#758775',1.1,'stroke-dasharray="4 4"')+rect(wrist[0]-7,wrist[1]-7,14,14,'none','#9baa80',2)+rect(412,57,213,146,'#c9cebc','#617c69',6)+text(422,77,'DETAIL',12,'#3c5643')+`<g transform="translate(417 80) scale(1.02)">${handArt()}</g>`;
     return sceneSVG(r,world,'work',{camera:true,cameraView:true,overlay,flags:t>=14.4?rec.flagsAfter:rec.flagsBefore});
   }
-  function archive01(){return state.history.find(h=>h.room===1&&h.hand?.key==='box'&&h.hand.from===false&&h.hand.to===true)||state.history.find(h=>h.room===1);}
+  function archive01(){return state.history.find(h=>h.boxEncounter&&h.hand?.to===true)||state.history.find(h=>h.boxEncounter);}
   function playerFrame(rec,t){
     if(t>=5.4&&t<15.2)return '<div class="blind-view" aria-label="視界が黒くなっている"></div>';
     const v=Meiten.clone(t>=15.2?rec.post:rec.pre);if(rec.hand&&t<1.6)v[rec.hand.key]=rec.hand.from;
     const overlay=`<g transform="${rec.room===1?'translate(345 295) scale(.7)':'translate(437 367) scale(1)'}">${handArt()}</g>`;
-    return sceneSVG(rec.room,v,'work',{camera:true,overlay,flags:t>=15.2?rec.flagsAfter:rec.flagsBefore})+(rec.room===1&&v.box&&t>=1.6&&t<4.4?'<div class="recorded-sign">退館時は、バックヤード奥の<br>通用口を使用すること。</div>':'');
+    return sceneSVG(rec.room,v,'work',{camera:true,overlay,flags:t>=15.2?rec.flagsAfter:rec.flagsBefore})+(rec.room===1&&v.box&&t>=1.6&&t<4.4?'<div class="recorded-sign">滞在中の方へ<br>案内があるまで、この区画内でお待ちください。<br>青線より先へは、案内なしに進まないでください。</div>':'');
   }
-  function openArchive(rec=null){
+
+  function openArchive(rec=null,resuming=false){
     if(!state.flags.monitor||busy)return;
     rec=rec||state.history.filter(h=>h.room===5&&h.success).at(-1);if(!rec)return;
-    recordToken++;firstRecording=!state.flags.truth;recordActive=rec;recordElapsed=0;
-    openModal('archive',`<div class="modal-head"><h2 id="modalTitle">${rec.room===1?'ARCHIVE 01':'直前の記録'}</h2>${button('監視室へ戻る','close','','quiet')}</div><div class="film-pair"><section class="film-pane"><div class="pane-head"><h3>あなたの視界</h3><time id="povClock"></time></div><div id="povFilm" class="record-stage"></div></section><section class="film-pane"><div class="pane-head"><h3>監視カメラ <small>CAM ${String(rec.room).padStart(2,'0')}</small></h3><time id="cameraTime"></time></div><div id="film" class="record-stage"></div></section></div><div class="present-hand"><span>手元</span><svg viewBox="0 0 180 110" role="img" aria-label="袖、腕時計、赤い紐のある手首">${handArt()}</svg></div><div class="record-bar">${button('もう一度見る','replay')}${button('次の時点','filmNext','','',true)}</div>`);
-    playFilm(rec);
+    recordActive=rec;
+    if(!resuming)state.film={recordId:rec.id,kind:rec.room===1?'box':'truth',elapsed:0};
+    save();
+    openModal('archive',`<div class="modal-head"><h2 id="modalTitle">${rec.room===1?'ARCHIVE 01':'直前の記録'}</h2>${button('戻る','close','','quiet')}</div><div class="film-pair"><section class="film-pane"><div class="pane-head"><h3>あなたの視界</h3><time id="povClock"></time></div><div id="povFilm" class="record-stage"></div></section><section class="film-pane"><div class="pane-head"><h3>監視カメラ <small>CAM ${String(rec.room).padStart(2,'0')}</small></h3><time id="cameraTime"></time></div><div id="film" class="record-stage"></div></section></div><div class="present-hand"><span>手元</span><svg viewBox="0 0 180 110" role="img" aria-label="袖、腕時計、赤い紐のある手首">${handArt()}</svg></div><div class="record-bar">${button('最初から見る','replay')}${prefs.still?button('次の時点','filmNext','','primary'):button('一時停止','pause')}</div>`);
+    playFilm();
   }
-  function paintFilm(rec,t){recordElapsed=t;$('povFilm').innerHTML=playerFrame(rec,t);$('film').innerHTML=filmFrame(rec,t);const clock=cameraClock(rec,t);$('povClock').textContent=clock;$('cameraTime').textContent=clock;}
-  function playFilm(rec){
-    const token=++recordToken;recordActive=rec;filmFinished=false;stillIndex=0;
-    const next=$('modal').querySelector('[data-action="filmNext"]');if(next)next.disabled=!prefs.still;
-    if(prefs.still){paintFilm(rec,STILL_TIMES[0]);return;}
-    paintFilm(rec,0);const began=performance.now();
-    function frame(now){if(token!==recordToken||modalKind!=='archive')return;const t=Math.min(FILM_LENGTH,(now-began)/1000);paintFilm(rec,t);if(t<FILM_LENGTH)requestAnimationFrame(frame);else finishFilm(token);}
+  function paintFilm(rec,t){$('povFilm').innerHTML=playerFrame(rec,t);$('film').innerHTML=filmFrame(rec,t);const clock=cameraClock(rec,t);$('povClock').textContent=clock;$('cameraTime').textContent=clock;}
+  function playFilm(){
+    if(!state.film)return;const token=++recordToken,start=state.film.elapsed;paintFilm(recordActive,start);
+    if(prefs.still)return;
+    const began=performance.now();let checkpoint=Math.floor(start);
+    function frame(now){
+      if(token!==recordToken||modalKind!=='archive'||!state.film)return;
+      const t=Math.min(FILM_LENGTH,start+(now-began)/1000);state.film.elapsed=t;paintFilm(recordActive,t);
+      if(Math.floor(t)!==checkpoint){checkpoint=Math.floor(t);save();}
+      if(t<FILM_LENGTH)requestAnimationFrame(frame);else finishFilm();
+    }
     requestAnimationFrame(frame);
   }
-  function nextFilm(){if(!prefs.still||filmFinished||stillIndex>=STILL_TIMES.length-1)return;stillIndex++;paintFilm(recordActive,STILL_TIMES[stillIndex]);if(stillIndex===STILL_TIMES.length-1){const next=$('modal').querySelector('[data-action="filmNext"]');if(next)next.disabled=true;finishFilm(recordToken);}}
-  function beginQuiet(duration=QUIET_LENGTH*1000){
-    const epoch=++quietEpoch;quietActive=true;busy=true;state.quietUntil=Date.now()+duration;notice='';render();
-    setTimeout(()=>{if(epoch!==quietEpoch)return;Meiten.markArchiveReady(state);quietActive=false;busy=false;notice='';render();},duration);
+  function finishFilm(){if(!state.film)return;Meiten.completeFilm(state);save();closeModal();render();if(state.sequence)driveSequence();}
+  function nextFilm(){if(!state.film||!prefs.still)return;const t=STILL_TIMES.find(t=>t>state.film.elapsed+.001)??17;state.film.elapsed=t;save();paintFilm(recordActive,t);if(t===17)finishFilm();}
+  function endingEntry(e){
+    state.caption=null;
+    if(e.stage===1)say('a-out','出られた。');
+    if(e.stage===5)say('a-door','……開いてる。誰か使ったのか？');
+    if(e.stage===8)say('a-daily','駅を抜けて、いつもの道で帰ろう。');
+    const times=[2000,1500,3500,2000,1500,2500,3000,0,2000,1500,2500,0];
+    e.until=e.stage===7||e.stage===11?0:Date.now()+times[e.stage];save();
   }
-  function finishFilm(token){
-    if(token!==recordToken||modalKind!=='archive')return;filmFinished=true;
-    if(recordActive.room===5&&recordActive.success)Meiten.markTruth(state);
-    save();closeModal();
-    if(state.flags.truth)beginQuiet();else render();
+  function outerDoorSVG(e){return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="外から見た搬出口。画面左は内側の右出口、画面右は内側の左出口。${e.doors.left?'内側の左出口は開。':'内側の左出口は閉。'}${e.doors.right?'内側の右出口は開。':'内側の右出口は閉。'}">${doorsScene(e.doors,{outside:true,passed:e.exitDoor})}</svg>`;}
+  function paintEnding(){
+    const e=state.ending;if(!e)return;
+    $('goalBoard').hidden=true;$('paths').innerHTML='';$('extraInfo').innerHTML='';$('controls').innerHTML='';
+    let art='';
+    if(e.stage===0){art=`<div class="exit-travel ${prefs.still?'still':''}" style="--door-x:${e.exitDoor==='left'?'26%':'75%'}"><svg viewBox="0 0 640 480" role="img" aria-label="${e.exitDoor==='left'?'左':'右'}の開いた出口を通り、敷居の帯を跨ぐ">${doorsScene(e.doors)}<g transform="translate(440 380) scale(.8)">${handArt()}</g></svg></div>`;}
+    else if(e.stage<=2||e.stage>=8){art=`<svg viewBox="0 0 640 480" role="img" aria-label="普段の街と駅">${city()}</svg>`;}
+    else if(e.stage===3){art=`<div class="turn-view ${prefs.still?'still':''}"><div class="turn-city"><svg viewBox="0 0 640 480">${city()}</svg></div><div class="turn-doors">${outerDoorSVG(e)}</div></div>`;}
+    else art=outerDoorSVG(e);
+    $('scene').innerHTML=art+(e.stage===7&&e.wrist?`<div class="hands show"><svg viewBox="0 0 180 110">${handArt()}</svg></div>`:'')+(e.stage===9?'<div class="outside-location">境界外</div>':'')+(e.stage===10?'<div class="outside-title">境界外</div>':'');
+    $('message').innerHTML=captionHTML();
+    if(e.stage===7){$('controls').innerHTML=button('歩き出す','walk','','primary')+button('手首を見る','wrist')+button('扉を見る','doors');}
+  }
+  async function driveEnding(){
+    if(!state.ending||state.ended)return;const token=++driverToken;busy=true;
+    while(state.ending&&token===driverToken){
+      const e=state.ending;if(!e.until)endingEntry(e);render();
+      if(e.stage===7){busy=false;render();return;}
+      if(e.stage===11){state.ended=true;busy=false;save();render();return;}
+      await delay(Math.max(0,e.until-Date.now()));if(token!==driverToken)return;e.stage++;e.until=0;save();
+    }
+  }
+  function resumeActivities(){
+    if(state.activity)runTransport(true);
+    else if(state.sequence)driveSequence();
+    else if(state.film){const rec=state.history.find(h=>h.id===state.film.recordId);openArchive(rec,true);}
+    else if(state.ending&&!state.ended)driveEnding();
   }
   function dispatch(action){
     if(busy)return;
-    if(modalKind&&!['close','replay','filmNext','resetAsk','reset','settings'].includes(action)&&!action.startsWith('record:'))return;
-    if(action==='leaveBox'){notice='';Meiten.leaveBox(state);render();return;}
+    if(modalKind&&!['close','replay','filmNext','pause','resetAsk','reset','settings'].includes(action))return;
+    if(state.ending&&!state.ended&&!modalKind&&!['walk','wrist','doors','settings','resetAsk','reset'].includes(action))return;
+    if(action==='work'){notice='';if(Meiten.enterWork(state)){state.caption=null;render();}return;}
+    if(action.startsWith('manual:')){
+      const k=action.split(':')[1],v=state.rooms[state.room][k];
+      if(Meiten.change(state,k,!v)){notice='';if(state.room===2&&k==='curtain'&&!v)say('a-station','あの駅からなら、いつもの道だ。');render();$('hands')?.classList.add('show');}return;
+    }
+    if(action==='leaveBox'){notice='';Meiten.leaveBox(state);state.caption=null;render();return;}
+    if(action==='return'||action==='recordStart'){stepBack(action==='recordStart'?'recording':'view');return;}
+    if(action==='face'){if(state.view==='overview')Meiten.enterWork(state);stepBack();return;}
     if(action==='transport'){runTransport();return;}
-    if(action==='recordStart'){stepBack('recording');return;}
-    if(action==='work'){notice='';Meiten.enterWork(state);render();return;}
-    if(action.startsWith('manual:')){const k=action.split(':')[1],v=state.rooms[state.room][k];if(Meiten.change(state,k,!v)){notice='';render();$('hands')?.classList.add('show');}return;}
     if(action.startsWith('go:')){const res=Meiten.navigate(state,Number(action.split(':')[1]));if(res.needsReturn){stepBack();return;}notice=res.ok?'':res.reason;render();return;}
-    if(action==='return'){stepBack();return;}
-    if(action==='paper'){if(state.rooms[1].box)showPaper();return;}
-    if(action==='readerNote'){showReader();return;}
-    if(action==='terminal'){openModal('read',modalHead('閲覧端末')+'<p>閲覧：停止中<br>記録：継続中<br>昇降台：使用許可停止中</p><p>遮光板で、連続記録の起動テストを行う。</p>');return;}
+    if(action==='paper'){showPaper();return;}
+    if(action==='call'){notice='呼出し：応答なし';state.caption=null;render();return;}
+    if(action==='terminal'){openModal('read',modalHead('閲覧端末')+'<p>閲覧：停止中<br>記録：継続中</p>'+recordingGoal(state.rooms[5]));return;}
     if(action==='archive'){openArchive();return;}
     if(action==='archive01'){if(state.flags.archiveReady)openArchive(archive01());return;}
-    if(action==='close'){const sign=modalKind==='paper';closeModal();if(sign)stepBack();return;}
+    if(action==='trial'){if(state.flags.trialSeen)showTrial();return;}
+    if(action==='close'){
+      const paper=modalKind==='paper';if(modalKind==='archive'){state.film=null;save();}closeModal();
+      if(paper)stepBack();else render();return;
+    }
     if(action==='settings'){showSettings();return;}
     if(action==='resetAsk'){askReset();return;}
     if(action==='reset'){reset();return;}
     if(action==='filmNext'){nextFilm();return;}
-    if(action==='replay'){playFilm(recordActive);return;}
-    if(action.startsWith('record:')){if(!state.flags.archiveReady)return;const rec=state.history.find(h=>h.id===Number(action.split(':')[1]));if(rec&&[1,5].includes(rec.room))openArchive(rec);}
+    if(action==='replay'){if(state.film){state.film.elapsed=0;save();playFilm();}return;}
+    if(action==='pause'){if(state.film){const el=$('modal').querySelector('[data-action="pause"]');const paused=el?.textContent==='再生';if(paused){el.textContent='一時停止';playFilm();}else{recordToken++;save();if(el)el.textContent='再生';}}return;}
+    if(action==='inside'){Meiten.returnInside(state);render();return;}
+    if(action==='exit'){
+      const key=['left','right'].find(k=>state.rooms[6][k]);if(Meiten.exit(state,key)){save();driveEnding();}return;
+    }
+    if(action==='wrist'&&state.ending?.stage===7){state.ending.wrist=true;say('a-wrist','この紐……どうして、気にしていたんだろう。');render();return;}
+    if(action==='doors'&&state.ending?.stage===7){state.ending.wrist=false;state.caption=null;render();return;}
+    if(action==='walk'&&state.ending?.stage===7){state.ending.stage=8;state.ending.until=0;save();driveEnding();return;}
   }
   document.addEventListener('click',e=>{const el=e.target.closest?.('[data-action]');if(el&&!el.disabled)dispatch(el.dataset.action);});
   document.addEventListener('keydown',e=>{
@@ -512,11 +667,14 @@ if(typeof module!=='undefined'&&module.exports)module.exports=Meiten;
     if(e.key==='Escape'&&!$('modalLayer').hidden)dispatch('close');
     if(e.key==='Tab'&&!$('modalLayer').hidden){const els=[...$('modal').querySelectorAll('button:not(:disabled),input')].filter(x=>!x.closest('[hidden]'));const first=els[0],last=els.at(-1);if(!els.includes(document.activeElement)){e.preventDefault();(e.shiftKey?last:first)?.focus();}else if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}
   });
-  document.addEventListener('change',e=>{if(e.target.id==='still'){prefs.still=e.target.checked;try{localStorage.setItem(PREF,JSON.stringify(prefs));}catch{}}});
+  document.addEventListener('change',e=>{if(['still','speech'].includes(e.target.id)){prefs[e.target.id]=e.target.checked;try{localStorage.setItem(PREF,JSON.stringify(prefs));}catch{}}});
+  window.addEventListener?.('pagehide',()=>{if(state.started)save();});
+  document.addEventListener('visibilitychange',()=>{if(state.started)save();});
   $('menu').addEventListener('click',()=>{if(!busy&&!modalKind)showSettings();});
-  $('begin').addEventListener('click',()=>{if(saved?.started){askReset();return;}state=Meiten.start(Meiten.fresh());discardedSave=false;$('versionNotice').hidden=true;notice='';render();});
-  $('resume').addEventListener('click',()=>{state=saved;notice='';render();if(state.activity)runTransport(true);else if(state.quietUntil>0)beginQuiet(Math.min(QUIET_LENGTH*1000,Math.max(0,state.quietUntil-Date.now())));});
+  $('begin').addEventListener('click',()=>{if(saved?.started){askReset();return;}state=Meiten.start(Meiten.fresh());discardedSave=false;$('versionNotice').hidden=true;notice='';say('a-wait','もう、ずいぶん待った。');render();});
+  $('resume').addEventListener('click',()=>{if(!saved)return;state=saved;notice='';render();resumeActivities();});
   $('endArchive').addEventListener('click',()=>{if(!busy)openArchive();});$('endBoxArchive').addEventListener('click',()=>{if(!busy&&state.flags.archiveReady)openArchive(archive01());});$('restartEnd').addEventListener('click',askReset);
   render();
 })();
+
 </script></body></html>
