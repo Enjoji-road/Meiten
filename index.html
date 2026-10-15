@@ -122,7 +122,7 @@
 @media(max-width:360px){.comparison{grid-template-columns:95px minmax(0,1fr)}.comparison-states p{font-size:12px}.trial-result dl div{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.exit-travel svg{transform:scale(2.4) translateY(40px)}.turn-city{display:none}.turn-doors{transform:none!important}}
 
-</style></head><body><div class="shell"><header class="topbar"><div><span class="brand">境界外</span> <small>通しプレイ検証版</small></div><button id="menu" class="quiet" aria-label="設定を開く">設定</button></header><section id="intro" class="intro"><div class="eyebrow">AN EXPLORATION</div><h1>境界外</h1><p>案内を待つ部屋。<br>もう、帰る時間は過ぎていた。</p><div class="actions"><button id="begin" class="primary">はじめる</button><button id="resume" hidden>続きから</button></div><p id="versionNotice" class="foot" hidden>保存されていた進行はこの版では使えません。最初から始められます。</p><p class="foot">画面の物をタップして調べ、操作できます。<br>進み具合は、このブラウザに保存されます。</p></section><main id="game" hidden><div class="location"><h2 id="roomName"></h2><span id="viewLabel" class="view-label"></span></div><div id="goalBoard" class="goal-board" aria-label="装置の目的と必要な状態" hidden></div><div class="game-layout"><div><div id="scene" class="scene-shell" aria-label="部屋の様子"></div><div id="message" class="message" role="status" aria-live="polite"></div></div><aside id="controls" class="controls" aria-label="できる操作"></aside></div><div id="extraInfo"></div><nav id="paths" class="paths" aria-label="通れる場所"></nav><div id="saveStatus" class="save-status"></div></main><section id="ending" class="ending" hidden><h1>境界外</h1><p>　</p><button id="endArchive" class="quiet">記録を振り返る</button><button id="endBoxArchive" class="quiet" hidden>ARCHIVE 01</button><button id="restartEnd" class="quiet">はじめから</button></section></div><div id="modalLayer" class="overlay" hidden><section id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></section></div><div id="fade" class="fade" aria-hidden="true"></div><noscript><p class="notice">この試作はJavaScriptを使います。JavaScriptを有効にしたブラウザで開いてください。</p></noscript>
+</style></head><body><div class="shell"><header class="topbar"><div><span class="brand">境界外</span> <small>通しプレイ検証版</small></div><button id="menu" class="quiet" aria-label="設定を開く">設定</button></header><section id="intro" class="intro"><div class="eyebrow">AN EXPLORATION</div><h1>境界外</h1><p>案内を待つ部屋。<br>もう、帰る時間は過ぎていた。</p><div class="actions"><button id="begin" class="primary">はじめる</button><button id="resume" hidden>続きから</button></div><p id="versionNotice" class="foot" hidden>保存されていた進行はこの版では使えません。最初から始められます。</p><p class="foot">画面の物をタップして調べ、操作できます。<br>進み具合は、このブラウザに保存されます。</p></section><main id="game" hidden><div class="location"><h2 id="roomName"></h2><span id="viewLabel" class="view-label"></span></div><div id="goalBoard" class="goal-board" aria-label="装置の目的と必要な状態" hidden></div><div class="game-layout"><div><div id="scene" class="scene-shell" aria-label="部屋の様子"></div><div id="message" class="message" role="status" aria-live="polite"></div></div><aside id="controls" class="controls" aria-label="できる操作"></aside></div><div id="extraInfo"></div><nav id="paths" class="paths" aria-label="通れる場所"></nav><div id="saveStatus" class="save-status"></div></main><section id="ending" class="ending" hidden><h1>境界外</h1><p>　</p><button id="endArchive" class="quiet">記録を振り返る</button><button id="endBoxArchive" class="quiet" hidden>ARCHIVE 01</button><button id="restartEnd" class="quiet">はじめから</button></section></div><div id="modalLayer" class="overlay" hidden><section id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></section></div><div id="dialogueAnnounce" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div><div id="fade" class="fade" aria-hidden="true"></div><noscript><p class="notice">この試作はJavaScriptを使います。JavaScriptを有効にしたブラウザで開いてください。</p></noscript>
 <script>
 'use strict';
 // World changes are committed atomically, independently of their presentation.
@@ -154,8 +154,10 @@ const Meiten = (() => {
     s.room=r;s.view='overview';s.caption=null;return {ok:true};
   }
   function append(s,r,pre,post,hand,success,run,flagsBefore,mode,intervention){
-    const record={id:++s.serial,room:r,at:new Date().toISOString(),pre,post,hand,success,run,mode,intervention,flagsBefore,flagsAfter:clone(s.flags),boxEncounter:r===1&&s.flags.signRead&&!!hand&&pre.box!==post.box};s.history.push(record);
-    if(s.history.length>500){const opening=s.history.find(h=>h.boxEncounter),monitor=s.history.filter(h=>h.room===5&&h.success).at(-1);s.history=[...new Map([...(opening?[opening]:[]),...(monitor?[monitor]:[]),...s.history.slice(-450)].map(h=>[h.id,h])).values()].sort((a,b)=>a.id-b.id);}
+    // The facility's fictional clock is independent of the player's real timezone.
+    const id=++s.serial,at=new Date(Date.UTC(2026,9,15,20,41,33)+(id-1)*25000).toISOString();
+    const record={id,room:r,at,pre,post,hand,success,run,mode,intervention,flagsBefore,flagsAfter:clone(s.flags),boxEncounter:r===1&&s.flags.signRead&&!!hand&&pre.box!==post.box};s.history.push(record);
+    if(s.history.length>500){const opening=s.history.find(h=>h.boxEncounter),monitor=s.history.filter(h=>h.room===5&&h.success).at(-1),transport=s.history.filter(h=>h.room===4&&h.mode==='transport').at(-1),final=s.history.filter(h=>h.room===6).at(-1);s.history=[...new Map([...[opening,monitor,transport,final].filter(Boolean),...s.history.slice(-450)].map(h=>[h.id,h])).values()].sort((a,b)=>a.id-b.id);}
     return record;
   }
   // This is a policy, not the permanent one-operation budget.
@@ -227,11 +229,19 @@ const Meiten = (() => {
         if(i&&(!h.hand||dif.length!==1||!keys[h.room].includes(i.key)))return null;
         if(h.room!==6&&h.hand&&(h.post[h.hand.key]!==h.hand.from||i?.key!==h.hand.key))return null;
         if(h.room===6&&i&&(!i.from||i.to||((h.pre.left&&h.pre.right)&&i.key===h.hand.key)))return null;
+        if(h.room===4&&h.mode==='transport'){
+          const run=h.run,expected=h.pre.gate?['S','J','G','U','J','G',h.post.gate?'U':'D']:['S','J','G','D'];
+          if(!run||JSON.stringify(run.trace)!==JSON.stringify(expected)||run.switchPassed!==expected.includes('U')||run.atDock!==(expected.at(-1)==='D')||run.success!==(run.switchPassed&&run.atDock&&expected.length===7)||h.success!==run.success)return null;
+        }
+        if(h.room===6&&(!h.run||h.run.success!==(h.post.left||h.post.right)||h.run.closedDoor!==(i?.key||null)||h.run.lastTarget!==h.hand?.key))return null;
       }
+      const lastTransport=d.history.filter(h=>h.room===4&&h.mode==='transport').at(-1)?.run||null;
+      if(JSON.stringify(d.rooms[4].lastRun)!==JSON.stringify(lastTransport))return null;
+      if(d.rooms[6].lastRun&&JSON.stringify(d.rooms[6].lastRun)!==JSON.stringify(d.history.filter(h=>h.room===6).at(-1)?.run))return null;
       if(!d.seen||Object.values(d.seen).some(v=>v!==true)||!d.archives||['box','trial'].some(k=>typeof d.archives[k]!=='boolean'))return null;
       if(d.caption&&(!['A','B'].includes(d.caption.speaker)||typeof d.caption.text!=='string'||d.caption.text.length>150))return null;
       if(![null,...doors].includes(d.bClosed)||![null,...doors].includes(d.exitDoor))return null;
-      if(d.sequence){const q=d.sequence,max={return:1,final:4,truth:3}[q.kind];if(max===undefined||!Number.isInteger(q.stage)||q.stage<0||q.stage>max||!Number.isFinite(q.until)||q.until<0)return null;if(q.kind!=='truth'&&!d.history.some(h=>h.id===q.recordId&&h.room===(q.kind==='final'?6:d.room)))return null;}
+      if(d.sequence){const q=d.sequence,max={return:1,final:4,truth:3}[q.kind];if(max===undefined||!Number.isInteger(q.stage)||q.stage<0||q.stage>max||!Number.isFinite(q.until)||q.until<0)return null;if(q.kind!=='truth'&&!d.history.some(h=>h.id===q.recordId&&h.room===(q.kind==='final'?6:d.room)))return null;if(q.kind==='truth'&&(!d.flags.truth||d.room!==5))return null;}
       if(d.film){const f=d.film;if(!['truth','box'].includes(f.kind)||!d.history.some(h=>h.id===f.recordId&&h.room===(f.kind==='truth'?5:1))||!Number.isFinite(f.elapsed)||f.elapsed<0||f.elapsed>17)return null;}
       if(d.activity){const a=d.activity;if(a.kind!=='transport'||d.room!==4||d.view!=='work'||d.pending||!['first','blackout','second','arrived'].includes(a.stage)||typeof a.pre?.gate!=='boolean'||!handOK(a.hand))return null;
         if(a.hand&&(a.hand.room!==4||a.hand.key!=='gate'||a.hand.to!==a.pre.gate))return null;
@@ -266,7 +276,7 @@ if(typeof module!=='undefined'&&module.exports)module.exports=Meiten;
   $('resume').hidden=!saved?.started;$('versionNotice').hidden=!discardedSave;
   function save(){try{localStorage.setItem(KEY,JSON.stringify(state));saveOK=true;}catch{saveOK=false;}if($('saveStatus'))$('saveStatus').textContent=saveOK?'進み具合は、このブラウザに保存されます。':'この環境では保存できません。ページを閉じる前にご注意ください。';}
   function say(id,text,speaker='A'){
-    if(state.seen[id])return false;state.seen[id]=true;state.caption={id,text,speaker};save();
+    if(state.seen[id])return false;state.seen[id]=true;state.caption={id,text,speaker};$('dialogueAnnounce').textContent=text;save();
     if(prefs.speech&&window.speechSynthesis&&window.SpeechSynthesisUtterance){try{const u=new window.SpeechSynthesisUtterance(text);u.lang='ja-JP';u.rate=.88;window.speechSynthesis.speak(u);}catch{}}
     return true;
   }
@@ -379,12 +389,11 @@ if(typeof module!=='undefined'&&module.exports)module.exports=Meiten;
       }
       o+=rect(x,369,218,52,d.open?'#d4dec7':'#aab8ab','#61766a',6)+text(x+109,403,d.open?'解除・開':'施錠・閉',27,'#2b4c3b','middle');
       if(!outside){o+=text(x+109,64,label+'出口',23,'#344e40','middle');if(interactive)o+=hit(x-5,78,228,344,label+'出口：'+(d.open?'施錠する':'解除する'),'manual:'+d.id);}
-      // Only these exterior thresholds cross the walking direction.
-      o+=line(x,356,x+218,356,'#416b96',9)+line(x+10,356,x+208,356,'#d8e0df',2,'stroke-dasharray="14 9"');
       if(d.id===closed&&!outside)o+=text(x+109,451,'閉',24,'#334d3f','middle');
       o+='</g>';
     }
-    return o;
+    // One continuous outer band along this wall crosses the two exit thresholds.
+    return o+line(0,356,640,356,'#416b96',9)+line(12,356,628,356,'#d8e0df',2,'stroke-dasharray="14 9"');
   }
   function trialHTML(){return '<section class="trial-result" aria-label="以前の境界試験"><h3>以前の境界試験</h3><dl><div><dt>提示図形</dt><dd>△</dd></div><div><dt>境界内の回答</dt><dd>△</dd></div><div><dt>境界外の回答</dt><dd>回答できず</dd></div><div><dt>名前・日常の応答</dt><dd>正常</dd></div></dl></section>';}
   function sceneSVG(r,v,view='overview',opts={}){
@@ -449,6 +458,7 @@ if(typeof module!=='undefined'&&module.exports)module.exports=Meiten;
   }
   function captionHTML(){return state.caption?`<span class="spoken ${state.caption.speaker==='B'?'b-voice':''}">${esc(state.caption.text)}</span>`:esc(notice||defaultMessage());}
   function render(){
+    const focusAction=document.activeElement?.dataset?.action;
     $('intro').hidden=state.started;$('game').hidden=!state.started||state.ended;$('ending').hidden=!state.ended;
     if(!state.started)return;
     if(state.ended){$('paths').innerHTML='';$('endBoxArchive').hidden=!state.flags.archiveReady;save();return;}
@@ -456,13 +466,15 @@ if(typeof module!=='undefined'&&module.exports)module.exports=Meiten;
     const hasTrial=state.room===5&&(state.flags.trialSeen||state.sequence?.kind==='truth'&&state.sequence.stage>=2);
     $('scene').innerHTML=sceneSVG(state.room,state.rooms[state.room],state.view,{camera:!!state.sequence||!!state.activity||state.view==='afterBox'})+`<div class="hands ${state.view==='work'||state.room===1||state.sequence?.kind==='truth'?'show':''}" id="hands" aria-hidden="true"><svg viewBox="0 0 180 110">${handArt()}</svg></div>`;
     if(state.view==='afterBox')Meiten.observeBox(state);
-    $('goalBoard').hidden=![3,4,5,6].includes(state.room);$('goalBoard').innerHTML=objectiveHTML(state.room,state.rooms[state.room]);
-    $('controls').innerHTML=controlsHTML();$('message').innerHTML=captionHTML();
-    $('extraInfo').innerHTML=(hasTrial?trialHTML():'')+comparisonHTML();
+    $('goalBoard').hidden=![3,4,5,6].includes(state.room);$('goalBoard').innerHTML=hasTrial?trialHTML():objectiveHTML(state.room,state.rooms[state.room]);
+    $('controls').innerHTML=controlsHTML();$('message').setAttribute('aria-live',state.caption?'off':'polite');$('message').innerHTML=captionHTML();
+    $('extraInfo').innerHTML=comparisonHTML();
     $('paths').innerHTML=state.view!=='overview'||state.ending?'':Object.keys(names).filter(r=>Meiten.allowed(state,Number(r))).map(r=>button(names[r],'go:'+r,'',Number(r)===state.room?'current':'')).join('');
-    if(state.sequence||state.activity){$('controls').innerHTML='';$('paths').innerHTML='';if(state.sequence?.kind==='truth'){$('goalBoard').hidden=true;if(state.sequence.stage===0)$('message').textContent='';}}
+    if(state.sequence||state.activity){$('controls').innerHTML='';$('paths').innerHTML='';if(state.sequence?.kind==='truth'){$('goalBoard').hidden=!hasTrial;if(state.sequence.stage===0)$('message').textContent='';}}
     if(state.ending)paintEnding();
-    $('game').setAttribute('aria-busy',busy?'true':'false');save();
+    $('game').setAttribute('aria-busy',busy?'true':'false');
+    if(focusAction&&!modalKind&&!busy)$('controls').querySelector(`[data-action="${focusAction}"]`)?.focus();
+    save();
   }
   function sequenceEntry(q){
     const rec=state.history.find(h=>h.id===q.recordId);if(!(q.kind==='final'&&q.stage===4))state.caption=null;
